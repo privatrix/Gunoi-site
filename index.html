@@ -4,18 +4,19 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#0a0f0a" />
-<title data-i18n="meta.title">gunoi.md — Evacuare gunoi și deșeuri în Chișinău</title>
-<meta name="description" data-i18n="meta.desc" content="Ridicăm gunoiul tău rapid și ieftin în Chișinău și suburbii. Mobilă veche, debris de la renovare, electrocasnice, evacuări complete. Sună pentru ofertă." />
+<title data-i18n="meta.title">gunoi.md — Evacuare gunoi în Chișinău</title>
+<meta name="description" data-i18n="meta.desc" content="Ridicăm gunoiul tău rapid și ieftin în Chișinău. Mobilă veche, debris, evacuări complete. Sună pentru ofertă." />
 
 <!-- Open Graph -->
-<meta property="og:title" content="gunoi.md — Evacuare gunoi și deșeuri în Chișinău" />
-<meta property="og:description" content="Scăpăm de gunoiul tău. Rapid și ieftin. Sună: +373 69 269 888" />
+<meta property="og:title" content="gunoi.md — Evacuare gunoi în Chișinău" />
+<meta property="og:description" content="Scăpăm de gunoiul tău. Rapid și ieftin. +373 69 269 888" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="ro_MD" />
 <meta property="og:locale:alternate" content="ru_MD" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="styles.css" />
@@ -55,12 +56,19 @@
   </div>
 </nav>
 
+<!-- ========== LAUNCH BANNER ========== -->
+<div id="launchBanner" class="launch-banner" role="region" aria-label="promoție">
+  <span class="launch-dot" aria-hidden="true"></span>
+  <span class="launch-text" data-i18n="launch.text">Nou în Chișinău — primii 10 clienți primesc 20% reducere.</span>
+  <button type="button" id="launchClose" class="launch-close" aria-label="Închide">×</button>
+</div>
+
 <!-- ========== HERO ========== -->
 <header class="hero">
   <div class="hero-inner">
     <span class="badge">
       <span class="badge-dot" aria-hidden="true"></span>
-      <span data-i18n="hero.badge">Chișinău și suburbii · Răspundem azi</span>
+      <span data-i18n="hero.badge">Chișinău · Răspundem azi</span>
     </span>
 
     <h1 class="hero-title">
@@ -69,13 +77,13 @@
     </h1>
 
     <p class="hero-sub" data-i18n="hero.sub">
-      Evacuăm mobilă veche, debris de la renovare, electrocasnice, gunoi mixt și facem evacuări complete apartamente. Ofertă clară la telefon, venim când spui tu, plătești când e gata.
+      Mobilă veche, debris, electrocasnice, evacuări complete. Ofertă clară la telefon.
     </p>
 
     <div class="hero-cta-row">
       <a href="tel:+37369269888" class="btn btn-primary">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
-        <span data-i18n="hero.cta1">Sună acum: +373 69 269 888</span>
+        <span data-i18n="hero.cta1">Sună: +373 69 269 888</span>
       </a>
       <a href="#contact" class="btn btn-secondary">
         <span data-i18n="hero.cta2">Cere ofertă</span>
@@ -90,85 +98,94 @@
       </div>
       <div class="stat">
         <span class="stat-num" data-i18n="stats.price">de la 500 MDL</span>
-        <span class="stat-label" data-i18n="stats.priceL">Pentru rută mică</span>
+        <span class="stat-label" data-i18n="stats.priceL">Rută mică</span>
       </div>
       <div class="stat">
         <span class="stat-num" data-i18n="stats.area">Chișinău +</span>
-        <span class="stat-label" data-i18n="stats.areaL">Suburbiile incluse</span>
+        <span class="stat-label" data-i18n="stats.areaL">Suburbii incluse</span>
       </div>
     </div>
   </div>
 
-  <div class="hero-visual" aria-hidden="true">
-    <div class="card-phone">
-      <div class="phone-notch"></div>
-      <div class="phone-screen">
-        <div class="scan-header">
-          <span class="scan-dot"></span>
-          <span data-i18n="scan.status">Ridicare confirmată</span>
-        </div>
-        <div class="scan-object">
-          <div class="scan-item">
-            <span class="scan-icon">🛋️</span>
-            <div class="scan-lines">
-              <span class="scan-line"></span>
-              <span class="scan-line short"></span>
-            </div>
-          </div>
-          <div class="scan-beam"></div>
-        </div>
-        <div class="scan-result">
-          <span class="scan-result-label" data-i18n="scan.label">Comandă</span>
-          <span class="scan-result-name" data-i18n="scan.name">1 cameră · mobilă + saci</span>
-          <div class="scan-price-row">
-            <span class="scan-price-label" data-i18n="scan.price">Ofertă</span>
-            <span class="scan-price-value">1200 MDL</span>
-          </div>
-          <button class="scan-book" data-i18n="scan.book" type="button">Programează →</button>
+  <div class="hero-visual" aria-hidden="false">
+    <div class="hero-image-wrap">
+      <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=1200&q=80&auto=format&fit=crop"
+        alt="Evacuare mobilă și gunoi dintr-un apartament"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="hero-image-badge">
+        <span class="hero-badge-icon" aria-hidden="true">🚛</span>
+        <div class="hero-badge-text">
+          <span class="hero-badge-label" data-i18n="hero.badgeL">Comandă rezolvată</span>
+          <span class="hero-badge-price">1200 MDL</span>
         </div>
       </div>
+      <div class="hero-image-overlay" aria-hidden="true"></div>
     </div>
   </div>
 </header>
 
 <!-- ========== SERVICES ========== -->
-<section id="services" class="how">
+<section id="services" class="services">
   <div class="section-head">
     <div class="section-eyebrow" data-i18n="services.eyebrow">Servicii</div>
     <h2 class="section-title" data-i18n="services.title">Pentru cine lucrăm</h2>
   </div>
 
-  <div class="steps">
-    <article class="step">
-      <div class="step-num">01</div>
-      <div class="step-icon" aria-hidden="true">🏠</div>
-      <h3 class="step-title" data-i18n="s1.t">Gospodării</h3>
-      <p class="step-text" data-i18n="s1.d">Debris după renovare, mobilă veche, electrocasnice stricate, saci de gunoi, curățare pivniță sau garaj. Venim când ai timp, inclusiv seara sau în weekend.</p>
-      <div class="step-price" data-i18n="s1.p">de la 500 MDL</div>
+  <div class="service-grid">
+    <article class="service-card reveal">
+      <div class="service-photo">
+        <img src="https://images.unsplash.com/photo-1558882224-dda166733046?w=800&q=80&auto=format&fit=crop"
+             alt="Mobilă veche scoasă dintr-un apartament"
+             loading="lazy" decoding="async" />
+      </div>
+      <div class="service-body">
+        <h3 class="service-title" data-i18n="s1.t">Gospodării</h3>
+        <p class="service-text" data-i18n="s1.d">Mobilă veche, debris, electrocasnice, saci. Venim și seara / weekend.</p>
+        <div class="service-price" data-i18n="s1.p">de la 500 MDL</div>
+      </div>
     </article>
 
-    <article class="step">
-      <div class="step-num">02</div>
-      <div class="step-icon" aria-hidden="true">🏢</div>
-      <h3 class="step-title" data-i18n="s2.t">Firme & oficii</h3>
-      <p class="step-text" data-i18n="s2.d">Evacuare birouri, relocări, deșeuri de la șantier, mobilier vechi, echipament scos din uz. Emitem bon sau factură, lucrăm cu contract pentru firme.</p>
-      <div class="step-price" data-i18n="s2.p">ofertă personalizată</div>
+    <article class="service-card reveal">
+      <div class="service-photo">
+        <img src="https://images.unsplash.com/photo-1486744328743-c1151100a95b?w=800&q=80&auto=format&fit=crop"
+             alt="Birou gol după evacuarea mobilei de firmă"
+             loading="lazy" decoding="async" />
+      </div>
+      <div class="service-body">
+        <h3 class="service-title" data-i18n="s2.t">Firme & oficii</h3>
+        <p class="service-text" data-i18n="s2.d">Birouri, șantier, mobilier, echipament. Facturi și contract pentru firme.</p>
+        <div class="service-price" data-i18n="s2.p">ofertă personalizată</div>
+      </div>
     </article>
 
-    <article class="step">
-      <div class="step-num">03</div>
-      <div class="step-icon" aria-hidden="true">🔑</div>
-      <h3 class="step-title" data-i18n="s3.t">Proprietari care dau în chirie</h3>
-      <p class="step-text" data-i18n="s3.d">Apartament lăsat de chiriași cu totul în el? Curățăm complet — mobilă, haine, electrocasnice, gunoi — până rămâne gol. Predai altor chiriași a doua zi.</p>
-      <div class="step-price" data-i18n="s3.p">evaluare la fața locului</div>
+    <article class="service-card reveal">
+      <div class="service-photo">
+        <img src="https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?w=800&q=80&auto=format&fit=crop"
+             alt="Apartament gol pregătit pentru noii chiriași"
+             loading="lazy" decoding="async" />
+      </div>
+      <div class="service-body">
+        <h3 class="service-title" data-i18n="s3.t">Proprietari în chirie</h3>
+        <p class="service-text" data-i18n="s3.d">Apartament lăsat plin? Curățăm până la pereți. Predai a doua zi.</p>
+        <div class="service-price" data-i18n="s3.p">ofertă la fața locului</div>
+      </div>
     </article>
 
-    <article class="step">
-      <div class="step-num">04</div>
-      <div class="step-icon" aria-hidden="true">⚡</div>
-      <h3 class="step-title" data-i18n="s4.t">Evacuări rapide & evenimente</h3>
-      <p class="step-text" data-i18n="s4.d">O dată, urgent, azi? Demolare mică, curățare după petrecere, mutare cu grămezi de lăsat în urmă. Un apel și venim.</p>
-      <div class="step-price" data-i18n="s4.p">de la 500 MDL</div>
+    <article class="service-card reveal">
+      <div class="service-photo">
+        <img src="https://images.unsplash.com/photo-1611048267451-e6ed903d4a38?w=800&q=80&auto=format&fit=crop"
+             alt="Saci de gunoi strânși după un eveniment"
+             loading="lazy" decoding="async" />
+      </div>
+      <div class="service-body">
+        <h3 class="service-title" data-i18n="s4.t">Urgențe & evenimente</h3>
+        <p class="service-text" data-i18n="s4.d">Azi, acum, urgent. Curățare după petreceri, mutări, demolări mici.</p>
+        <div class="service-price" data-i18n="s4.p">de la 500 MDL</div>
+      </div>
     </article>
   </div>
 </section>
@@ -181,25 +198,25 @@
   </div>
 
   <div class="steps">
-    <article class="step">
+    <article class="step reveal">
       <div class="step-num">01</div>
       <div class="step-icon" aria-hidden="true">📞</div>
-      <h3 class="step-title" data-i18n="hw1.t">Ne spui ce ai</h3>
-      <p class="step-text" data-i18n="hw1.d">Sună la <a href="tel:+37369269888" class="inline-phone">+373 69 269 888</a> sau completează formularul. Descrie volumul, adresa, accesul. O fotografie ajută.</p>
+      <h3 class="step-title" data-i18n="hw1.t">Ne suni</h3>
+      <p class="step-text" data-i18n="hw1.d">Sună la <a href="tel:+37369269888" class="inline-phone">+373 69 269 888</a>. Descrie volumul și adresa. O foto ajută.</p>
     </article>
 
-    <article class="step">
+    <article class="step reveal">
       <div class="step-num">02</div>
       <div class="step-icon" aria-hidden="true">💬</div>
-      <h3 class="step-title" data-i18n="hw2.t">Primești oferta</h3>
-      <p class="step-text" data-i18n="hw2.d">Îți spunem prețul la telefon, fără surprize. Dacă lucrarea e mare, venim gratis să evaluăm la fața locului. Stabilim ziua și ora.</p>
+      <h3 class="step-title" data-i18n="hw2.t">Primești prețul</h3>
+      <p class="step-text" data-i18n="hw2.d">Ofertă la telefon, fără surprize. Stabilim ziua și ora.</p>
     </article>
 
-    <article class="step">
+    <article class="step reveal">
       <div class="step-num">03</div>
       <div class="step-icon" aria-hidden="true">🚛</div>
-      <h3 class="step-title" data-i18n="hw3.t">Venim, ridicăm, plătești</h3>
-      <p class="step-text" data-i18n="hw3.d">Echipa vine cu mașina, încarcă totul, duce la depozitul legal de deșeuri. Plătești pe loc — cash sau transfer. Emitem bon sau factură.</p>
+      <h3 class="step-title" data-i18n="hw3.t">Ridicăm, plătești</h3>
+      <p class="step-text" data-i18n="hw3.d">Încărcăm, ducem la depozit legal. Plătești pe loc. Bon sau factură.</p>
     </article>
   </div>
 </section>
@@ -207,88 +224,105 @@
 <!-- ========== PRICING ========== -->
 <section id="pricing" class="pricing">
   <div class="section-head">
-    <div class="section-eyebrow" data-i18n="price.eyebrow">Prețuri orientative</div>
+    <div class="section-eyebrow" data-i18n="price.eyebrow">Prețuri</div>
     <h2 class="section-title" data-i18n="price.title">Tarife clare. Fără surprize.</h2>
   </div>
 
-  <div class="pricing-table">
-    <div class="price-row price-head">
-      <span data-i18n="price.h1">Serviciu</span>
-      <span data-i18n="price.h2">Preț</span>
-    </div>
-
-    <div class="price-row">
-      <div class="price-service">
-        <div class="price-title" data-i18n="p1.t">Mic · până la 1m³</div>
-        <div class="price-desc" data-i18n="p1.d">Câteva obiecte de mobilă, cutii, saci</div>
+  <div class="price-cards">
+    <article class="price-card reveal">
+      <div class="price-card-icon" aria-hidden="true">
+        <!-- Small van -->
+        <svg viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 42 L8 24 L56 24 L72 38 L96 38 L96 42"/>
+          <path d="M8 42 L96 42"/>
+          <circle cx="28" cy="46" r="6" fill="none"/>
+          <circle cx="82" cy="46" r="6" fill="none"/>
+          <path d="M56 24 L56 38 L72 38"/>
+        </svg>
       </div>
-      <div class="price-value" data-i18n="p1.p">de la 500 MDL</div>
-    </div>
+      <div class="price-card-tier" data-i18n="p1.t">Mic · până la 1m³</div>
+      <div class="price-card-price" data-i18n="p1.p">500 MDL</div>
+      <div class="price-card-desc" data-i18n="p1.d">Câteva obiecte, cutii, saci</div>
+      <a href="tel:+37369269888" class="price-card-cta" data-i18n="price.cta.short">Cere ofertă</a>
+    </article>
 
-    <div class="price-row">
-      <div class="price-service">
-        <div class="price-title" data-i18n="p2.t">Mediu · ~3m³</div>
-        <div class="price-desc" data-i18n="p2.d">O cameră întreagă, electrocasnice</div>
+    <article class="price-card price-card-featured reveal">
+      <div class="price-card-badge" data-i18n="price.badge">Cel mai cerut</div>
+      <div class="price-card-icon" aria-hidden="true">
+        <!-- Medium van -->
+        <svg viewBox="0 0 140 70" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 50 L6 22 L72 22 L92 46 L116 46 L116 50"/>
+          <rect x="12" y="28" width="18" height="12" fill="none"/>
+          <rect x="36" y="28" width="18" height="12" fill="none"/>
+          <path d="M72 22 L72 46 L92 46"/>
+          <circle cx="32" cy="54" r="7" fill="none"/>
+          <circle cx="100" cy="54" r="7" fill="none"/>
+          <path d="M6 50 L116 50"/>
+        </svg>
       </div>
-      <div class="price-value" data-i18n="p2.p">de la 1200 MDL</div>
-    </div>
+      <div class="price-card-tier" data-i18n="p2.t">Mediu · ~3m³</div>
+      <div class="price-card-price" data-i18n="p2.p">1200 MDL</div>
+      <div class="price-card-desc" data-i18n="p2.d">O cameră întreagă, electrocasnice</div>
+      <a href="tel:+37369269888" class="price-card-cta price-card-cta-primary" data-i18n="price.cta.short">Cere ofertă</a>
+    </article>
 
-    <div class="price-row">
-      <div class="price-service">
-        <div class="price-title" data-i18n="p3.t">Mare · camion ~7m³</div>
-        <div class="price-desc" data-i18n="p3.d">Apartament întreg, șantier mic</div>
+    <article class="price-card reveal">
+      <div class="price-card-icon" aria-hidden="true">
+        <!-- Big truck -->
+        <svg viewBox="0 0 160 80" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="18" width="88" height="40" fill="none"/>
+          <path d="M94 34 L114 34 L132 50 L132 58 L94 58"/>
+          <path d="M114 34 L114 50 L132 50"/>
+          <circle cx="34" cy="64" r="8" fill="none"/>
+          <circle cx="70" cy="64" r="8" fill="none"/>
+          <circle cx="118" cy="64" r="8" fill="none"/>
+          <path d="M14 30 L86 30 M14 38 L86 38 M14 46 L86 46"/>
+        </svg>
       </div>
-      <div class="price-value" data-i18n="p3.p">de la 2500 MDL</div>
-    </div>
+      <div class="price-card-tier" data-i18n="p3.t">Mare · camion ~7m³</div>
+      <div class="price-card-price" data-i18n="p3.p">2500 MDL</div>
+      <div class="price-card-desc" data-i18n="p3.d">Apartament întreg, șantier mic</div>
+      <a href="tel:+37369269888" class="price-card-cta" data-i18n="price.cta.short">Cere ofertă</a>
+    </article>
+  </div>
 
-    <div class="price-row">
-      <div class="price-service">
-        <div class="price-title" data-i18n="p4.t">Evacuare completă apartament / casă</div>
-        <div class="price-desc" data-i18n="p4.d">Curățare totală până la pereți goi</div>
+  <div class="price-callouts">
+    <div class="price-callout">
+      <span class="price-callout-icon" aria-hidden="true">🏚️</span>
+      <div>
+        <div class="price-callout-title" data-i18n="p4.t">Evacuare completă apartament / casă</div>
+        <div class="price-callout-price" data-i18n="p4.p">ofertă la fața locului</div>
       </div>
-      <div class="price-value" data-i18n="p4.p">ofertă la fața locului</div>
     </div>
-
-    <div class="price-row">
-      <div class="price-service">
-        <div class="price-title" data-i18n="p5.t">Obiecte mari individuale</div>
-        <div class="price-desc" data-i18n="p5.d">Frigider, canapea, mobilă grea</div>
+    <div class="price-callout">
+      <span class="price-callout-icon" aria-hidden="true">🛋️</span>
+      <div>
+        <div class="price-callout-title" data-i18n="p5.t">Obiecte mari individuale</div>
+        <div class="price-callout-price" data-i18n="p5.p">de la 300 MDL/bucată</div>
       </div>
-      <div class="price-value" data-i18n="p5.p">de la 300 MDL/bucată</div>
     </div>
   </div>
 
   <p class="pricing-note" data-i18n="price.note">
-    Prețul final depinde de volum, greutate și acces. Cere ofertă gratuită.
+    Prețul final depinde de volum, acces și tip de deșeu.
   </p>
-
-  <div class="pricing-factors">
-    <h3 class="factors-title" data-i18n="factors.title">Ce influențează prețul</h3>
-    <ul class="factors-list">
-      <li><strong data-i18n="f1.t">Volum și greutate</strong> <span data-i18n="f1.d">— cât de mult încape în mașină</span></li>
-      <li><strong data-i18n="f2.t">Acces</strong> <span data-i18n="f2.d">— etaj, lift, distanța până la mașină</span></li>
-      <li><strong data-i18n="f3.t">Tip de deșeu</strong> <span data-i18n="f3.d">— debris greu costă mai mult decât mobilă</span></li>
-      <li><strong data-i18n="f4.t">Urgență</strong> <span data-i18n="f4.d">— azi costă puțin mai mult decât săptămâna viitoare</span></li>
-      <li><strong data-i18n="f5.t">Materiale periculoase</strong> <span data-i18n="f5.d">— nu preluăm azbest, chimice, medicale</span></li>
-    </ul>
-  </div>
 
   <div class="price-cta">
     <a href="tel:+37369269888" class="btn btn-primary btn-large">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
-      <span data-i18n="price.cta">Sună pentru ofertă: +373 69 269 888</span>
+      <span data-i18n="price.cta">Sună: +373 69 269 888</span>
     </a>
   </div>
 </section>
 
 <!-- ========== SCRAP BONUS ========== -->
 <section class="scrap-bonus">
-  <div class="scrap-inner">
+  <div class="scrap-inner reveal">
     <div class="scrap-icon" aria-hidden="true">⚙️</div>
     <div class="scrap-content">
-      <h3 class="scrap-title" data-i18n="scrap.title">Ai fier vechi în gunoi? Reducere la preț.</h3>
+      <h3 class="scrap-title" data-i18n="scrap.title">Ai fier vechi? Scădem din preț.</h3>
       <p class="scrap-text" data-i18n="scrap.text">
-        Dacă printre lucrurile de evacuat ai metal — radiatoare vechi, țevi, electrocasnice, cabluri, fier de la șantier — scădem valoarea lor din factură. Spune-ne la telefon ce ai, calculăm împreună.
+        Radiatoare, țevi, cabluri, electrocasnice cu metal — scădem valoarea lor din factură.
       </p>
     </div>
   </div>
@@ -298,20 +332,32 @@
 <section id="why" class="why">
   <div class="section-head">
     <div class="section-eyebrow" data-i18n="why.eyebrow">De ce noi</div>
-    <h2 class="section-title" data-i18n="why.title">Serios, la timp, cu acte în regulă.</h2>
+    <h2 class="section-title" data-i18n="why.title">Serios, la timp, cu acte.</h2>
   </div>
 
   <div class="why-grid">
-    <p class="why-body" data-i18n="why.body">
-      Mulți spun că vin și apoi nu apar. Sau apar, dar cu prețul dublat. Noi lucrăm altfel: ofertă clară la telefon, program respectat, echipă îmbrăcată ca oamenii, deșeurile duse la depozitul legal — nu aruncate pe câmp la marginea orașului.
-    </p>
-    <ul class="why-points">
-      <li data-i18n="why.p1">✓ Firmă legală, emitem bon fiscal sau factură</li>
-      <li data-i18n="why.p2">✓ Răspundem la telefon în ziua apelului</li>
-      <li data-i18n="why.p3">✓ Echipă verificată, îmbrăcată uniform</li>
-      <li data-i18n="why.p4">✓ Deșeurile merg la depozit autorizat</li>
-      <li data-i18n="why.p5">✓ Acoperim Chișinău + Ialoveni, Strășeni, Codru, Durlești, Stăuceni</li>
-      <li data-i18n="why.p6">✓ Plată cash sau transfer — tu alegi</li>
+    <div class="beforeafter reveal">
+      <div class="ba-item ba-before">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&auto=format&fit=crop"
+             alt="Cameră plină cu obiecte — înainte"
+             loading="lazy" decoding="async" />
+        <span class="ba-label ba-label-before" data-i18n="ba.before">Înainte</span>
+      </div>
+      <div class="ba-item ba-after">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80&auto=format&fit=crop"
+             alt="Cameră curată și goală — după"
+             loading="lazy" decoding="async" />
+        <span class="ba-label ba-label-after" data-i18n="ba.after">După</span>
+      </div>
+    </div>
+
+    <ul class="why-points reveal">
+      <li data-i18n="why.p1">✓ Firmă legală · bon fiscal & factură</li>
+      <li data-i18n="why.p2">✓ Răspundem în ziua apelului</li>
+      <li data-i18n="why.p3">✓ Echipă verificată, în uniformă</li>
+      <li data-i18n="why.p4">✓ Deșeuri duse la depozit autorizat</li>
+      <li data-i18n="why.p5">✓ Chișinău + Ialoveni, Strășeni, Codru, Durlești, Stăuceni</li>
+      <li data-i18n="why.p6">✓ Cash sau transfer — tu alegi</li>
     </ul>
   </div>
 </section>
@@ -325,43 +371,43 @@
 
   <div class="faq-list">
     <details class="faq-item">
-      <summary data-i18n="q1.t">Cât de repede puteți veni?</summary>
-      <p data-i18n="q1.a">De obicei în 24-48 de ore de la apel. Pentru urgențe încercăm să venim în aceeași zi, dacă sunăm până la ora 12:00. Depinde de volumul de comenzi și de zonă.</p>
+      <summary data-i18n="q1.t">Cât de repede veniți?</summary>
+      <p data-i18n="q1.a">De obicei 24-48h. Urgent → în aceeași zi dacă suni până la 12:00.</p>
     </details>
 
     <details class="faq-item">
-      <summary data-i18n="q2.t">Luați debris de la construcție și renovare?</summary>
-      <p data-i18n="q2.a">Da — cărămidă, beton spart, gipscarton, parchet, tâmplărie, moloz. Pentru volume mari (peste 5m³) trimitem camion special. Nu luăm azbest.</p>
+      <summary data-i18n="q2.t">Luați debris de renovare?</summary>
+      <p data-i18n="q2.a">Da — cărămidă, beton, gipscarton, moloz. Peste 5m³ trimitem camion special. Nu luăm azbest.</p>
     </details>
 
     <details class="faq-item">
-      <summary data-i18n="q3.t">Luați electrocasnice și electronice?</summary>
-      <p data-i18n="q3.a">Da — frigidere, mașini de spălat, sobe, televizoare, calculatoare. Le ducem la punctul legal de reciclare. Dacă au metal valoros înăuntru, scădem ceva din preț.</p>
+      <summary data-i18n="q3.t">Luați electrocasnice?</summary>
+      <p data-i18n="q3.a">Da — frigidere, mașini de spălat, TV, calculatoare. Ducem la reciclare. Metal valoros = reducere.</p>
     </details>
 
     <details class="faq-item">
       <summary data-i18n="q4.t">Ce NU luați?</summary>
-      <p data-i18n="q4.a">Nu luăm deșeuri periculoase: azbest, substanțe chimice, vopsele deschise, baterii auto sparte, deșeuri medicale, animale moarte. Pentru acestea îți spunem unde să te duci.</p>
+      <p data-i18n="q4.a">Azbest, chimice, vopsele deschise, baterii auto sparte, deșeuri medicale, animale moarte.</p>
     </details>
 
     <details class="faq-item">
       <summary data-i18n="q5.t">Ce zone acoperiți?</summary>
-      <p data-i18n="q5.a">Chișinău integral (toate sectoarele) plus Ialoveni, Strășeni, Codru, Durlești, Stăuceni, Bubuieci, Sîngera. Pentru alte localități sunați și discutăm.</p>
+      <p data-i18n="q5.a">Chișinău integral + Ialoveni, Strășeni, Codru, Durlești, Stăuceni, Bubuieci, Sîngera.</p>
     </details>
 
     <details class="faq-item">
       <summary data-i18n="q6.t">Cum plătesc?</summary>
-      <p data-i18n="q6.a">Cash la finalul lucrării sau transfer bancar după emiterea facturii. Pentru firme lucrăm cu contract și plata în 7-14 zile. Nu cerem avans pentru comenzi sub 3000 MDL.</p>
+      <p data-i18n="q6.a">Cash la final sau transfer. Firme: contract, plata 7-14 zile. Fără avans sub 3000 MDL.</p>
     </details>
 
     <details class="faq-item">
-      <summary data-i18n="q7.t">Urc eu mobila sau o faceți voi?</summary>
-      <p data-i18n="q7.a">Noi facem totul — scoatere din apartament, coborâre pe scări, încărcare. Tu doar arăți ce pleacă. Dacă e etaj înalt fără lift, prețul crește puțin.</p>
+      <summary data-i18n="q7.t">Urc eu mobila?</summary>
+      <p data-i18n="q7.a">Nu — facem noi totul. Tu doar arăți ce pleacă. Etaj înalt fără lift = preț ușor mai mare.</p>
     </details>
 
     <details class="faq-item">
-      <summary data-i18n="q8.t">Pentru firme, emiteți acte?</summary>
-      <p data-i18n="q8.a">Da — factură fiscală, contract de prestări servicii, act de primire-predare a deșeurilor. Lucrăm cu persoane juridice conform legii.</p>
+      <summary data-i18n="q8.t">Acte pentru firme?</summary>
+      <p data-i18n="q8.a">Factură fiscală, contract, act de predare deșeuri. Lucrăm cu persoane juridice conform legii.</p>
     </details>
   </div>
 </section>
@@ -371,7 +417,7 @@
   <div class="waitlist-card">
     <div class="waitlist-eyebrow" data-i18n="ct.eyebrow">Cere ofertă</div>
     <h2 class="waitlist-title" data-i18n="ct.title">Spune-ne ce ai de evacuat.</h2>
-    <p class="waitlist-sub" data-i18n="ct.sub">Sună direct sau lasă-ne detaliile și te contactăm în maxim 2 ore în program de lucru.</p>
+    <p class="waitlist-sub" data-i18n="ct.sub">Sună direct sau lasă detaliile — te contactăm în max 2h.</p>
 
     <a href="tel:+37369269888" class="contact-phone-big">
       <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
@@ -394,11 +440,11 @@
       </div>
       <div class="form-row">
         <input type="text" id="wlAddress" placeholder=" " autocomplete="street-address" />
-        <label for="wlAddress" data-i18n="ct.f.address">Adresa (stradă, sector)</label>
+        <label for="wlAddress" data-i18n="ct.f.address">Adresa</label>
       </div>
       <div class="form-row">
         <textarea id="wlDetails" placeholder=" " rows="4" required></textarea>
-        <label for="wlDetails" data-i18n="ct.f.details">Ce trebuie evacuat? (volum, tip de obiecte)</label>
+        <label for="wlDetails" data-i18n="ct.f.details">Ce trebuie evacuat?</label>
       </div>
       <div class="form-row">
         <input type="date" id="wlDate" placeholder=" " />

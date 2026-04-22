@@ -30,7 +30,19 @@ Pure static HTML/CSS/JS. No framework, no build step. Deployed on Vercel (auto-d
 
 - `index.html` — markup, structure, all `data-i18n` keys
 - `styles.css` — dark industrial-green visual system
-- `script.js` — language toggle, scroll reveals, contact form
+- `script.js` — language toggle, scroll reveals, launch-banner dismissal, contact form
+
+## Visual system
+
+- **Hero** — punchy 2-line headline + photo with animated info badge + subtle `heroZoom` loop
+- **Services** — 4 cards with Unsplash photos (household / business / landlord / events)
+- **How it works** — 3 steps, staggered fade-in on scroll
+- **Pricing** — 3 SaaS-style cards (Mic/Mediu/Mare) with inline SVG van/truck icons, plus two callouts for full-clearance and single bulky items
+- **Why us** — before/after photo strip + trust list
+- **FAQ** — native `<details>/<summary>` accordion, all collapsed by default
+- **Launch banner** — dismissible top strip for the "first 10 clients get 20% off" promo; dismissal persists in `localStorage`
+- **Animations** — pure CSS + one `IntersectionObserver` for `.reveal`. Respects `prefers-reduced-motion`.
+- **Images** — hotlinked from `images.unsplash.com` with `loading="lazy"` and RO `alt` text
 
 ## Contact / conversion
 
@@ -90,3 +102,4 @@ Already on Vercel. Any push to `main` auto-deploys. To deploy elsewhere, just dr
 ---
 
 *Rebuilt 2026-04-22 — pivot from scrap-buy marketplace to paid waste collection.*
+*Visual refresh 2026-04-22 — images + animations + pricing cards + launch banner; ~40% less copy.*
