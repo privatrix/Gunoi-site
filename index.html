@@ -1,333 +1,448 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#0a0f0a" />
-  <title>gunoi.md — Gunoiul tău face bani</title>
-  <meta name="description" content="Prima platformă AI din Moldova care transformă gunoiul tău în bani. Ridicăm metale, electrocasnice și deșeuri valoroase — plătim la ridicare." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0f0a" />
+<title data-i18n="meta.title">gunoi.md — Evacuare gunoi și deșeuri în Chișinău</title>
+<meta name="description" data-i18n="meta.desc" content="Ridicăm gunoiul tău rapid și ieftin în Chișinău și suburbii. Mobilă veche, debris de la renovare, electrocasnice, evacuări complete. Sună pentru ofertă." />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="gunoi.md — Gunoiul tău face bani" />
-  <meta property="og:description" content="Prima platformă AI din Moldova care transformă gunoiul tău în bani." />
-  <meta property="og:type" content="website" />
+<!-- Open Graph -->
+<meta property="og:title" content="gunoi.md — Evacuare gunoi și deșeuri în Chișinău" />
+<meta property="og:description" content="Scăpăm de gunoiul tău. Rapid și ieftin. Sună: +373 69 269 888" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ro_MD" />
+<meta property="og:locale:alternate" content="ru_MD" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233ddc84'/%3E%3Ctext x='16' y='23' font-size='20' font-family='system-ui' font-weight='900' text-anchor='middle' fill='%230a0f0a'%3Eg%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
-  <!-- Ambient background -->
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-glow" aria-hidden="true"></div>
 
-  <!-- Nav -->
-  <nav class="nav">
-    <a href="#" class="logo">
-      <span class="logo-mark">♻</span>
-      <span class="logo-text">gunoi<span class="logo-dot">.</span>md</span>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-glow" aria-hidden="true"></div>
+
+<!-- ========== NAV ========== -->
+<nav class="nav">
+  <a href="#" class="logo" aria-label="gunoi.md">
+    <span class="logo-mark">g</span>
+    <span>gunoi<span class="logo-dot">.</span>md</span>
+  </a>
+
+  <div class="nav-links" aria-label="navigare">
+    <a href="#services" data-i18n="nav.services">Servicii</a>
+    <a href="#pricing" data-i18n="nav.pricing">Prețuri</a>
+    <a href="#why" data-i18n="nav.about">Despre</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+  </div>
+
+  <div class="nav-right">
+    <button id="langToggle" class="lang-toggle" aria-label="Schimbă limba / Сменить язык">
+      <span data-lang-active>RO</span>
+      <span class="lang-sep">/</span>
+      <span data-lang-inactive>RU</span>
+    </button>
+    <a href="tel:+37369269888" class="nav-phone" aria-label="Sună +373 69 269 888">
+      <svg class="phone-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="nav-phone-num">+373 69 269 888</span>
     </a>
-    <div class="nav-right">
-      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
-        <span data-lang-active>RO</span> / <span data-lang-inactive>EN</span>
-      </button>
-      <a href="#waitlist" class="nav-cta">
-        <span data-i18n="nav.cta">Intră pe listă</span>
+    <a href="#contact" class="nav-cta" data-i18n="nav.cta">Cere ofertă</a>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="badge">
+      <span class="badge-dot" aria-hidden="true"></span>
+      <span data-i18n="hero.badge">Chișinău și suburbii · Răspundem azi</span>
+    </span>
+
+    <h1 class="hero-title">
+      <span class="hero-title-1" data-i18n="hero.title1">Scăpăm de gunoiul tău.</span>
+      <span class="hero-title-2" data-i18n="hero.title2">Rapid și ieftin.</span>
+    </h1>
+
+    <p class="hero-sub" data-i18n="hero.sub">
+      Evacuăm mobilă veche, debris de la renovare, electrocasnice, gunoi mixt și facem evacuări complete apartamente. Ofertă clară la telefon, venim când spui tu, plătești când e gata.
+    </p>
+
+    <div class="hero-cta-row">
+      <a href="tel:+37369269888" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+        <span data-i18n="hero.cta1">Sună acum: +373 69 269 888</span>
+      </a>
+      <a href="#contact" class="btn btn-secondary">
+        <span data-i18n="hero.cta2">Cere ofertă</span>
+        <span class="btn-arrow" aria-hidden="true">→</span>
       </a>
     </div>
-  </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="badge">
-        <span class="badge-dot"></span>
-        <span data-i18n="hero.badge">Lansăm în Chișinău — 2026</span>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num" data-i18n="stats.time">24-48h</span>
+        <span class="stat-label" data-i18n="stats.timeL">De la apel la evacuare</span>
       </div>
-
-      <h1 class="hero-title">
-        <span class="hero-title-1" data-i18n="hero.title1">Gunoiul tău</span>
-        <span class="hero-title-2" data-i18n="hero.title2">face bani.</span>
-      </h1>
-
-      <p class="hero-sub" data-i18n="hero.sub">
-        Prima platformă AI din Moldova care ridică metalele, electrocasnicele vechi și deșeurile valoroase de la ușa ta — și îți plătește pentru ele. Fără negociere. Fără surprize.
-      </p>
-
-      <div class="hero-cta-row">
-        <a href="#waitlist" class="btn btn-primary">
-          <span data-i18n="hero.cta1">Intră pe lista de așteptare</span>
-          <span class="btn-arrow">→</span>
-        </a>
-        <a href="#how" class="btn btn-ghost">
-          <span data-i18n="hero.cta2">Cum funcționează</span>
-        </a>
+      <div class="stat">
+        <span class="stat-num" data-i18n="stats.price">de la 500 MDL</span>
+        <span class="stat-label" data-i18n="stats.priceL">Pentru rută mică</span>
       </div>
-
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">AI</div>
-          <div class="stat-label" data-i18n="stats.ai">Estimare instant</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">24h</div>
-          <div class="stat-label" data-i18n="stats.pickup">Ridicare rapidă</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">0 lei</div>
-          <div class="stat-label" data-i18n="stats.fee">Taxe pentru tine</div>
-        </div>
+      <div class="stat">
+        <span class="stat-num" data-i18n="stats.area">Chișinău +</span>
+        <span class="stat-label" data-i18n="stats.areaL">Suburbiile incluse</span>
       </div>
     </div>
+  </div>
 
-    <!-- Animated value card -->
-    <div class="hero-visual" aria-hidden="true">
-      <div class="card-phone">
-        <div class="phone-notch"></div>
-        <div class="phone-screen">
-          <div class="scan-header">
-            <div class="scan-dot"></div>
-            <span>Scan AI</span>
-          </div>
-          <div class="scan-object">
-            <div class="scan-item">
-              <div class="scan-icon">⚙</div>
-              <div class="scan-lines">
-                <div class="scan-line"></div>
-                <div class="scan-line short"></div>
-              </div>
+  <div class="hero-visual" aria-hidden="true">
+    <div class="card-phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="scan-header">
+          <span class="scan-dot"></span>
+          <span data-i18n="scan.status">Ridicare confirmată</span>
+        </div>
+        <div class="scan-object">
+          <div class="scan-item">
+            <span class="scan-icon">🛋️</span>
+            <div class="scan-lines">
+              <span class="scan-line"></span>
+              <span class="scan-line short"></span>
             </div>
-            <div class="scan-beam"></div>
           </div>
-          <div class="scan-result">
-            <div class="scan-result-label" data-i18n="scan.identified">Identificat</div>
-            <div class="scan-result-name">Motor electric · 12kg</div>
-            <div class="scan-price-row">
-              <div class="scan-price-label" data-i18n="scan.price">Valoare estimată</div>
-              <div class="scan-price-value">~ 340 lei</div>
-            </div>
-            <button class="scan-book" data-i18n="scan.book">Programează ridicarea</button>
+          <div class="scan-beam"></div>
+        </div>
+        <div class="scan-result">
+          <span class="scan-result-label" data-i18n="scan.label">Comandă</span>
+          <span class="scan-result-name" data-i18n="scan.name">1 cameră · mobilă + saci</span>
+          <div class="scan-price-row">
+            <span class="scan-price-label" data-i18n="scan.price">Ofertă</span>
+            <span class="scan-price-value">1200 MDL</span>
           </div>
+          <button class="scan-book" data-i18n="scan.book" type="button">Programează →</button>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</header>
 
-  <!-- How it works -->
-  <section class="how" id="how">
-    <div class="section-head">
-      <div class="section-eyebrow" data-i18n="how.eyebrow">Cum funcționează</div>
-      <h2 class="section-title" data-i18n="how.title">Trei pași. Niciunul complicat.</h2>
+<!-- ========== SERVICES ========== -->
+<section id="services" class="how">
+  <div class="section-head">
+    <div class="section-eyebrow" data-i18n="services.eyebrow">Servicii</div>
+    <h2 class="section-title" data-i18n="services.title">Pentru cine lucrăm</h2>
+  </div>
+
+  <div class="steps">
+    <article class="step">
+      <div class="step-num">01</div>
+      <div class="step-icon" aria-hidden="true">🏠</div>
+      <h3 class="step-title" data-i18n="s1.t">Gospodării</h3>
+      <p class="step-text" data-i18n="s1.d">Debris după renovare, mobilă veche, electrocasnice stricate, saci de gunoi, curățare pivniță sau garaj. Venim când ai timp, inclusiv seara sau în weekend.</p>
+      <div class="step-price" data-i18n="s1.p">de la 500 MDL</div>
+    </article>
+
+    <article class="step">
+      <div class="step-num">02</div>
+      <div class="step-icon" aria-hidden="true">🏢</div>
+      <h3 class="step-title" data-i18n="s2.t">Firme & oficii</h3>
+      <p class="step-text" data-i18n="s2.d">Evacuare birouri, relocări, deșeuri de la șantier, mobilier vechi, echipament scos din uz. Emitem bon sau factură, lucrăm cu contract pentru firme.</p>
+      <div class="step-price" data-i18n="s2.p">ofertă personalizată</div>
+    </article>
+
+    <article class="step">
+      <div class="step-num">03</div>
+      <div class="step-icon" aria-hidden="true">🔑</div>
+      <h3 class="step-title" data-i18n="s3.t">Proprietari care dau în chirie</h3>
+      <p class="step-text" data-i18n="s3.d">Apartament lăsat de chiriași cu totul în el? Curățăm complet — mobilă, haine, electrocasnice, gunoi — până rămâne gol. Predai altor chiriași a doua zi.</p>
+      <div class="step-price" data-i18n="s3.p">evaluare la fața locului</div>
+    </article>
+
+    <article class="step">
+      <div class="step-num">04</div>
+      <div class="step-icon" aria-hidden="true">⚡</div>
+      <h3 class="step-title" data-i18n="s4.t">Evacuări rapide & evenimente</h3>
+      <p class="step-text" data-i18n="s4.d">O dată, urgent, azi? Demolare mică, curățare după petrecere, mutare cu grămezi de lăsat în urmă. Un apel și venim.</p>
+      <div class="step-price" data-i18n="s4.p">de la 500 MDL</div>
+    </article>
+  </div>
+</section>
+
+<!-- ========== HOW IT WORKS ========== -->
+<section class="how how-alt">
+  <div class="section-head">
+    <div class="section-eyebrow" data-i18n="how.eyebrow">Cum funcționează</div>
+    <h2 class="section-title" data-i18n="how.title">Trei pași. Fără bătăi de cap.</h2>
+  </div>
+
+  <div class="steps">
+    <article class="step">
+      <div class="step-num">01</div>
+      <div class="step-icon" aria-hidden="true">📞</div>
+      <h3 class="step-title" data-i18n="hw1.t">Ne spui ce ai</h3>
+      <p class="step-text" data-i18n="hw1.d">Sună la <a href="tel:+37369269888" class="inline-phone">+373 69 269 888</a> sau completează formularul. Descrie volumul, adresa, accesul. O fotografie ajută.</p>
+    </article>
+
+    <article class="step">
+      <div class="step-num">02</div>
+      <div class="step-icon" aria-hidden="true">💬</div>
+      <h3 class="step-title" data-i18n="hw2.t">Primești oferta</h3>
+      <p class="step-text" data-i18n="hw2.d">Îți spunem prețul la telefon, fără surprize. Dacă lucrarea e mare, venim gratis să evaluăm la fața locului. Stabilim ziua și ora.</p>
+    </article>
+
+    <article class="step">
+      <div class="step-num">03</div>
+      <div class="step-icon" aria-hidden="true">🚛</div>
+      <h3 class="step-title" data-i18n="hw3.t">Venim, ridicăm, plătești</h3>
+      <p class="step-text" data-i18n="hw3.d">Echipa vine cu mașina, încarcă totul, duce la depozitul legal de deșeuri. Plătești pe loc — cash sau transfer. Emitem bon sau factură.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ========== PRICING ========== -->
+<section id="pricing" class="pricing">
+  <div class="section-head">
+    <div class="section-eyebrow" data-i18n="price.eyebrow">Prețuri orientative</div>
+    <h2 class="section-title" data-i18n="price.title">Tarife clare. Fără surprize.</h2>
+  </div>
+
+  <div class="pricing-table">
+    <div class="price-row price-head">
+      <span data-i18n="price.h1">Serviciu</span>
+      <span data-i18n="price.h2">Preț</span>
     </div>
 
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-icon">📸</div>
-        <h3 data-i18n="step1.title">Fotografiază</h3>
-        <p data-i18n="step1.text">Deschide telefonul. Fotografiază obiectul — metal, electrocasnic, cablu, mașină de spălat veche. AI-ul nostru îl identifică instant.</p>
+    <div class="price-row">
+      <div class="price-service">
+        <div class="price-title" data-i18n="p1.t">Mic · până la 1m³</div>
+        <div class="price-desc" data-i18n="p1.d">Câteva obiecte de mobilă, cutii, saci</div>
       </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-icon">💰</div>
-        <h3 data-i18n="step2.title">Primești prețul</h3>
-        <p data-i18n="step2.text">Vezi valoarea reală de piață — nu o cifră inventată. Transparent. Dacă ești de acord, programezi ridicarea.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-icon">🚚</div>
-        <h3 data-i18n="step3.title">Venim. Plătim.</h3>
-        <p data-i18n="step3.text">Un colector verificat vine la ușa ta în 24-48h. Cântărește, verifică, plătește pe loc. Tu câștigi. Moldova câștigă.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- What we collect -->
-  <section class="collect">
-    <div class="section-head">
-      <div class="section-eyebrow" data-i18n="collect.eyebrow">Ce ridicăm</div>
-      <h2 class="section-title" data-i18n="collect.title">Dacă are valoare, o vrem.</h2>
+      <div class="price-value" data-i18n="p1.p">de la 500 MDL</div>
     </div>
 
-    <div class="collect-grid">
-      <div class="collect-item">
-        <div class="collect-emoji">🔧</div>
-        <h4 data-i18n="c1.t">Metale feroase</h4>
-        <p data-i18n="c1.d">Fier, oțel, tablă, radiatoare, țevi, piese auto</p>
+    <div class="price-row">
+      <div class="price-service">
+        <div class="price-title" data-i18n="p2.t">Mediu · ~3m³</div>
+        <div class="price-desc" data-i18n="p2.d">O cameră întreagă, electrocasnice</div>
       </div>
-      <div class="collect-item premium">
-        <div class="collect-emoji">⚡</div>
-        <h4 data-i18n="c2.t">Metale neferoase</h4>
-        <p data-i18n="c2.d">Cupru, alamă, aluminiu, plumb, zinc — cele mai valoroase</p>
-      </div>
-      <div class="collect-item">
-        <div class="collect-emoji">🔌</div>
-        <h4 data-i18n="c3.t">Electrocasnice</h4>
-        <p data-i18n="c3.d">Mașini de spălat, frigidere, sobe, aparate de aer condiționat</p>
-      </div>
-      <div class="collect-item">
-        <div class="collect-emoji">📱</div>
-        <h4 data-i18n="c4.t">Electronice</h4>
-        <p data-i18n="c4.d">Calculatoare, televizoare, plăci, cabluri, componente</p>
-      </div>
-      <div class="collect-item">
-        <div class="collect-emoji">🚗</div>
-        <h4 data-i18n="c5.t">Auto & vehicule</h4>
-        <p data-i18n="c5.d">Mașini casate, motoare, baterii, catalizatoare, jante</p>
-      </div>
-      <div class="collect-item">
-        <div class="collect-emoji">🏗</div>
-        <h4 data-i18n="c6.t">Construcții</h4>
-        <p data-i18n="c6.d">Debris de la șantier, armătură, tâmplărie, materiale recuperabile</p>
-      </div>
+      <div class="price-value" data-i18n="p2.p">de la 1200 MDL</div>
     </div>
-  </section>
 
-  <!-- Why -->
-  <section class="why">
-    <div class="why-inner">
-      <div class="why-left">
-        <div class="section-eyebrow" data-i18n="why.eyebrow">De ce gunoi.md</div>
-        <h2 class="section-title" data-i18n="why.title">Prima dată când pe cineva chiar îl interesează gunoiul tău.</h2>
-        <p class="why-body" data-i18n="why.body">
-          Până acum, ridicarea fierului vechi în Moldova însemna să suni la cineva, să negociezi, să speri că nu te fură la cântar. Noi facem altfel: AI-ul identifică obiectul, prețul e afișat public, colectorul e verificat și notat, plata se face pe loc. Nu ești la mila nimănui.
-        </p>
-
-        <div class="why-points">
-          <div class="why-point">
-            <span class="why-check">✓</span>
-            <span data-i18n="why.p1">Preț transparent bazat pe piața reală</span>
-          </div>
-          <div class="why-point">
-            <span class="why-check">✓</span>
-            <span data-i18n="why.p2">Colectori verificați, evaluați de alți utilizatori</span>
-          </div>
-          <div class="why-point">
-            <span class="why-check">✓</span>
-            <span data-i18n="why.p3">Plată pe loc — cash sau transfer bancar</span>
-          </div>
-          <div class="why-point">
-            <span class="why-check">✓</span>
-            <span data-i18n="why.p4">Documente pentru firme — conforme cu normele UE</span>
-          </div>
-          <div class="why-point">
-            <span class="why-check">✓</span>
-            <span data-i18n="why.p5">Urmărești cât ai reciclat și cât ai câștigat</span>
-          </div>
-        </div>
+    <div class="price-row">
+      <div class="price-service">
+        <div class="price-title" data-i18n="p3.t">Mare · camion ~7m³</div>
+        <div class="price-desc" data-i18n="p3.d">Apartament întreg, șantier mic</div>
       </div>
-
-      <div class="why-right">
-        <div class="impact-card">
-          <div class="impact-header" data-i18n="impact.title">Impact colectiv estimat</div>
-          <div class="impact-big">
-            <span class="impact-num" id="impactTons">2,400</span>
-            <span class="impact-unit" data-i18n="impact.unit">tone/an</span>
-          </div>
-          <div class="impact-desc" data-i18n="impact.desc">
-            de metal care azi zace prin curți și garaje în Chișinău și care poate intra înapoi în economia reală.
-          </div>
-          <div class="impact-meter">
-            <div class="impact-bar" id="impactBar"></div>
-          </div>
-          <div class="impact-sub">
-            <span data-i18n="impact.co2">~ 4.800 tone CO₂ evitat</span>
-          </div>
-        </div>
-      </div>
+      <div class="price-value" data-i18n="p3.p">de la 2500 MDL</div>
     </div>
-  </section>
 
-  <!-- For collectors -->
-  <section class="collectors">
-    <div class="collectors-inner">
-      <div class="section-eyebrow" data-i18n="col.eyebrow">Pentru colectori</div>
-      <h2 class="section-title" data-i18n="col.title">Ești deja în meserie? Platforma e și pentru tine.</h2>
-      <p class="collectors-body" data-i18n="col.body">
-        Dacă ridici deja fier vechi, electrocasnice sau deșeuri valoroase — vino pe platformă. Îți aducem clienți verificați, îți gestionăm programul, îți oferim plăți automate. Zero bătăi de cap cu reclamă pe Facebook.
+    <div class="price-row">
+      <div class="price-service">
+        <div class="price-title" data-i18n="p4.t">Evacuare completă apartament / casă</div>
+        <div class="price-desc" data-i18n="p4.d">Curățare totală până la pereți goi</div>
+      </div>
+      <div class="price-value" data-i18n="p4.p">ofertă la fața locului</div>
+    </div>
+
+    <div class="price-row">
+      <div class="price-service">
+        <div class="price-title" data-i18n="p5.t">Obiecte mari individuale</div>
+        <div class="price-desc" data-i18n="p5.d">Frigider, canapea, mobilă grea</div>
+      </div>
+      <div class="price-value" data-i18n="p5.p">de la 300 MDL/bucată</div>
+    </div>
+  </div>
+
+  <p class="pricing-note" data-i18n="price.note">
+    Prețul final depinde de volum, greutate și acces. Cere ofertă gratuită.
+  </p>
+
+  <div class="pricing-factors">
+    <h3 class="factors-title" data-i18n="factors.title">Ce influențează prețul</h3>
+    <ul class="factors-list">
+      <li><strong data-i18n="f1.t">Volum și greutate</strong> <span data-i18n="f1.d">— cât de mult încape în mașină</span></li>
+      <li><strong data-i18n="f2.t">Acces</strong> <span data-i18n="f2.d">— etaj, lift, distanța până la mașină</span></li>
+      <li><strong data-i18n="f3.t">Tip de deșeu</strong> <span data-i18n="f3.d">— debris greu costă mai mult decât mobilă</span></li>
+      <li><strong data-i18n="f4.t">Urgență</strong> <span data-i18n="f4.d">— azi costă puțin mai mult decât săptămâna viitoare</span></li>
+      <li><strong data-i18n="f5.t">Materiale periculoase</strong> <span data-i18n="f5.d">— nu preluăm azbest, chimice, medicale</span></li>
+    </ul>
+  </div>
+
+  <div class="price-cta">
+    <a href="tel:+37369269888" class="btn btn-primary btn-large">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+      <span data-i18n="price.cta">Sună pentru ofertă: +373 69 269 888</span>
+    </a>
+  </div>
+</section>
+
+<!-- ========== SCRAP BONUS ========== -->
+<section class="scrap-bonus">
+  <div class="scrap-inner">
+    <div class="scrap-icon" aria-hidden="true">⚙️</div>
+    <div class="scrap-content">
+      <h3 class="scrap-title" data-i18n="scrap.title">Ai fier vechi în gunoi? Reducere la preț.</h3>
+      <p class="scrap-text" data-i18n="scrap.text">
+        Dacă printre lucrurile de evacuat ai metal — radiatoare vechi, țevi, electrocasnice, cabluri, fier de la șantier — scădem valoarea lor din factură. Spune-ne la telefon ce ai, calculăm împreună.
       </p>
-      <a href="#waitlist" class="btn btn-secondary">
-        <span data-i18n="col.cta">Devino colector partener</span>
-        <span class="btn-arrow">→</span>
-      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Waitlist -->
-  <section class="waitlist" id="waitlist">
-    <div class="waitlist-inner">
-      <div class="waitlist-eyebrow" data-i18n="wl.eyebrow">Lansăm în curând</div>
-      <h2 class="waitlist-title" data-i18n="wl.title">Fii printre primii care transformă gunoiul în bani.</h2>
-      <p class="waitlist-sub" data-i18n="wl.sub">
-        Primii 500 de utilizatori primesc bonus +10% la prima ridicare.
-      </p>
+<!-- ========== WHY US ========== -->
+<section id="why" class="why">
+  <div class="section-head">
+    <div class="section-eyebrow" data-i18n="why.eyebrow">De ce noi</div>
+    <h2 class="section-title" data-i18n="why.title">Serios, la timp, cu acte în regulă.</h2>
+  </div>
 
-      <form class="waitlist-form" id="waitlistForm" novalidate>
-        <div class="form-row">
-          <input type="text" name="name" id="wlName" placeholder="" required autocomplete="name" />
-          <label for="wlName" data-i18n="wl.name">Numele tău</label>
-        </div>
-        <div class="form-row">
-          <input type="email" name="email" id="wlEmail" placeholder="" required autocomplete="email" />
-          <label for="wlEmail" data-i18n="wl.email">Email</label>
-        </div>
-        <div class="form-row">
-          <input type="tel" name="phone" id="wlPhone" placeholder="" autocomplete="tel" />
-          <label for="wlPhone" data-i18n="wl.phone">Telefon (opțional)</label>
-        </div>
+  <div class="why-grid">
+    <p class="why-body" data-i18n="why.body">
+      Mulți spun că vin și apoi nu apar. Sau apar, dar cu prețul dublat. Noi lucrăm altfel: ofertă clară la telefon, program respectat, echipă îmbrăcată ca oamenii, deșeurile duse la depozitul legal — nu aruncate pe câmp la marginea orașului.
+    </p>
+    <ul class="why-points">
+      <li data-i18n="why.p1">✓ Firmă legală, emitem bon fiscal sau factură</li>
+      <li data-i18n="why.p2">✓ Răspundem la telefon în ziua apelului</li>
+      <li data-i18n="why.p3">✓ Echipă verificată, îmbrăcată uniform</li>
+      <li data-i18n="why.p4">✓ Deșeurile merg la depozit autorizat</li>
+      <li data-i18n="why.p5">✓ Acoperim Chișinău + Ialoveni, Strășeni, Codru, Durlești, Stăuceni</li>
+      <li data-i18n="why.p6">✓ Plată cash sau transfer — tu alegi</li>
+    </ul>
+  </div>
+</section>
 
-        <div class="role-picker" role="radiogroup">
-          <label class="role-option">
-            <input type="radio" name="role" value="user" checked />
-            <span class="role-icon">👤</span>
-            <span class="role-label" data-i18n="wl.r1">Am gunoi de vândut</span>
-          </label>
-          <label class="role-option">
-            <input type="radio" name="role" value="collector" />
-            <span class="role-icon">🚚</span>
-            <span class="role-label" data-i18n="wl.r2">Sunt colector</span>
-          </label>
-          <label class="role-option">
-            <input type="radio" name="role" value="business" />
-            <span class="role-icon">🏭</span>
-            <span class="role-label" data-i18n="wl.r3">Sunt firmă</span>
-          </label>
-        </div>
+<!-- ========== FAQ ========== -->
+<section id="faq" class="faq">
+  <div class="section-head">
+    <div class="section-eyebrow" data-i18n="faq.eyebrow">Întrebări frecvente</div>
+    <h2 class="section-title" data-i18n="faq.title">Ce întreabă lumea</h2>
+  </div>
 
-        <button type="submit" class="btn btn-primary btn-large">
-          <span data-i18n="wl.submit">Intră pe listă</span>
-          <span class="btn-arrow">→</span>
-        </button>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary data-i18n="q1.t">Cât de repede puteți veni?</summary>
+      <p data-i18n="q1.a">De obicei în 24-48 de ore de la apel. Pentru urgențe încercăm să venim în aceeași zi, dacă sunăm până la ora 12:00. Depinde de volumul de comenzi și de zonă.</p>
+    </details>
 
-        <div class="form-message" id="formMessage"></div>
-      </form>
+    <details class="faq-item">
+      <summary data-i18n="q2.t">Luați debris de la construcție și renovare?</summary>
+      <p data-i18n="q2.a">Da — cărămidă, beton spart, gipscarton, parchet, tâmplărie, moloz. Pentru volume mari (peste 5m³) trimitem camion special. Nu luăm azbest.</p>
+    </details>
 
-      <div class="trust-row">
-        <span class="trust-item" data-i18n="wl.t1">🔒 Zero spam</span>
-        <span class="trust-item" data-i18n="wl.t2">📍 Chișinău întâi</span>
-        <span class="trust-item" data-i18n="wl.t3">🇲🇩 Făcut în Moldova</span>
+    <details class="faq-item">
+      <summary data-i18n="q3.t">Luați electrocasnice și electronice?</summary>
+      <p data-i18n="q3.a">Da — frigidere, mașini de spălat, sobe, televizoare, calculatoare. Le ducem la punctul legal de reciclare. Dacă au metal valoros înăuntru, scădem ceva din preț.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary data-i18n="q4.t">Ce NU luați?</summary>
+      <p data-i18n="q4.a">Nu luăm deșeuri periculoase: azbest, substanțe chimice, vopsele deschise, baterii auto sparte, deșeuri medicale, animale moarte. Pentru acestea îți spunem unde să te duci.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary data-i18n="q5.t">Ce zone acoperiți?</summary>
+      <p data-i18n="q5.a">Chișinău integral (toate sectoarele) plus Ialoveni, Strășeni, Codru, Durlești, Stăuceni, Bubuieci, Sîngera. Pentru alte localități sunați și discutăm.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary data-i18n="q6.t">Cum plătesc?</summary>
+      <p data-i18n="q6.a">Cash la finalul lucrării sau transfer bancar după emiterea facturii. Pentru firme lucrăm cu contract și plata în 7-14 zile. Nu cerem avans pentru comenzi sub 3000 MDL.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary data-i18n="q7.t">Urc eu mobila sau o faceți voi?</summary>
+      <p data-i18n="q7.a">Noi facem totul — scoatere din apartament, coborâre pe scări, încărcare. Tu doar arăți ce pleacă. Dacă e etaj înalt fără lift, prețul crește puțin.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary data-i18n="q8.t">Pentru firme, emiteți acte?</summary>
+      <p data-i18n="q8.a">Da — factură fiscală, contract de prestări servicii, act de primire-predare a deșeurilor. Lucrăm cu persoane juridice conform legii.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ========== CONTACT / FORM ========== -->
+<section id="contact" class="waitlist">
+  <div class="waitlist-card">
+    <div class="waitlist-eyebrow" data-i18n="ct.eyebrow">Cere ofertă</div>
+    <h2 class="waitlist-title" data-i18n="ct.title">Spune-ne ce ai de evacuat.</h2>
+    <p class="waitlist-sub" data-i18n="ct.sub">Sună direct sau lasă-ne detaliile și te contactăm în maxim 2 ore în program de lucru.</p>
+
+    <a href="tel:+37369269888" class="contact-phone-big">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+      <span>+373 69 269 888</span>
+    </a>
+    <div class="contact-hours" data-i18n="ct.hours">Luni–Sâmbătă · 08:00–20:00 · Duminica la cerere</div>
+
+    <div class="waitlist-divider"><span data-i18n="ct.or">sau lasă un mesaj</span></div>
+
+    <!-- NOTE: This form currently only stores locally + opens mailto as a fallback.
+         TODO: Wire to a real backend (Formspree, Resend, or a simple /api/contact function). -->
+    <form id="waitlistForm" class="waitlist-form" novalidate>
+      <div class="form-row">
+        <input type="text" id="wlName" placeholder=" " required autocomplete="name" />
+        <label for="wlName" data-i18n="ct.f.name">Nume</label>
       </div>
+      <div class="form-row">
+        <input type="tel" id="wlPhone" placeholder=" " required autocomplete="tel" />
+        <label for="wlPhone" data-i18n="ct.f.phone">Telefon</label>
+      </div>
+      <div class="form-row">
+        <input type="text" id="wlAddress" placeholder=" " autocomplete="street-address" />
+        <label for="wlAddress" data-i18n="ct.f.address">Adresa (stradă, sector)</label>
+      </div>
+      <div class="form-row">
+        <textarea id="wlDetails" placeholder=" " rows="4" required></textarea>
+        <label for="wlDetails" data-i18n="ct.f.details">Ce trebuie evacuat? (volum, tip de obiecte)</label>
+      </div>
+      <div class="form-row">
+        <input type="date" id="wlDate" placeholder=" " />
+        <label for="wlDate" class="static-label" data-i18n="ct.f.date">Data preferată (opțional)</label>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-large" data-i18n="ct.f.submit">Trimite cerere</button>
+      <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+    </form>
+
+    <div class="trust-row">
+      <span class="trust-item" data-i18n="trust.1">✓ Răspuns în 2h</span>
+      <span class="trust-item" data-i18n="trust.2">✓ Fără avans</span>
+      <span class="trust-item" data-i18n="trust.3">✓ Acte în regulă</span>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="logo-mark">♻</span>
-        <span>gunoi.md</span>
-      </div>
-      <div class="footer-tag" data-i18n="footer.tag">Gunoiul tău face bani. Hai să-i scoatem.</div>
-      <div class="footer-meta">
-        <span>© 2026 gunoi.md</span>
-        <span>·</span>
-        <span data-i18n="footer.made">Construit în Chișinău</span>
-      </div>
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-mark">g</span>
+      <span>gunoi<span class="logo-dot">.</span>md</span>
     </div>
-  </footer>
+    <p class="footer-tag" data-i18n="footer.tag">Evacuare gunoi în Chișinău și suburbii. Rapid, ieftin, cu acte.</p>
 
-  <script src="script.js"></script>
+    <div class="footer-contacts">
+      <a href="tel:+37369269888" class="footer-phone">+373 69 269 888</a>
+      <a href="mailto:salut@gunoi.md" class="footer-email">salut@gunoi.md</a>
+    </div>
+
+    <div class="footer-areas" data-i18n="footer.areas">
+      Chișinău · Ialoveni · Strășeni · Codru · Durlești · Stăuceni · Bubuieci · Sîngera
+    </div>
+
+    <div class="footer-meta">
+      <span>© 2026 gunoi.md</span>
+      <span>·</span>
+      <span data-i18n="footer.made">Făcut în Chișinău</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
