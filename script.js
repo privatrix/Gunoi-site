@@ -21,12 +21,25 @@ const translations = {
 
     // Hero
     'hero.badge': 'Chișinău · Răspundem azi',
-    'hero.title1': 'Scăpăm de gunoiul tău.',
-    'hero.title2': 'Rapid și ieftin.',
+    'hero.title1': 'Tot asta.',
+    'hero.title2': 'Dispare mâine.',
     'hero.sub': 'Mobilă veche, debris, electrocasnice, evacuări complete. Ofertă clară la telefon.',
     'hero.cta1': 'Sună: +373 69 269 888',
     'hero.cta2': 'Cere ofertă',
     'hero.badgeL': 'Comandă rezolvată',
+
+    // Live ticker
+    'tick.pickups': 'Ridicări azi:',
+    'tick.resp': 'Răspuns mediu:',
+    'tick.respVal': '47 min',
+    'tick.area': 'Chișinău + suburbii',
+
+    // Fake call
+    'call.name': 'gunoi.md — Chișinău',
+    'call.sub': 'apel primit…',
+
+    // Service mini
+    'svc.mini': '+ Cere ofertă',
 
     // Stats
     'stats.time': '24-48h',
@@ -54,13 +67,13 @@ const translations = {
 
     // How it works
     'how.eyebrow': 'Cum funcționează',
-    'how.title': 'Trei pași. Fără bătăi de cap.',
-    'hw1.t': 'Ne suni',
-    'hw1.dHTML': 'Sună la <a href="tel:+37369269888" class="inline-phone">+373 69 269 888</a>. Descrie volumul și adresa. O foto ajută.',
-    'hw2.t': 'Primești prețul',
-    'hw2.d': 'Ofertă la telefon, fără surprize. Stabilim ziua și ora.',
-    'hw3.t': 'Ridicăm, plătești',
-    'hw3.d': 'Încărcăm, ducem la depozit legal. Plătești pe loc. Bon sau factură.',
+    'how.title': '3 pași.',
+    'hw1.t': 'Suni',
+    'hw1.dHTML': 'Sună la <a href="tel:+37369269888" class="inline-phone">+373 69 269 888</a>.',
+    'hw2.t': 'Preț',
+    'hw2.d': 'Ofertă clară la telefon. Stabilim ora.',
+    'hw3.t': 'Dispare',
+    'hw3.d': 'Ridicăm, plătești, gata.',
 
     // Pricing
     'price.eyebrow': 'Prețuri',
@@ -165,12 +178,25 @@ const translations = {
 
     // Hero
     'hero.badge': 'Кишинёв · Отвечаем сегодня',
-    'hero.title1': 'Избавим от мусора.',
-    'hero.title2': 'Быстро и недорого.',
+    'hero.title1': 'Всё это.',
+    'hero.title2': 'Исчезнет завтра.',
     'hero.sub': 'Старая мебель, строймусор, техника, полная очистка квартир. Чёткая цена по телефону.',
     'hero.cta1': 'Позвоните: +373 69 269 888',
     'hero.cta2': 'Запросить оценку',
     'hero.badgeL': 'Заказ выполнен',
+
+    // Live ticker
+    'tick.pickups': 'Вывозов сегодня:',
+    'tick.resp': 'Среднее время ответа:',
+    'tick.respVal': '47 мин',
+    'tick.area': 'Кишинёв + пригород',
+
+    // Fake call
+    'call.name': 'gunoi.md — Кишинёв',
+    'call.sub': 'входящий вызов…',
+
+    // Service mini
+    'svc.mini': '+ Запросить',
 
     // Stats
     'stats.time': '24-48ч',
@@ -198,13 +224,13 @@ const translations = {
 
     // How it works
     'how.eyebrow': 'Как это работает',
-    'how.title': 'Три шага. Без головной боли.',
-    'hw1.t': 'Вы звоните',
-    'hw1.dHTML': 'Звоните на <a href="tel:+37369269888" class="inline-phone">+373 69 269 888</a>. Опишите объём и адрес. Фото помогает.',
-    'hw2.t': 'Получаете цену',
-    'hw2.d': 'Цена по телефону, без сюрпризов. Согласовываем день и время.',
-    'hw3.t': 'Вывозим, вы платите',
-    'hw3.d': 'Грузим, везём на официальный полигон. Оплата на месте. Чек или счёт.',
+    'how.title': '3 шага.',
+    'hw1.t': 'Звоните',
+    'hw1.dHTML': 'Звоните на <a href="tel:+37369269888" class="inline-phone">+373 69 269 888</a>.',
+    'hw2.t': 'Цена',
+    'hw2.d': 'Чёткая цена по телефону. Согласуем время.',
+    'hw3.t': 'Исчезает',
+    'hw3.d': 'Грузим, платите, готово.',
 
     // Pricing
     'price.eyebrow': 'Цены',
@@ -464,3 +490,520 @@ if (form) {
     form.reset();
   });
 }
+
+/* ================================
+   SHOCK REBUILD — runtime
+   ================================ */
+
+const REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ---- JUNK ABYSS canvas physics ----
+function initJunkAbyss() {
+  const canvas = document.getElementById('junkAbyss');
+  if (!canvas || REDUCED_MOTION) return;
+  const ctx = canvas.getContext('2d', { alpha: true });
+  if (!ctx) return;
+
+  let dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let W = 0, H = 0, floorY = 0;
+  let items = [];
+  let running = true;
+  let lastSpawn = 0;
+  let lastFrame = 0;
+  const MAX_ITEMS = window.innerWidth < 700 ? 14 : 26;
+  const FRAME_MS = 1000 / 60;
+  const GRAVITY = 0.38;
+  const FRICTION = 0.88;
+  const BOUNCE = 0.28;
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    W = rect.width;
+    H = rect.height;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    floorY = H - 10;
+  }
+
+  // Item types: each returns draw + size
+  const TYPES = [
+    { // couch
+      w: 110, h: 46,
+      draw(ctx) {
+        ctx.fillStyle = '#1a3d28';
+        ctx.strokeStyle = '#6ee7a8';
+        ctx.lineWidth = 2;
+        roundRect(ctx, -this.w/2, -this.h/2+8, this.w, this.h-8, 6, true, true);
+        roundRect(ctx, -this.w/2, -this.h/2, this.w*0.3, this.h*0.6, 4, true, true);
+        roundRect(ctx, -this.w*0.15, -this.h/2, this.w*0.3, this.h*0.6, 4, true, true);
+        roundRect(ctx, this.w*0.2, -this.h/2, this.w*0.3, this.h*0.6, 4, true, true);
+      }
+    },
+    { // TV
+      w: 72, h: 52,
+      draw(ctx) {
+        ctx.fillStyle = '#0e1610';
+        ctx.strokeStyle = '#5a5a5a';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(-this.w/2, -this.h/2, this.w, this.h);
+        ctx.fillRect(-this.w/2, -this.h/2, this.w, this.h);
+        ctx.fillStyle = '#14201a';
+        ctx.fillRect(-this.w/2+5, -this.h/2+5, this.w-10, this.h-14);
+        ctx.fillStyle = '#3ddc84';
+        ctx.fillRect(-this.w/2+8, this.h/2-5, 6, 2);
+      }
+    },
+    { // box
+      w: 56, h: 50,
+      draw(ctx) {
+        ctx.fillStyle = '#8a7a5c';
+        ctx.strokeStyle = '#a68f6a';
+        ctx.lineWidth = 2;
+        ctx.fillRect(-this.w/2, -this.h/2, this.w, this.h);
+        ctx.strokeRect(-this.w/2, -this.h/2, this.w, this.h);
+        ctx.beginPath();
+        ctx.moveTo(-this.w/2, 0); ctx.lineTo(this.w/2, 0);
+        ctx.moveTo(0, -this.h/2); ctx.lineTo(0, this.h/2);
+        ctx.stroke();
+      }
+    },
+    { // mattress
+      w: 100, h: 30,
+      draw(ctx) {
+        ctx.fillStyle = '#d8d2bf';
+        ctx.strokeStyle = '#8a7a5c';
+        ctx.lineWidth = 2;
+        roundRect(ctx, -this.w/2, -this.h/2, this.w, this.h, 6, true, true);
+        ctx.strokeStyle = '#a68f6a';
+        ctx.lineWidth = 1;
+        for (let i = -this.w/2+12; i < this.w/2-10; i += 14) {
+          ctx.beginPath();
+          ctx.moveTo(i, -this.h/2+4);
+          ctx.lineTo(i, this.h/2-4);
+          ctx.stroke();
+        }
+      }
+    },
+    { // chair
+      w: 40, h: 52,
+      draw(ctx) {
+        ctx.fillStyle = '#1a3d28';
+        ctx.strokeStyle = '#6ee7a8';
+        ctx.lineWidth = 2;
+        ctx.fillRect(-this.w/2, 0, this.w, 10);
+        ctx.strokeRect(-this.w/2, 0, this.w, 10);
+        ctx.fillRect(this.w/2-8, -this.h/2, 8, this.h/2+10);
+        ctx.strokeRect(this.w/2-8, -this.h/2, 8, this.h/2+10);
+        ctx.beginPath();
+        ctx.moveTo(-this.w/2+3, 10); ctx.lineTo(-this.w/2+3, this.h/2);
+        ctx.moveTo(this.w/2-3, 10); ctx.lineTo(this.w/2-3, this.h/2);
+        ctx.stroke();
+      }
+    },
+    { // bag
+      w: 46, h: 54,
+      draw(ctx) {
+        ctx.fillStyle = '#1c1c1c';
+        ctx.strokeStyle = '#6ee7a8';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(-this.w/2+6, -this.h/2+10);
+        ctx.quadraticCurveTo(-this.w/2-2, 0, -this.w/2+6, this.h/2);
+        ctx.quadraticCurveTo(0, this.h/2+6, this.w/2-6, this.h/2);
+        ctx.quadraticCurveTo(this.w/2+2, 0, this.w/2-6, -this.h/2+10);
+        ctx.quadraticCurveTo(0, -this.h/2, -this.w/2+6, -this.h/2+10);
+        ctx.fill(); ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(-8, -this.h/2+10); ctx.lineTo(-4, -this.h/2);
+        ctx.moveTo(8, -this.h/2+10); ctx.lineTo(4, -this.h/2);
+        ctx.stroke();
+      }
+    },
+    { // lamp
+      w: 36, h: 56,
+      draw(ctx) {
+        ctx.fillStyle = '#ffb454';
+        ctx.strokeStyle = '#6ee7a8';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(-this.w/2, -this.h/2+20);
+        ctx.lineTo(0, -this.h/2);
+        ctx.lineTo(this.w/2, -this.h/2+20);
+        ctx.closePath();
+        ctx.fill(); ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0, -this.h/2+20);
+        ctx.lineTo(0, this.h/2);
+        ctx.stroke();
+      }
+    },
+    { // carpet roll
+      w: 90, h: 24,
+      draw(ctx) {
+        ctx.fillStyle = '#6b4a28';
+        ctx.strokeStyle = '#a68f6a';
+        ctx.lineWidth = 2;
+        roundRect(ctx, -this.w/2, -this.h/2, this.w, this.h, this.h/2, true, true);
+        ctx.fillStyle = '#ff6b6b';
+        ctx.beginPath();
+        ctx.arc(-this.w/2+2, 0, this.h/2-4, 0, Math.PI*2);
+        ctx.fill();
+      }
+    },
+    { // toilet (L shape)
+      w: 44, h: 50,
+      draw(ctx) {
+        ctx.fillStyle = '#e8f0e8';
+        ctx.strokeStyle = '#6ee7a8';
+        ctx.lineWidth = 2;
+        roundRect(ctx, -this.w/2, -this.h/2, this.w, this.h*0.55, 4, true, true);
+        roundRect(ctx, -this.w/2+4, 0, this.w-8, this.h*0.45, 10, true, true);
+      }
+    },
+    { // appliance (fridge/washer)
+      w: 56, h: 72,
+      draw(ctx) {
+        ctx.fillStyle = '#dcdcdc';
+        ctx.strokeStyle = '#5a5a5a';
+        ctx.lineWidth = 2;
+        ctx.fillRect(-this.w/2, -this.h/2, this.w, this.h);
+        ctx.strokeRect(-this.w/2, -this.h/2, this.w, this.h);
+        ctx.beginPath();
+        ctx.arc(0, -this.h/2+this.h*0.35, 12, 0, Math.PI*2);
+        ctx.stroke();
+        ctx.fillStyle = '#ff6b6b';
+        ctx.fillRect(this.w/2-10, -this.h/2+4, 4, 4);
+      }
+    }
+  ];
+
+  function roundRect(ctx, x, y, w, h, r, fill, stroke) {
+    ctx.beginPath();
+    ctx.moveTo(x+r, y);
+    ctx.lineTo(x+w-r, y);
+    ctx.quadraticCurveTo(x+w, y, x+w, y+r);
+    ctx.lineTo(x+w, y+h-r);
+    ctx.quadraticCurveTo(x+w, y+h, x+w-r, y+h);
+    ctx.lineTo(x+r, y+h);
+    ctx.quadraticCurveTo(x, y+h, x, y+h-r);
+    ctx.lineTo(x, y+r);
+    ctx.quadraticCurveTo(x, y, x+r, y);
+    if (fill) ctx.fill();
+    if (stroke) ctx.stroke();
+  }
+
+  function spawn() {
+    if (items.length >= MAX_ITEMS) return;
+    const t = TYPES[Math.floor(Math.random() * TYPES.length)];
+    const scale = window.innerWidth < 700 ? 0.7 : 1;
+    items.push({
+      type: t,
+      x: W * (0.1 + Math.random() * 0.8),
+      y: -60,
+      vx: (Math.random() - 0.5) * 1.2,
+      vy: 0.5 + Math.random() * 1.5,
+      rot: (Math.random() - 0.5) * 0.9,
+      vr: (Math.random() - 0.5) * 0.08,
+      scale: scale * (0.85 + Math.random() * 0.3),
+      life: 1,
+      born: performance.now(),
+      settled: false
+    });
+  }
+
+  function step(now) {
+    if (!running) return;
+    requestAnimationFrame(step);
+    if (now - lastFrame < FRAME_MS - 2) return;
+    lastFrame = now;
+
+    if (now - lastSpawn > 400 + Math.random() * 400) {
+      spawn();
+      lastSpawn = now;
+    }
+
+    ctx.clearRect(0, 0, W, H);
+
+    // Update physics (simple: vertical gravity + floor stack using top-of-pile lookup)
+    for (let i = 0; i < items.length; i++) {
+      const it = items[i];
+      const age = (now - it.born) / 1000;
+
+      // Find resting Y using overlap with already-settled items below this x
+      let restY = floorY;
+      for (let j = 0; j < items.length; j++) {
+        if (j === i) continue;
+        const other = items[j];
+        if (!other.settled && other !== it) continue;
+        const halfW = (it.type.w * it.scale) / 2;
+        const otherHalfW = (other.type.w * other.scale) / 2;
+        if (Math.abs(it.x - other.x) < halfW + otherHalfW - 6) {
+          const top = other.y - (other.type.h * other.scale) / 2;
+          if (top < restY) restY = top;
+        }
+      }
+      const halfH = (it.type.h * it.scale) / 2;
+      const targetY = restY - halfH;
+
+      if (!it.settled) {
+        it.vy += GRAVITY;
+        it.y += it.vy;
+        it.x += it.vx;
+        it.rot += it.vr;
+        it.vr *= 0.99;
+        it.vx *= 0.995;
+        if (it.y >= targetY) {
+          it.y = targetY;
+          if (it.vy > 2) {
+            it.vy = -it.vy * BOUNCE;
+            it.vx *= FRICTION;
+            it.vr *= 0.6;
+          } else {
+            it.vy = 0;
+            it.vx = 0;
+            it.settled = true;
+            // snap rotation toward nearest 0/pi for realism
+            it.rot = Math.round(it.rot / (Math.PI / 4)) * (Math.PI / 4) + (Math.random()-0.5)*0.2;
+          }
+        }
+      }
+
+      // Dissolve oldest if pile is too tall
+      if (age > 8 && it.y < floorY - H * 0.55) {
+        it.life -= 0.015;
+      }
+
+      // Draw
+      ctx.save();
+      ctx.translate(it.x, it.y);
+      ctx.rotate(it.rot);
+      ctx.scale(it.scale, it.scale);
+      if (it.life < 1) {
+        ctx.globalAlpha = Math.max(0, it.life);
+        ctx.shadowColor = '#3ddc84';
+        ctx.shadowBlur = 20 * (1 - it.life);
+      }
+      it.type.draw(ctx);
+      ctx.restore();
+    }
+
+    // Remove dead items
+    items = items.filter(it => it.life > 0.05);
+
+    // Floor line
+    ctx.strokeStyle = 'rgba(110,231,168,0.22)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(0, floorY);
+    ctx.lineTo(W, floorY);
+    ctx.stroke();
+  }
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      resize();
+      // Re-settle: clear settled flag bottom items remain roughly positioned
+      items.forEach(it => { if (it.y > floorY) it.y = floorY; });
+    }, 120);
+  });
+
+  // Pause when off-screen
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      running = e.isIntersecting;
+      if (running) {
+        lastFrame = 0;
+        requestAnimationFrame(step);
+      }
+    });
+  }, { threshold: 0 });
+  io.observe(canvas);
+
+  resize();
+  // Seed a few so the pile looks non-empty on load
+  for (let i = 0; i < 6; i++) {
+    spawn();
+    const it = items[items.length-1];
+    if (it) { it.y = floorY - 20 - i * 30; it.vy = 2; }
+  }
+  requestAnimationFrame(step);
+}
+
+initJunkAbyss();
+
+// ---- LIVE TICKER (pickups today counter) ----
+(function ticker() {
+  const el = document.getElementById('tickPickups');
+  if (!el) return;
+  // Seed based on hour so repeat visitors see plausible growth through day
+  const hour = new Date().getHours();
+  let count = Math.floor(3 + (hour / 24) * 22 + Math.random() * 4); // grows with hour
+  el.textContent = count;
+  function bump() {
+    if (document.hidden) return;
+    if (Math.random() < 0.55) {
+      count += 1;
+      el.textContent = count;
+      el.style.transition = 'color 0.4s ease';
+      el.style.color = '#bfffda';
+      setTimeout(() => { el.style.color = ''; }, 450);
+    }
+  }
+  setInterval(bump, 4000 + Math.random() * 4000);
+})();
+
+// ---- BEFORE/AFTER drag slider ----
+(function baSlider() {
+  const slider = document.getElementById('baSlider');
+  const handle = document.getElementById('baHandle');
+  if (!slider || !handle) return;
+  let pos = 50;
+  let dragging = false;
+
+  function setPos(p) {
+    pos = Math.max(0, Math.min(100, p));
+    slider.style.setProperty('--ba-pos', pos + '%');
+    handle.setAttribute('aria-valuenow', Math.round(pos));
+  }
+  setPos(50);
+
+  function pctFromEvent(e) {
+    const rect = slider.getBoundingClientRect();
+    const x = (e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0].clientX)) - rect.left;
+    return (x / rect.width) * 100;
+  }
+
+  slider.addEventListener('pointerdown', (e) => {
+    dragging = true;
+    slider.classList.add('dragging');
+    slider.setPointerCapture && slider.setPointerCapture(e.pointerId);
+    setPos(pctFromEvent(e));
+    e.preventDefault();
+  });
+  slider.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    setPos(pctFromEvent(e));
+  });
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(ev => {
+    slider.addEventListener(ev, () => {
+      dragging = false;
+      slider.classList.remove('dragging');
+    });
+  });
+  handle.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { setPos(pos - 4); e.preventDefault(); }
+    if (e.key === 'ArrowRight') { setPos(pos + 4); e.preventDefault(); }
+  });
+})();
+
+// ---- SERVICE CARD tap (mobile micro-interaction) ----
+document.querySelectorAll('.service-card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.add('tapped');
+    setTimeout(() => card.classList.remove('tapped'), 1200);
+  });
+});
+
+// ---- PRICING TRUCK ----
+(function pricingTruck() {
+  const truck = document.getElementById('pricingTruck');
+  const cards = document.querySelectorAll('#pricing .price-card');
+  if (!truck || !cards.length) return;
+  let idx = 0;
+  function position(i) {
+    const card = cards[i];
+    if (!card) return;
+    const parent = truck.offsetParent;
+    if (!parent) return;
+    const pr = parent.getBoundingClientRect();
+    const cr = card.getBoundingClientRect();
+    const left = (cr.left - pr.left) + cr.width/2 - 32;
+    truck.style.left = left + 'px';
+  }
+  setTimeout(() => position(idx), 300);
+  if (window.matchMedia('(min-width: 900px)').matches && !REDUCED_MOTION) {
+    setInterval(() => {
+      idx = (idx + 1) % cards.length;
+      position(idx);
+    }, 3200);
+  }
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      const i = Array.from(cards).indexOf(card);
+      position(i);
+    });
+    card.addEventListener('click', () => {
+      card.classList.remove('puff');
+      // trigger reflow
+      void card.offsetWidth;
+      card.classList.add('puff');
+      setTimeout(() => card.classList.remove('puff'), 800);
+    });
+  });
+  window.addEventListener('resize', () => position(idx));
+})();
+
+// ---- FAKE INCOMING CALL (Easter egg) ----
+(function incomingCall() {
+  const el = document.getElementById('incomingCall');
+  const decline = document.getElementById('callDecline');
+  const accept = document.getElementById('callAccept');
+  const footer = document.querySelector('.footer');
+  if (!el || !footer) return;
+
+  let dismissed = false;
+  try { dismissed = sessionStorage.getItem('gunoi_call_dismissed') === '1'; } catch (e) {}
+  let footerInView = false;
+  let showing = false;
+
+  const fio = new IntersectionObserver(entries => {
+    entries.forEach(e => { footerInView = e.isIntersecting; });
+  }, { threshold: 0.1 });
+  fio.observe(footer);
+
+  function show() {
+    if (dismissed || showing || !footerInView || document.hidden) return;
+    showing = true;
+    el.classList.add('show');
+    el.setAttribute('aria-hidden', 'false');
+    // Auto-hide after 12s if no action
+    setTimeout(() => {
+      if (showing) hide();
+    }, 12000);
+  }
+  function hide() {
+    showing = false;
+    el.classList.remove('show');
+    el.setAttribute('aria-hidden', 'true');
+  }
+
+  decline && decline.addEventListener('click', () => {
+    hide();
+    dismissed = true;
+    try { sessionStorage.setItem('gunoi_call_dismissed', '1'); } catch (e) {}
+  });
+  accept && accept.addEventListener('click', () => {
+    hide();
+    // Let tel: link proceed naturally
+  });
+
+  // Trigger cycle
+  setInterval(() => {
+    if (!showing) show();
+    else if (Math.random() < 0.3) hide();
+  }, 22000);
+})();
+
+// ---- SOUND TOGGLE (decorative stub) ----
+(function soundToggle() {
+  const btn = document.getElementById('soundToggle');
+  if (!btn) return;
+  let on = false;
+  btn.addEventListener('click', () => {
+    on = !on;
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+})();

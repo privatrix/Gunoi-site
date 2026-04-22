@@ -16,8 +16,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="styles.css" />
 
@@ -63,70 +62,53 @@
   <button type="button" id="launchClose" class="launch-close" aria-label="Închide">×</button>
 </div>
 
-<!-- ========== HERO ========== -->
-<header class="hero">
-  <div class="hero-inner">
-    <span class="badge">
-      <span class="badge-dot" aria-hidden="true"></span>
-      <span data-i18n="hero.badge">Chișinău · Răspundem azi</span>
-    </span>
+<!-- ========== HERO · JUNK ABYSS ========== -->
+<header class="hero hero-abyss" role="img" aria-label="Animated illustration of junk piling up">
+  <canvas id="junkAbyss" class="abyss-canvas" aria-hidden="true"></canvas>
+  <svg class="abyss-static" viewBox="0 0 800 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <rect width="800" height="600" fill="#0a0f0a"/>
+    <g opacity="0.95">
+      <rect x="60" y="470" width="260" height="90" rx="10" fill="#1a3d28" stroke="#6ee7a8" stroke-width="2"/>
+      <rect x="70" y="450" width="60" height="30" rx="6" fill="#1a3d28" stroke="#6ee7a8" stroke-width="2"/>
+      <rect x="140" y="450" width="90" height="30" rx="6" fill="#1a3d28" stroke="#6ee7a8" stroke-width="2"/>
+      <rect x="240" y="450" width="60" height="30" rx="6" fill="#1a3d28" stroke="#6ee7a8" stroke-width="2"/>
+      <rect x="340" y="490" width="110" height="70" fill="#6b4a28" stroke="#8a7a5c" stroke-width="2"/>
+      <line x1="340" y1="525" x2="450" y2="525" stroke="#8a7a5c" stroke-width="2"/>
+      <line x1="395" y1="490" x2="395" y2="560" stroke="#8a7a5c" stroke-width="2"/>
+      <rect x="470" y="470" width="100" height="90" fill="#0e1610" stroke="#5a5a5a" stroke-width="2"/>
+      <rect x="478" y="478" width="84" height="60" fill="#111a14"/>
+      <rect x="590" y="500" width="150" height="60" fill="#8a7a5c" stroke="#a68f6a" stroke-width="2"/>
+      <line x1="590" y1="515" x2="740" y2="515" stroke="#a68f6a"/>
+      <line x1="590" y1="540" x2="740" y2="540" stroke="#a68f6a"/>
+    </g>
+  </svg>
 
-    <h1 class="hero-title">
-      <span class="hero-title-1" data-i18n="hero.title1">Scăpăm de gunoiul tău.</span>
-      <span class="hero-title-2" data-i18n="hero.title2">Rapid și ieftin.</span>
+  <div class="abyss-overlay">
+    <h1 class="abyss-title">
+      <span class="abyss-line-1" data-i18n="hero.title1">Tot asta.</span>
+      <span class="abyss-line-2" data-i18n="hero.title2">Dispare mâine.</span>
     </h1>
 
-    <p class="hero-sub" data-i18n="hero.sub">
-      Mobilă veche, debris, electrocasnice, evacuări complete. Ofertă clară la telefon.
-    </p>
-
-    <div class="hero-cta-row">
-      <a href="tel:+37369269888" class="btn btn-primary">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+    <div class="abyss-ctas">
+      <a href="tel:+37369269888" class="btn btn-primary btn-mega">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
         <span data-i18n="hero.cta1">Sună: +373 69 269 888</span>
       </a>
-      <a href="#contact" class="btn btn-secondary">
-        <span data-i18n="hero.cta2">Cere ofertă</span>
-        <span class="btn-arrow" aria-hidden="true">→</span>
-      </a>
-    </div>
-
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-num" data-i18n="stats.time">24-48h</span>
-        <span class="stat-label" data-i18n="stats.timeL">De la apel la evacuare</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num" data-i18n="stats.price">de la 500 MDL</span>
-        <span class="stat-label" data-i18n="stats.priceL">Rută mică</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num" data-i18n="stats.area">Chișinău +</span>
-        <span class="stat-label" data-i18n="stats.areaL">Suburbii incluse</span>
-      </div>
+      <a href="#contact" class="btn btn-secondary btn-ghost-abyss" data-i18n="hero.cta2">Cere ofertă</a>
     </div>
   </div>
 
-  <div class="hero-visual" aria-hidden="false">
-    <div class="hero-image-wrap">
-      <img
-        class="hero-image"
-        src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=1200&q=80&auto=format&fit=crop"
-        alt="Evacuare mobilă și gunoi dintr-un apartament"
-        loading="eager"
-        decoding="async"
-      />
-      <div class="hero-image-badge">
-        <span class="hero-badge-icon" aria-hidden="true">🚛</span>
-        <div class="hero-badge-text">
-          <span class="hero-badge-label" data-i18n="hero.badgeL">Comandă rezolvată</span>
-          <span class="hero-badge-price">1200 MDL</span>
-        </div>
-      </div>
-      <div class="hero-image-overlay" aria-hidden="true"></div>
-    </div>
-  </div>
+  <button id="soundToggle" class="abyss-sound" type="button" aria-label="Sound toggle" aria-pressed="false">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+  </button>
 </header>
+
+<!-- ========== LIVE TICKER ========== -->
+<div class="live-ticker" role="region" aria-label="live stats">
+  <div class="tick"><span class="tick-emoji" aria-hidden="true">🗑️</span><span class="tick-label" data-i18n="tick.pickups">Ridicări azi:</span> <strong id="tickPickups">—</strong></div>
+  <div class="tick"><span class="tick-emoji" aria-hidden="true">⚡</span><span class="tick-label" data-i18n="tick.resp">Răspuns mediu:</span> <strong data-i18n="tick.respVal">47 min</strong></div>
+  <div class="tick"><span class="tick-emoji" aria-hidden="true">📍</span><span data-i18n="tick.area">Chișinău + suburbii</span></div>
+</div>
 
 <!-- ========== SERVICES ========== -->
 <section id="services" class="services">
@@ -183,6 +165,7 @@
         <h3 class="service-title" data-i18n="s1.t">Gospodării</h3>
         <p class="service-text" data-i18n="s1.d">Mobilă veche, debris, electrocasnice, saci. Venim și seara / weekend.</p>
         <div class="service-price" data-i18n="s1.p">de la 500 MDL</div>
+        <a href="tel:+37369269888" class="service-mini-cta" data-i18n="svc.mini">+ Cere ofertă</a>
       </div>
     </article>
 
@@ -241,6 +224,7 @@
         <h3 class="service-title" data-i18n="s2.t">Firme & oficii</h3>
         <p class="service-text" data-i18n="s2.d">Birouri, șantier, mobilier, echipament. Facturi și contract pentru firme.</p>
         <div class="service-price" data-i18n="s2.p">ofertă personalizată</div>
+        <a href="tel:+37369269888" class="service-mini-cta" data-i18n="svc.mini">+ Cere ofertă</a>
       </div>
     </article>
 
@@ -289,6 +273,7 @@
         <h3 class="service-title" data-i18n="s3.t">Proprietari în chirie</h3>
         <p class="service-text" data-i18n="s3.d">Apartament lăsat plin? Curățăm până la pereți. Predai a doua zi.</p>
         <div class="service-price" data-i18n="s3.p">ofertă la fața locului</div>
+        <a href="tel:+37369269888" class="service-mini-cta" data-i18n="svc.mini">+ Cere ofertă</a>
       </div>
     </article>
 
@@ -351,6 +336,7 @@
         <h3 class="service-title" data-i18n="s4.t">Urgențe & evenimente</h3>
         <p class="service-text" data-i18n="s4.d">Azi, acum, urgent. Curățare după petreceri, mutări, demolări mici.</p>
         <div class="service-price" data-i18n="s4.p">de la 500 MDL</div>
+        <a href="tel:+37369269888" class="service-mini-cta" data-i18n="svc.mini">+ Cere ofertă</a>
       </div>
     </article>
   </div>
@@ -360,29 +346,29 @@
 <section class="how how-alt">
   <div class="section-head">
     <div class="section-eyebrow" data-i18n="how.eyebrow">Cum funcționează</div>
-    <h2 class="section-title" data-i18n="how.title">Trei pași. Fără bătăi de cap.</h2>
+    <h2 class="section-title" data-i18n="how.title">3 pași.</h2>
   </div>
 
   <div class="steps">
     <article class="step reveal">
       <div class="step-num">01</div>
       <div class="step-icon" aria-hidden="true">📞</div>
-      <h3 class="step-title" data-i18n="hw1.t">Ne suni</h3>
-      <p class="step-text" data-i18n="hw1.d">Sună la <a href="tel:+37369269888" class="inline-phone">+373 69 269 888</a>. Descrie volumul și adresa. O foto ajută.</p>
+      <h3 class="step-title" data-i18n="hw1.t">Suni</h3>
+      <p class="step-text" data-i18n="hw1.d">Sună la <a href="tel:+37369269888" class="inline-phone">+373 69 269 888</a>.</p>
     </article>
 
     <article class="step reveal">
       <div class="step-num">02</div>
       <div class="step-icon" aria-hidden="true">💬</div>
-      <h3 class="step-title" data-i18n="hw2.t">Primești prețul</h3>
-      <p class="step-text" data-i18n="hw2.d">Ofertă la telefon, fără surprize. Stabilim ziua și ora.</p>
+      <h3 class="step-title" data-i18n="hw2.t">Preț</h3>
+      <p class="step-text" data-i18n="hw2.d">Ofertă clară la telefon. Stabilim ora.</p>
     </article>
 
     <article class="step reveal">
       <div class="step-num">03</div>
       <div class="step-icon" aria-hidden="true">🚛</div>
-      <h3 class="step-title" data-i18n="hw3.t">Ridicăm, plătești</h3>
-      <p class="step-text" data-i18n="hw3.d">Încărcăm, ducem la depozit legal. Plătești pe loc. Bon sau factură.</p>
+      <h3 class="step-title" data-i18n="hw3.t">Dispare</h3>
+      <p class="step-text" data-i18n="hw3.d">Ridicăm, plătești, gata.</p>
     </article>
   </div>
 </section>
@@ -395,6 +381,14 @@
   </div>
 
   <div class="price-cards">
+    <div class="pricing-truck" id="pricingTruck" aria-hidden="true">
+      <svg viewBox="0 0 80 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="10" width="40" height="20"/>
+        <path d="M44 18 L56 18 L66 26 L66 30 L44 30"/>
+        <circle cx="18" cy="34" r="4"/>
+        <circle cx="52" cy="34" r="4"/>
+      </svg>
+    </div>
     <article class="price-card reveal">
       <div class="price-card-icon" aria-hidden="true">
         <!-- Small van -->
@@ -503,7 +497,7 @@
 
   <div class="why-grid">
     <div class="beforeafter reveal">
-      <div class="ba-stack">
+      <div class="ba-stack ba-slider" id="baSlider">
         <div class="ba-layer ba-before">
           <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
             <!-- warm/sepia-ish room -->
@@ -604,6 +598,12 @@
             </g>
           </svg>
           <span class="ba-label ba-label-after" data-i18n="ba.after">După</span>
+        </div>
+        <div class="ba-handle" id="baHandle" role="slider" tabindex="0" aria-label="Comparison slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <div class="ba-handle-line"></div>
+          <div class="ba-handle-knob">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 3 12 9 18"/><polyline points="15 6 21 12 15 18"/></svg>
+          </div>
         </div>
       </div>
     </div>
@@ -719,6 +719,26 @@
     </div>
   </div>
 </section>
+
+<!-- ========== FAKE INCOMING CALL (Easter egg) ========== -->
+<div id="incomingCall" class="incoming" aria-hidden="true">
+  <div class="incoming-card">
+    <div class="incoming-avatar" aria-hidden="true">📞</div>
+    <div class="incoming-text">
+      <div class="incoming-name" data-i18n="call.name">gunoi.md — Chișinău</div>
+      <div class="incoming-num">+373 69 269 888</div>
+      <div class="incoming-sub" data-i18n="call.sub">apel primit…</div>
+    </div>
+    <div class="incoming-actions">
+      <button id="callDecline" class="incoming-btn incoming-decline" type="button" aria-label="Decline">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" transform="rotate(135 12 12)"/></svg>
+      </button>
+      <a id="callAccept" href="tel:+37369269888" class="incoming-btn incoming-accept" aria-label="Accept">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- ========== FOOTER ========== -->
 <footer class="footer">
