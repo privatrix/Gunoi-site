@@ -1,105 +1,69 @@
-# gunoi.md — site
+# gunoi.md — Landing Site
 
-Landing page for **gunoi.md** — a paid waste collection service for Chișinău and surrounding suburbs in Moldova.
+TaskRabbit-style trust-marketplace landing page for a waste-collection service in Chișinău, Moldova.
+Bilingual: Romanian (default) + Russian toggle.
 
-## What this is
+## Stack
 
-Pure static HTML/CSS/JS. No framework, no build step. Deployed on Vercel (auto-deploys on push to main).
-
-## Positioning
-
-**We collect your trash, you pay us.** Primary offer:
-
-- Household cleanouts (renovation debris, old furniture, appliances, general junk)
-- Business / office clearances and construction sites
-- Landlord turnovers (post-tenant apartment cleanouts)
-- One-off urgent jobs and event cleanup
-
-**Hybrid scrap angle:** if the load contains valuable scrap metal (radiators, copper, appliances with motors, etc.), we deduct its value from the invoice. Kept subtle — not the hero.
-
-## Languages
-
-**Romanian (default) + Russian only.** No English.
-
-- RO is the primary audience (Moldova)
-- RU is critical for Chișinău's Russian-speaking population
-- Toggle in the nav, persisted in `localStorage` under `gunoi_lang`
-- All strings live in the `translations` object in `script.js` keyed by `data-i18n` attributes
+- Vanilla HTML / CSS / JS. Zero build step, zero framework.
+- Google Fonts: `Inter` (body) + `Space Grotesk` (headings).
+- Deployed via Vercel auto-deploy from GitHub.
 
 ## Files
 
-- `index.html` — markup, structure, all `data-i18n` keys
-- `styles.css` — dark industrial-green visual system
-- `script.js` — language toggle, scroll reveals, launch-banner dismissal, contact form
+- `index.html` — markup, 13 sections (nav, banner, hero, trust strip, categories, steps, pricing, about, before/after, reviews, FAQ, contact, footer).
+- `styles.css` — light-mode design system (`--green`, `--accent`, typography, components).
+- `script.js` — i18n (RO/RU), banner dismiss + persistence, nav shadow, category→form prefill, form handler (localStorage + mailto TODO), before/after drag slider (pointer + keyboard).
 
-## Visual system
+## Design tokens
 
-- **Hero** — punchy 2-line headline + photo with animated info badge + subtle `heroZoom` loop
-- **Services** — 4 cards with Unsplash photos (household / business / landlord / events)
-- **How it works** — 3 steps, staggered fade-in on scroll
-- **Pricing** — 3 SaaS-style cards (Mic/Mediu/Mare) with inline SVG van/truck icons, plus two callouts for full-clearance and single bulky items
-- **Why us** — before/after photo strip + trust list
-- **FAQ** — native `<details>/<summary>` accordion, all collapsed by default
-- **Launch banner** — dismissible top strip for the "first 10 clients get 20% off" promo; dismissal persists in `localStorage`
-- **Animations** — pure CSS + one `IntersectionObserver` for `.reveal`. Respects `prefers-reduced-motion`.
-- **Images** — hotlinked from `images.unsplash.com` with `loading="lazy"` and RO `alt` text
+- Primary green: `#3ddc84` / hover `#2bb369`
+- Warm accent (pricing): `#ffb454`
+- Text: charcoal `#1a1f1c`
+- Background: `#ffffff` + soft tint `#f8faf7`
+- Borders: `#e5ebe7`
+- Radius scale: 8 / 14 / 20 / 28 px
+- Shadows: three tiers (`--shadow-sm/md/lg`)
 
-## Contact / conversion
+## i18n
 
-Primary conversion is the phone number — prominent in the header, hero, pricing CTA, contact section, and footer.
+All user-visible strings live in `I18N` (script.js) under `ro` and `ru`. HTML nodes use `data-i18n="<key>"`. Language is picked from:
+1. `localStorage['gunoi.lang']`
+2. Browser `navigator.language` (starts with `ru` → Russian)
+3. Fallback to Romanian
 
-- **Display:** `+373 69 269 888`
-- **tel: link:** `tel:+37369269888`
+## Inline SVG illustrations
 
-The contact form is a secondary channel. Right now it stores submissions in `localStorage` (`gunoi_requests`) and opens a `mailto:` fallback to `salut@gunoi.md`. **TODO:** wire to a real backend (Formspree or a Vercel serverless `/api/contact` using Resend).
+No external image deps. Everything is inline SVG:
+- **Hero scene** — collector figure + branded truck + buildings + tree + badges (5★ and area pill)
+- **Category icons** — 8 line-style icons (furniture, appliance, construction, home, office, event, metal, container)
+- **Before/after** — two full-viewport SVGs for the drag-slider comparison (cluttered-room → clean-room)
+- **Logo** — green rounded tile with trash-bag glyph
 
-## Pricing anchors shown on site
+## Interactions
 
-| Tier | Romanian | Russian |
-|---|---|---|
-| Small (up to 1m³) | de la 500 MDL | от 500 MDL |
-| Medium (~3m³) | de la 1200 MDL | от 1200 MDL |
-| Large (truck ~7m³) | de la 2500 MDL | от 2500 MDL |
-| Full apartment/house | ofertă la fața locului | оценка на месте |
-| Bulky single items | de la 300 MDL/bucată | от 300 MDL/шт |
+- Sticky nav with scroll-triggered shadow
+- Dismissible launch banner (persists in `localStorage`)
+- Category cards prefill the contact form's `Categorie` select and smooth-scroll to the form
+- Before/After drag slider (pointer + keyboard arrows / Home / End)
+- Form: native validation; submissions stored in `localStorage`; mailto fallback prepared (commented — uncomment to enable)
 
-## Preview locally
+## Accessibility
 
-```bash
-cd site
-python3 -m http.server 8000
-# → open http://localhost:8000
-```
+- WCAG AA contrast (charcoal on white/off-white)
+- `aria-label` on interactive controls (lang toggle, banner close, phone button, BA slider)
+- `prefers-reduced-motion` respected (disables hero float + smooth scroll)
+- All form fields have labels, `autocomplete` hints, `required` on name + phone
+
+## TODO (backend)
+
+- Wire form to a real endpoint (Formspree / Resend / API route). Right now submissions are only stored in `localStorage` for dev, with a commented mailto fallback.
+- Email inbox: `salut@gunoi.md` (generic, no personal email used).
 
 ## Deploy
 
-Already on Vercel. Any push to `main` auto-deploys. To deploy elsewhere, just drag the `site/` folder to Netlify Drop or Cloudflare Pages — it's truly static.
+Vercel auto-deploys on push to GitHub. No build config needed — static.
 
-## Design system
+## License
 
-**Colors**
-- Background: `#0a0f0a`
-- Card: `#111a14`
-- Accent: `#6ee7a8` → `#3ddc84`
-- Text: `#e8f0e8` / soft `#a8b5ac` / dim `#6b7a70`
-
-**Fonts**
-- Display/body: **Space Grotesk** (modern, slight industrial)
-- Monospace/data: **JetBrains Mono** (prices, phone, stats)
-
-**Voice**
-- **Romanian:** direct Moldovan Romanian, informal `tu`, not corporate
-- **Russian:** conversational, formal `вы` (standard for commercial)
-
-## Next steps
-
-- [ ] Wire contact form to real backend (Formspree = 3 min; or Vercel `/api/contact` + Resend)
-- [ ] Add proper OG image (`public/images/og.png`)
-- [ ] GA4 or Plausible analytics
-- [ ] Call tracking on the phone number (optional)
-- [ ] Add Google Business Profile link once verified
-
----
-
-*Rebuilt 2026-04-22 — pivot from scrap-buy marketplace to paid waste collection.*
-*Visual refresh 2026-04-22 — images + animations + pricing cards + launch banner; ~40% less copy.*
+Private. © 2026 gunoi.md
