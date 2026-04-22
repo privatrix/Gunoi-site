@@ -669,7 +669,7 @@ a:hover { color: var(--accent-strong); }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(10, 15, 10, 0.6) 100%);
+  background: linear-gradient(180deg, transparent 55%, rgba(10, 15, 10, 0.55) 100%);
   pointer-events: none;
 }
 
@@ -684,6 +684,100 @@ a:hover { color: var(--accent-strong); }
 .service-card:hover .service-photo img {
   transform: scale(1.06);
   filter: saturate(1) brightness(0.9);
+}
+
+/* Inline SVG illustrations in service cards */
+.svc-illu { display: block; }
+.svc-illu svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.service-card:hover .svc-illu svg {
+  transform: scale(1.03);
+}
+
+/* Subtle bob for household items */
+@keyframes svc-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+.svc-illu-household .bob { animation: svc-bob 4s ease-in-out infinite; transform-origin: center; }
+.svc-illu-household .bob-a { animation-duration: 4.2s; animation-delay: 0s; }
+.svc-illu-household .bob-b { animation-duration: 3.4s; animation-delay: 0.4s; }
+.svc-illu-household .bob-c { animation-duration: 5s;   animation-delay: 0.8s; }
+
+/* Office: chair rocks slightly, paper drifts */
+@keyframes svc-rock {
+  0%, 100% { transform: rotate(-1.2deg); }
+  50%      { transform: rotate(1.2deg); }
+}
+.svc-illu-office .rock {
+  transform-box: fill-box;
+  transform-origin: 50% 80%;
+  animation: svc-rock 3.8s ease-in-out infinite;
+}
+@keyframes svc-paper-float {
+  0%, 100% { transform: translate(0, 0) rotate(0); }
+  50%      { transform: translate(-10px, 8px) rotate(-3deg); }
+}
+.svc-illu-office .paper-float {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: svc-paper-float 6s ease-in-out infinite;
+}
+
+/* Landlord: door swings, broom sweeps */
+@keyframes svc-door-swing {
+  0%, 100% { transform: perspective(600px) rotateY(0deg); }
+  50%      { transform: perspective(600px) rotateY(-22deg); }
+}
+.svc-illu-landlord .door-swing {
+  transform-box: fill-box;
+  transform-origin: 100% 50%;
+  animation: svc-door-swing 5.5s ease-in-out infinite;
+}
+@keyframes svc-broom-sweep {
+  0%, 100% { transform: rotate(-6deg); }
+  50%      { transform: rotate(6deg); }
+}
+.svc-illu-landlord .broom-sweep {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: svc-broom-sweep 3.2s ease-in-out infinite;
+}
+
+/* Event: balloon deflates slightly, cup rolls a touch */
+@keyframes svc-deflate {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(0.88, 0.84); }
+}
+.svc-illu-event .deflate {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: svc-deflate 6s ease-in-out infinite;
+}
+@keyframes svc-cup-roll {
+  0%, 100% { transform: rotate(-22deg) translateX(0); }
+  50%      { transform: rotate(-10deg) translateX(6px); }
+}
+.svc-illu-event .cup-roll {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: svc-cup-roll 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-illu-household .bob,
+  .svc-illu-office .rock,
+  .svc-illu-office .paper-float,
+  .svc-illu-landlord .door-swing,
+  .svc-illu-landlord .broom-sweep,
+  .svc-illu-event .deflate,
+  .svc-illu-event .cup-roll {
+    animation: none;
+  }
 }
 
 .service-body {
@@ -1094,41 +1188,65 @@ a:hover { color: var(--accent-strong); }
   }
 }
 
-/* Before/after strip */
+/* Before/after strip — stacked crossfade */
 .beforeafter {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
-.ba-item {
+.ba-stack {
   position: relative;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: var(--radius);
   background: var(--bg-card);
   border: 1px solid var(--border);
 }
 
-.ba-item img {
+.ba-layer {
+  position: absolute;
+  inset: 0;
+  animation: ba-crossfade 8s ease-in-out infinite;
+}
+
+.ba-layer svg {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
+  display: block;
 }
 
-.ba-item:hover img {
-  transform: scale(1.05);
+.ba-before { animation-delay: 0s; }
+.ba-after  { animation-delay: 4s; }
+
+.ba-before .ba-label,
+.ba-after  .ba-label {
+  animation: ba-label-fade 8s ease-in-out infinite;
+}
+.ba-before .ba-label { animation-delay: 0s; }
+.ba-after  .ba-label { animation-delay: 4s; }
+
+@keyframes ba-crossfade {
+  0%        { opacity: 1; }
+  42%       { opacity: 1; }
+  50%       { opacity: 0; }
+  92%       { opacity: 0; }
+  100%      { opacity: 1; }
 }
 
-.ba-before img {
-  filter: grayscale(0.4) brightness(0.7) saturate(0.85);
+@keyframes ba-label-fade {
+  0%, 42%   { opacity: 1; transform: translateY(0); }
+  50%, 92%  { opacity: 0; transform: translateY(-4px); }
+  100%      { opacity: 1; transform: translateY(0); }
 }
 
-.ba-after img {
-  filter: saturate(1) brightness(0.95);
+@media (prefers-reduced-motion: reduce) {
+  .ba-layer,
+  .ba-before .ba-label,
+  .ba-after  .ba-label {
+    animation: none;
+  }
+  .ba-after { opacity: 1; }
+  .ba-before { opacity: 0.45; }
 }
 
 .ba-label {
@@ -1561,7 +1679,7 @@ a:hover { color: var(--accent-strong); }
   .scrap-title { font-size: 17px; }
   .price-card { padding: 28px 22px 24px; }
   .price-card-icon { max-width: 110px; height: 56px; }
-  .ba-item { aspect-ratio: 3 / 4; }
+  .ba-stack { aspect-ratio: 4 / 5; }
 }
 
 @media (max-width: 380px) {
