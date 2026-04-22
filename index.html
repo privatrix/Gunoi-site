@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0f0a" />
+  <title>gunoi.md — Gunoiul tău face bani</title>
+  <meta name="description" content="Prima platformă AI din Moldova care transformă gunoiul tău în bani. Ridicăm metale, electrocasnice și deșeuri valoroase — plătim la ridicare." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="gunoi.md — Gunoiul tău face bani" />
+  <meta property="og:description" content="Prima platformă AI din Moldova care transformă gunoiul tău în bani." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Ambient background -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="#" class="logo">
+      <span class="logo-mark">♻</span>
+      <span class="logo-text">gunoi<span class="logo-dot">.</span>md</span>
+    </a>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+        <span data-lang-active>RO</span> / <span data-lang-inactive>EN</span>
+      </button>
+      <a href="#waitlist" class="nav-cta">
+        <span data-i18n="nav.cta">Intră pe listă</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span data-i18n="hero.badge">Lansăm în Chișinău — 2026</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="hero-title-1" data-i18n="hero.title1">Gunoiul tău</span>
+        <span class="hero-title-2" data-i18n="hero.title2">face bani.</span>
+      </h1>
+
+      <p class="hero-sub" data-i18n="hero.sub">
+        Prima platformă AI din Moldova care ridică metalele, electrocasnicele vechi și deșeurile valoroase de la ușa ta — și îți plătește pentru ele. Fără negociere. Fără surprize.
+      </p>
+
+      <div class="hero-cta-row">
+        <a href="#waitlist" class="btn btn-primary">
+          <span data-i18n="hero.cta1">Intră pe lista de așteptare</span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="#how" class="btn btn-ghost">
+          <span data-i18n="hero.cta2">Cum funcționează</span>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">AI</div>
+          <div class="stat-label" data-i18n="stats.ai">Estimare instant</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">24h</div>
+          <div class="stat-label" data-i18n="stats.pickup">Ridicare rapidă</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">0 lei</div>
+          <div class="stat-label" data-i18n="stats.fee">Taxe pentru tine</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Animated value card -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="card-phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="scan-header">
+            <div class="scan-dot"></div>
+            <span>Scan AI</span>
+          </div>
+          <div class="scan-object">
+            <div class="scan-item">
+              <div class="scan-icon">⚙</div>
+              <div class="scan-lines">
+                <div class="scan-line"></div>
+                <div class="scan-line short"></div>
+              </div>
+            </div>
+            <div class="scan-beam"></div>
+          </div>
+          <div class="scan-result">
+            <div class="scan-result-label" data-i18n="scan.identified">Identificat</div>
+            <div class="scan-result-name">Motor electric · 12kg</div>
+            <div class="scan-price-row">
+              <div class="scan-price-label" data-i18n="scan.price">Valoare estimată</div>
+              <div class="scan-price-value">~ 340 lei</div>
+            </div>
+            <button class="scan-book" data-i18n="scan.book">Programează ridicarea</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how" id="how">
+    <div class="section-head">
+      <div class="section-eyebrow" data-i18n="how.eyebrow">Cum funcționează</div>
+      <h2 class="section-title" data-i18n="how.title">Trei pași. Niciunul complicat.</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-icon">📸</div>
+        <h3 data-i18n="step1.title">Fotografiază</h3>
+        <p data-i18n="step1.text">Deschide telefonul. Fotografiază obiectul — metal, electrocasnic, cablu, mașină de spălat veche. AI-ul nostru îl identifică instant.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-icon">💰</div>
+        <h3 data-i18n="step2.title">Primești prețul</h3>
+        <p data-i18n="step2.text">Vezi valoarea reală de piață — nu o cifră inventată. Transparent. Dacă ești de acord, programezi ridicarea.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-icon">🚚</div>
+        <h3 data-i18n="step3.title">Venim. Plătim.</h3>
+        <p data-i18n="step3.text">Un colector verificat vine la ușa ta în 24-48h. Cântărește, verifică, plătește pe loc. Tu câștigi. Moldova câștigă.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we collect -->
+  <section class="collect">
+    <div class="section-head">
+      <div class="section-eyebrow" data-i18n="collect.eyebrow">Ce ridicăm</div>
+      <h2 class="section-title" data-i18n="collect.title">Dacă are valoare, o vrem.</h2>
+    </div>
+
+    <div class="collect-grid">
+      <div class="collect-item">
+        <div class="collect-emoji">🔧</div>
+        <h4 data-i18n="c1.t">Metale feroase</h4>
+        <p data-i18n="c1.d">Fier, oțel, tablă, radiatoare, țevi, piese auto</p>
+      </div>
+      <div class="collect-item premium">
+        <div class="collect-emoji">⚡</div>
+        <h4 data-i18n="c2.t">Metale neferoase</h4>
+        <p data-i18n="c2.d">Cupru, alamă, aluminiu, plumb, zinc — cele mai valoroase</p>
+      </div>
+      <div class="collect-item">
+        <div class="collect-emoji">🔌</div>
+        <h4 data-i18n="c3.t">Electrocasnice</h4>
+        <p data-i18n="c3.d">Mașini de spălat, frigidere, sobe, aparate de aer condiționat</p>
+      </div>
+      <div class="collect-item">
+        <div class="collect-emoji">📱</div>
+        <h4 data-i18n="c4.t">Electronice</h4>
+        <p data-i18n="c4.d">Calculatoare, televizoare, plăci, cabluri, componente</p>
+      </div>
+      <div class="collect-item">
+        <div class="collect-emoji">🚗</div>
+        <h4 data-i18n="c5.t">Auto & vehicule</h4>
+        <p data-i18n="c5.d">Mașini casate, motoare, baterii, catalizatoare, jante</p>
+      </div>
+      <div class="collect-item">
+        <div class="collect-emoji">🏗</div>
+        <h4 data-i18n="c6.t">Construcții</h4>
+        <p data-i18n="c6.d">Debris de la șantier, armătură, tâmplărie, materiale recuperabile</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="why">
+    <div class="why-inner">
+      <div class="why-left">
+        <div class="section-eyebrow" data-i18n="why.eyebrow">De ce gunoi.md</div>
+        <h2 class="section-title" data-i18n="why.title">Prima dată când pe cineva chiar îl interesează gunoiul tău.</h2>
+        <p class="why-body" data-i18n="why.body">
+          Până acum, ridicarea fierului vechi în Moldova însemna să suni la cineva, să negociezi, să speri că nu te fură la cântar. Noi facem altfel: AI-ul identifică obiectul, prețul e afișat public, colectorul e verificat și notat, plata se face pe loc. Nu ești la mila nimănui.
+        </p>
+
+        <div class="why-points">
+          <div class="why-point">
+            <span class="why-check">✓</span>
+            <span data-i18n="why.p1">Preț transparent bazat pe piața reală</span>
+          </div>
+          <div class="why-point">
+            <span class="why-check">✓</span>
+            <span data-i18n="why.p2">Colectori verificați, evaluați de alți utilizatori</span>
+          </div>
+          <div class="why-point">
+            <span class="why-check">✓</span>
+            <span data-i18n="why.p3">Plată pe loc — cash sau transfer bancar</span>
+          </div>
+          <div class="why-point">
+            <span class="why-check">✓</span>
+            <span data-i18n="why.p4">Documente pentru firme — conforme cu normele UE</span>
+          </div>
+          <div class="why-point">
+            <span class="why-check">✓</span>
+            <span data-i18n="why.p5">Urmărești cât ai reciclat și cât ai câștigat</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-right">
+        <div class="impact-card">
+          <div class="impact-header" data-i18n="impact.title">Impact colectiv estimat</div>
+          <div class="impact-big">
+            <span class="impact-num" id="impactTons">2,400</span>
+            <span class="impact-unit" data-i18n="impact.unit">tone/an</span>
+          </div>
+          <div class="impact-desc" data-i18n="impact.desc">
+            de metal care azi zace prin curți și garaje în Chișinău și care poate intra înapoi în economia reală.
+          </div>
+          <div class="impact-meter">
+            <div class="impact-bar" id="impactBar"></div>
+          </div>
+          <div class="impact-sub">
+            <span data-i18n="impact.co2">~ 4.800 tone CO₂ evitat</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- For collectors -->
+  <section class="collectors">
+    <div class="collectors-inner">
+      <div class="section-eyebrow" data-i18n="col.eyebrow">Pentru colectori</div>
+      <h2 class="section-title" data-i18n="col.title">Ești deja în meserie? Platforma e și pentru tine.</h2>
+      <p class="collectors-body" data-i18n="col.body">
+        Dacă ridici deja fier vechi, electrocasnice sau deșeuri valoroase — vino pe platformă. Îți aducem clienți verificați, îți gestionăm programul, îți oferim plăți automate. Zero bătăi de cap cu reclamă pe Facebook.
+      </p>
+      <a href="#waitlist" class="btn btn-secondary">
+        <span data-i18n="col.cta">Devino colector partener</span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Waitlist -->
+  <section class="waitlist" id="waitlist">
+    <div class="waitlist-inner">
+      <div class="waitlist-eyebrow" data-i18n="wl.eyebrow">Lansăm în curând</div>
+      <h2 class="waitlist-title" data-i18n="wl.title">Fii printre primii care transformă gunoiul în bani.</h2>
+      <p class="waitlist-sub" data-i18n="wl.sub">
+        Primii 500 de utilizatori primesc bonus +10% la prima ridicare.
+      </p>
+
+      <form class="waitlist-form" id="waitlistForm" novalidate>
+        <div class="form-row">
+          <input type="text" name="name" id="wlName" placeholder="" required autocomplete="name" />
+          <label for="wlName" data-i18n="wl.name">Numele tău</label>
+        </div>
+        <div class="form-row">
+          <input type="email" name="email" id="wlEmail" placeholder="" required autocomplete="email" />
+          <label for="wlEmail" data-i18n="wl.email">Email</label>
+        </div>
+        <div class="form-row">
+          <input type="tel" name="phone" id="wlPhone" placeholder="" autocomplete="tel" />
+          <label for="wlPhone" data-i18n="wl.phone">Telefon (opțional)</label>
+        </div>
+
+        <div class="role-picker" role="radiogroup">
+          <label class="role-option">
+            <input type="radio" name="role" value="user" checked />
+            <span class="role-icon">👤</span>
+            <span class="role-label" data-i18n="wl.r1">Am gunoi de vândut</span>
+          </label>
+          <label class="role-option">
+            <input type="radio" name="role" value="collector" />
+            <span class="role-icon">🚚</span>
+            <span class="role-label" data-i18n="wl.r2">Sunt colector</span>
+          </label>
+          <label class="role-option">
+            <input type="radio" name="role" value="business" />
+            <span class="role-icon">🏭</span>
+            <span class="role-label" data-i18n="wl.r3">Sunt firmă</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-large">
+          <span data-i18n="wl.submit">Intră pe listă</span>
+          <span class="btn-arrow">→</span>
+        </button>
+
+        <div class="form-message" id="formMessage"></div>
+      </form>
+
+      <div class="trust-row">
+        <span class="trust-item" data-i18n="wl.t1">🔒 Zero spam</span>
+        <span class="trust-item" data-i18n="wl.t2">📍 Chișinău întâi</span>
+        <span class="trust-item" data-i18n="wl.t3">🇲🇩 Făcut în Moldova</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark">♻</span>
+        <span>gunoi.md</span>
+      </div>
+      <div class="footer-tag" data-i18n="footer.tag">Gunoiul tău face bani. Hai să-i scoatem.</div>
+      <div class="footer-meta">
+        <span>© 2026 gunoi.md</span>
+        <span>·</span>
+        <span data-i18n="footer.made">Construit în Chișinău</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
