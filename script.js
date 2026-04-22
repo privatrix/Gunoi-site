@@ -318,33 +318,50 @@ document.querySelectorAll('.cat-card').forEach(card => {
   if (!form) return;
   const okMsg = document.getElementById('formSuccess');
 
-  form.addEventListener('submit', (e) => {
+  // Formspree endpoint — when you create one at formspree.io, replace YOUR_FORM_ID below
+  // Example: 'https://formspree.io/f/mzzbplkq'
+  const FORMSPREE_ENDPOINT = form.dataset.endpoint || '';
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.reportValidity()) return;
 
     const data = Object.fromEntries(new FormData(form).entries());
     data.ts = new Date().toISOString();
 
-    // Save to localStorage (dev/debug)
+    // Save to localStorage (always — belt + suspenders)
     try {
       const arr = JSON.parse(localStorage.getItem('gunoi.submissions') || '[]');
       arr.push(data);
       localStorage.setItem('gunoi.submissions', JSON.stringify(arr));
     } catch (_) {}
 
-    // TODO: replace with real backend POST (e.g. Formspree, API route)
-    // Fallback: open mailto with prefilled content
-    const subject = encodeURIComponent(`Cerere gunoi.md — ${data.name || ''}`);
-    const body = encodeURIComponent(
-      `Nume: ${data.name || ''}\n` +
-      `Telefon: ${data.phone || ''}\n` +
-      `Adresă: ${data.address || ''}\n` +
-      `Categorie: ${data.category || ''}\n` +
-      `Dată: ${data.date || ''}\n\n` +
-      `Detalii:\n${data.message || ''}`
-    );
-    // Uncomment to enable mailto fallback:
-    // window.location.href = `mailto:salut@gunoi.md?subject=${subject}&body=${body}`;
+    // Try Formspree first if configured
+    let sent = false;
+    if (FORMSPREE_ENDPOINT && /^https:\/\/formspree\.io\/f\//.test(FORMSPREE_ENDPOINT)) {
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        sent = res.ok;
+      } catch (_) { sent = false; }
+    }
+
+    // Fallback: open mailto if Formspree not configured or failed
+    if (!sent) {
+      const subject = encodeURIComponent(`Cerere gunoi.md — ${data.name || ''}`);
+      const body = encodeURIComponent(
+        `Nume: ${data.name || ''}\n` +
+        `Telefon: ${data.phone || ''}\n` +
+        `Adresă: ${data.address || ''}\n` +
+        `Categorie: ${data.category || ''}\n` +
+        `Dată: ${data.date || ''}\n\n` +
+        `Detalii:\n${data.message || ''}`
+      );
+      window.location.href = `mailto:gunoimoldova@gmail.com?subject=${subject}&body=${body}`;
+    }
 
     if (okMsg) {
       okMsg.hidden = false;
