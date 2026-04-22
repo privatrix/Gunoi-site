@@ -4,6 +4,45 @@
 
 const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/* ---------- GA4 event helper ---------- */
+function track(event, params = {}) {
+  try {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', event, params);
+    }
+  } catch (_) {}
+}
+
+/* ---------- Auto-track key conversion events ---------- */
+(function autoTrack() {
+  // Phone clicks — the #1 conversion event
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="tel:"]');
+    if (a) {
+      track('phone_click', {
+        location: a.dataset.loc || a.closest('section, header, footer')?.id || a.closest('section, header, footer')?.className || 'unknown',
+        value: 1
+      });
+    }
+    const w = e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"]');
+    if (w) track('whatsapp_click', { value: 1 });
+    const m = e.target.closest('a[href^="mailto:"]');
+    if (m) track('email_click', { value: 1 });
+  }, { passive: true });
+
+  // Category card click
+  document.addEventListener('click', (e) => {
+    const c = e.target.closest('[data-category]');
+    if (c) track('category_click', { category: c.dataset.category });
+  }, { passive: true });
+
+  // Language toggle
+  document.addEventListener('click', (e) => {
+    const l = e.target.closest('[data-lang-switch]');
+    if (l) track('lang_switch', { to: l.dataset.langSwitch });
+  }, { passive: true });
+})();
+
 /* ---------- i18n ---------- */
 const I18N = {
   ro: {
@@ -362,6 +401,13 @@ document.querySelectorAll('.cat-card').forEach(card => {
       );
       window.location.href = `mailto:gunoimoldova@gmail.com?subject=${subject}&body=${body}`;
     }
+
+    // Track form submit as a conversion
+    track('form_submit', {
+      category: data.category || 'uncategorized',
+      via: sent ? 'formspree' : 'mailto',
+      value: 5
+    });
 
     if (okMsg) {
       okMsg.hidden = false;
