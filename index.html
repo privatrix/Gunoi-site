@@ -323,8 +323,7 @@
   }
 
   /* ---------- alarma de gunoi — signature feature ---------- */
-  .dispatch { margin-top: 36px; display: grid; grid-template-columns: 1.55fr 1fr; gap: 20px; align-items: stretch; }
-  @media (max-width: 980px) { .dispatch { grid-template-columns: 1fr; } }
+  .dispatch { margin-top: 36px; display: flex; justify-content: center; }
 
   .dispatch-console {
     background: #0c0b09; color: var(--paper);
@@ -799,15 +798,14 @@
 </section>
 
 <!-- ALARMA DE GUNOI — signature feature -->
-<section class="bg-paper-2" id="alarma" data-screen-label="06 Alarma de gunoi">
+<section class="bg-paper-2" id="alarma" data-screen-label="06 Sună acum">
   <div class="wrap">
-    <span class="eyebrow">Demo dispecer</span>
-    <h2 class="section-title">Alarma de gunoi.<br>Apăsă și privește.</h2>
-    <p class="section-lead">Așa se mișcă echipa când ne suni. Apasă butonul roșu — vezi camionul nostru pornind din bază, ETA pe ecran, sosirea în direct. Demo, dar așa se întâmplă.</p>
+    <h2 class="section-title">Sună acum.</h2>
+    <p class="section-lead">Apasă butonul — ești conectat direct cu echipa noastră.</p>
 
     <div class="dispatch">
-      <!-- console -->
-      <div class="dispatch-console">
+      <!-- console removed -->
+      <div class="dispatch-console" style="display:none">
         <div class="dc-header" id="dcHeader">
           <span class="dc-led" id="dcLed"></span>
           <span class="dc-title">Dispecer · Chișinău · 24/7</span>
@@ -896,23 +894,18 @@
       <!-- Big red button -->
       <aside class="dispatch-btn-wrap">
         <span class="hazard-strip" aria-hidden="true"></span>
-        <div class="stamp">✦ De urgență ✦</div>
-        <h3>Cheamă camionul.</h3>
-        <div class="sublead">Demo · apăsă → privește</div>
+        <div class="stamp">✦ Sună direct ✦</div>
+        <h3>Apasă să suni.</h3>
+        <div class="sublead">apasă → 069 269 888</div>
 
         <div class="alarm-housing">
-          <button type="button" class="alarm-btn" id="alarmBtn" aria-label="Trimite camionul">
+          <a href="tel:069269888" class="alarm-btn" id="alarmBtn" aria-label="Sună acum">
             <span class="ring" aria-hidden="true"></span>
             <span class="cap">
-              <span class="label">APASĂ</span>
-              <span class="sub">trimite camionul</span>
+              <span class="label">SUNĂ</span>
+              <span class="sub">069 269 888</span>
             </span>
-          </button>
-        </div>
-
-        <div class="alarm-foot">
-          <p>Pentru real — sună</p>
-          <a class="phone-big" href="tel:069269888">069 269 888</a>
+          </a>
         </div>
       </aside>
     </div>
@@ -1315,120 +1308,6 @@
   }
   recompute();
 
-  /* ---------- ALARMA DE GUNOI — signature feature ---------- */
-  const dcLed     = document.getElementById('dcLed');
-  const dcHeader  = document.getElementById('dcHeader');
-  const dcStatus  = document.getElementById('dcStatus');
-  const dcTime    = document.getElementById('dcTime');
-  const dcEta     = document.getElementById('dcEta');
-  const dcDist    = document.getElementById('dcDist');
-  const dcTrucks  = document.getElementById('dcTrucks');
-  const dcRoute   = document.getElementById('dcRoute');
-  const dcTruck   = document.getElementById('dcTruck');
-  const alarmBtn  = document.getElementById('alarmBtn');
-
-  /* live clock */
-  function tickClock() {
-    const d = new Date();
-    const pad = n => String(n).padStart(2, '0');
-    dcTime.textContent = pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
-  }
-  tickClock(); setInterval(tickClock, 1000);
-
-  let routeLen = 0;
-  function measureRoute() { try { routeLen = dcRoute.getTotalLength(); } catch(_) {} }
-  measureRoute();
-  window.addEventListener('load', measureRoute);
-
-  let dispatchInFlight = false;
-
-  function dcSetStatus(txt, mode) {
-    dcStatus.querySelector('.txt').textContent = txt;
-    dcStatus.classList.remove('alarm', 'done');
-    dcHeader.classList.remove('alarm', 'done');
-    if (mode === 'alarm') { dcStatus.classList.add('alarm'); dcHeader.classList.add('alarm'); }
-    else if (mode === 'done') { dcStatus.classList.add('done'); dcHeader.classList.add('done'); }
-  }
-
-  function dispatch() {
-    if (dispatchInFlight) return;
-    dispatchInFlight = true;
-
-    alarmBtn.classList.add('pressed', 'locked');
-    setTimeout(() => alarmBtn.classList.remove('pressed'), 220);
-
-    /* reset truck to start */
-    dcTruck.classList.remove('active');
-    const callNum = 1000 + Math.floor(Math.random() * 900);
-
-    /* stage 1 — received */
-    dcSetStatus('🚨 Chemare primită · #' + callNum, 'alarm');
-    dcTrucks.innerHTML = '2 <span class="unit">/ 4</span>';
-    dcEta.innerHTML  = '47 <span class="unit">min</span>';
-    dcDist.innerHTML = '8.2 <span class="unit">km</span>';
-
-    /* stage 2 — assigning */
-    setTimeout(() => {
-      dcSetStatus('Dispecer alocă echipa · Botanica → tine', 'alarm');
-    }, 950);
-
-    /* stage 3 — truck moving */
-    setTimeout(() => {
-      dcSetStatus('Echipa pe drum · camion #M-12', 'alarm');
-      dcRoute.classList.add('active');
-      dcTruck.classList.add('active');
-      runTruck();
-    }, 2050);
-  }
-
-  function runTruck() {
-    if (!routeLen) measureRoute();
-    const start = performance.now();
-    const dur = 6200;
-    const startEta = 47;
-    const startDist = 8.2;
-
-    function frame(now) {
-      const t = Math.min(1, (now - start) / dur);
-      const ease = t < .5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2) / 2;
-      const len = ease * routeLen;
-      try {
-        const p = dcRoute.getPointAtLength(len);
-        const ahead = dcRoute.getPointAtLength(Math.min(len + 2, routeLen));
-        const angle = Math.atan2(ahead.y - p.y, ahead.x - p.x) * 180 / Math.PI;
-        dcTruck.setAttribute('transform', 'translate(' + p.x + ' ' + p.y + ') rotate(' + angle + ')');
-      } catch (_) {}
-      const etaLeft  = Math.max(0, Math.round((1 - ease) * startEta));
-      const distLeft = Math.max(0, ((1 - ease) * startDist)).toFixed(1);
-      dcEta.innerHTML  = etaLeft + ' <span class="unit">min</span>';
-      dcDist.innerHTML = distLeft + ' <span class="unit">km</span>';
-      if (t < 1) requestAnimationFrame(frame);
-      else arrived();
-    }
-    requestAnimationFrame(frame);
-  }
-
-  function arrived() {
-    dcSetStatus('✓ Sosit · echipa la ușă · acum sună real', 'done');
-    dcRoute.classList.remove('active');
-    dcEta.innerHTML  = '0 <span class="unit">min</span>';
-    dcDist.innerHTML = '0 <span class="unit">km</span>';
-    dcTrucks.innerHTML = '3 <span class="unit">/ 4</span>';
-    alarmBtn.classList.remove('locked');
-
-    /* auto-reset to standby after a beat */
-    setTimeout(() => {
-      if (!dispatchInFlight) return;
-      dispatchInFlight = false;
-      dcSetStatus('Standby · gata să ridicăm');
-      dcEta.innerHTML  = '— <span class="unit">min</span>';
-      dcDist.innerHTML = '— <span class="unit">km</span>';
-      dcTruck.classList.remove('active');
-      dcTruck.setAttribute('transform', 'translate(700 90)');
-    }, 4200);
-  }
-
-  alarmBtn.addEventListener('click', dispatch);
 
   /* ---------- LANG TOGGLE (visual only) ---------- */
   document.querySelectorAll('.lang button').forEach(b => {
