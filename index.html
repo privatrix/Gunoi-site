@@ -199,10 +199,10 @@
   .btn.yellow:hover { transform: translate(0, 2px); box-shadow: 0 2px 0 var(--ink); }
 
   /* hero right object */
-  .hero-grid { display: grid; grid-template-columns: 1fr 360px; gap: 48px; align-items: end; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: end; }
   @media (max-width: 1000px) {
     .hero-grid { grid-template-columns: 1fr; }
-    .hero-card { max-width: 420px; margin: 0 auto; transform: none; }
+    .hero-card { max-width: 100%; margin: 0; transform: none; }
   }
   .hero-card {
     border: 1px solid var(--line);
@@ -213,14 +213,9 @@
     transform: rotate(1.2deg);
   }
   .hero-card .mini {
-    aspect-ratio: 4/3; border-radius: 12px; background:
-      repeating-linear-gradient(135deg, #d9d2bc 0 8px, #cec7b0 8px 16px);
-    position: relative; overflow: hidden;
+    aspect-ratio: 4/3; border-radius: 12px; overflow: hidden;
   }
-  .hero-card .mini::after {
-    content: "📷  foto echipă / camion"; position: absolute; inset: auto 0 12px 0; text-align: center;
-    font-family: 'JetBrains Mono'; font-size: 11px; color: #5b563f;
-  }
+  .hero-card .mini img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .hero-card .row { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-size: 13px; }
   .hero-card .row b { font-family: 'Bricolage Grotesque'; font-size: 15px; }
   .hero-card .stars { color: var(--brick); letter-spacing: 1px; }
@@ -666,7 +661,7 @@
     </div>
 
     <aside class="hero-card" aria-label="Pe scurt">
-      <div class="mini" aria-hidden="true"></div>
+      <div class="mini"><img src="/echipa.jpg" alt="Echipa gunoi.md" loading="lazy"></div>
       <div class="row"><b>Echipa noastră</b><span class="mono">azi · 09:42</span></div>
       <div class="row"><span class="stars">★★★★★</span><span class="mono">5.0 / start</span></div>
       <div class="row"><span class="mono" style="color: var(--mute)">Lucrări săptămâna asta</span><b class="mono">37</b></div>
