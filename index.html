@@ -184,6 +184,7 @@
   .hero-title small { display: block; font-size: 0.18em; font-family: 'JetBrains Mono'; font-weight: 700; color: var(--mute); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.9em; }
   .hero-sub { margin-top: 28px; font-size: clamp(17px, 1.6vw, 21px); max-width: 620px; color: var(--ink-2); }
   .hero-ctas { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+  @media (max-width: 700px) { .hero-ctas { flex-direction: column; } .hero-ctas .btn { width: 100%; justify-content: center; } }
   .btn {
     display: inline-flex; align-items: center; gap: 10px;
     border: 1px solid var(--ink); background: var(--ink); color: var(--paper);
