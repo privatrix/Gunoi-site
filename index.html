@@ -71,6 +71,7 @@
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/osmtogeojson@3.0.0-beta.5/osmtogeojson.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800;12..96,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -1143,77 +1144,95 @@
 </footer>
 
 <script>
-  /* ---------- LEAFLET MAP ---------- */
+  /* ---------- LEAFLET MAP — real OSM boundaries via Overpass ---------- */
   (function() {
     const map = L.map('chisinau-map', {
-      center: [47.022, 28.862],
-      zoom: 12,
+      center: [47.030, 28.870],
+      zoom: 11,
       scrollWheelZoom: false,
       zoomControl: true,
-      attributionControl: false
+      attributionControl: true
     });
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19
+      maxZoom: 19,
+      attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>'
     }).addTo(map);
 
-    const ink = '#141311', yellow = '#FFD23F', paper = '#F1ECDE', brick = '#C9381D';
+    /* zone config — keys must match OSM name tag (or alias below) */
+    const ZONES = {
+      'Centru':         { color: '#C9381D', opacity: 0.60, w: 2.5, label: true, light: true },
+      'Botanica':       { color: '#FFD23F', opacity: 0.60, w: 2.5, label: true },
+      'Buiucani':       { color: '#D6CEBC', opacity: 0.60, w: 2.5, label: true },
+      'Râșcani':        { color: '#D6CEBC', opacity: 0.60, w: 2.5, label: true },
+      'Ciocana':        { color: '#D6CEBC', opacity: 0.60, w: 2.5, label: true },
+      'Durlești':       { color: '#FFD23F', opacity: 0.35, w: 1.5, suburb: true },
+      'Stăuceni':       { color: '#FFD23F', opacity: 0.35, w: 1.5, suburb: true },
+      'Codru':          { color: '#FFD23F', opacity: 0.35, w: 1.5, suburb: true },
+      'Ciorescu':       { color: '#FFD23F', opacity: 0.35, w: 1.5, suburb: true },
+      'Cricova':        { color: '#FFD23F', opacity: 0.35, w: 1.5, suburb: true },
+      'Vadul lui Vodă': { color: '#FFD23F', opacity: 0.35, w: 1.5, suburb: true },
+      'Cojușna':        { color: '#FFD23F', opacity: 0.35, w: 1.5, suburb: true },
+      'Băcioi':         { color: '#FFD23F', opacity: 0.35, w: 1.5, suburb: true },
+      'Tohatin':        { color: '#FFD23F', opacity: 0.35, w: 1.5, suburb: true },
+      'Sîngera':        { color: '#FFD23F', opacity: 0.35, w: 1.5, suburb: true }
+    };
 
-    const sectors = [
-      { name: 'Centru', light: true, color: brick, coords: [
-        [47.030, 28.813],[47.031, 28.858],[47.022, 28.878],
-        [47.006, 28.883],[46.997, 28.870],[46.994, 28.818],[47.010, 28.805]
-      ]},
-      { name: 'Botanica', color: yellow, coords: [
-        [46.994, 28.818],[46.997, 28.870],[47.006, 28.883],
-        [46.998, 28.912],[46.968, 28.908],[46.952, 28.858],[46.958, 28.817]
-      ]},
-      { name: 'Buiucani', color: paper, coords: [
-        [47.010, 28.805],[47.030, 28.813],[47.031, 28.858],
-        [47.050, 28.853],[47.070, 28.838],[47.080, 28.793],
-        [47.062, 28.760],[47.028, 28.756]
-      ]},
-      { name: 'Râșcani', color: paper, coords: [
-        [47.031, 28.858],[47.022, 28.878],[47.030, 28.914],
-        [47.058, 28.940],[47.080, 28.922],[47.086, 28.878],
-        [47.070, 28.838],[47.050, 28.853]
-      ]},
-      { name: 'Ciocana', color: paper, coords: [
-        [47.006, 28.883],[47.022, 28.878],[47.030, 28.914],
-        [47.058, 28.940],[47.053, 28.970],[47.022, 28.980],
-        [46.994, 28.953],[46.990, 28.912],[46.998, 28.912]
-      ]}
-    ];
+    /* OSM often prefixes sector names with "Sectorul" */
+    const ALIASES = {
+      'Sectorul Centru':   'Centru',
+      'Sectorul Botanica': 'Botanica',
+      'Sectorul Buiucani': 'Buiucani',
+      'Sectorul Râșcani':  'Râșcani',
+      'Sectorul Ciocana':  'Ciocana',
+      'Rîșcani': 'Râșcani',
+      'Rascani':  'Râșcani',
+      'Singera':  'Sîngera',
+      'Cojusna':  'Cojușna',
+      'Bacioi':   'Băcioi'
+    };
 
-    sectors.forEach(s => {
-      const poly = L.polygon(s.coords, {
-        fillColor: s.color, fillOpacity: 0.72,
-        color: ink, weight: 2
-      }).addTo(map);
-      poly.bindTooltip(s.name, {
-        permanent: true, direction: 'center', className: 'map-sector-label' + (s.light ? ' light' : '')
+    function resolveZone(props) {
+      const raw = props.name || props['name:ro'] || '';
+      const key = ALIASES[raw] || raw;
+      if (ZONES[key]) return { zone: ZONES[key], display: key };
+      /* partial match fallback */
+      for (const [k, z] of Object.entries(ZONES)) {
+        if (raw.includes(k)) return { zone: z, display: k };
+      }
+      return null;
+    }
+
+    /* single Overpass request — all admin boundaries in the Chișinău region */
+    const query = `[out:json][timeout:60];
+(
+  relation["boundary"="administrative"]["admin_level"~"^[5-9]$"](46.82,28.60,47.25,29.20);
+);
+out geom;`;
+
+    fetch('https://overpass-api.de/api/interpreter', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: 'data=' + encodeURIComponent(query)
+    })
+    .then(r => r.json())
+    .then(data => {
+      const geojson = osmtogeojson(data);
+      geojson.features.forEach(f => {
+        const r = resolveZone(f.properties);
+        if (!r) return;
+        const { zone, display } = r;
+        const layer = L.geoJSON(f, {
+          style: { fillColor: zone.color, fillOpacity: zone.opacity, color: '#141311', weight: zone.w }
+        }).addTo(map);
+        const cls = 'map-sector-label' + (zone.light ? ' light' : '');
+        layer.bindTooltip(display, {
+          permanent: true, direction: 'center',
+          className: zone.suburb ? 'map-suburb-label' : cls
+        });
       });
-    });
-
-    const suburbs = [
-      { name: 'Durlești',      c: [47.022, 28.773] },
-      { name: 'Stăuceni',      c: [47.095, 28.867] },
-      { name: 'Codru',         c: [46.985, 28.806] },
-      { name: 'Ciorescu',      c: [47.073, 28.962] },
-      { name: 'Cricova',       c: [47.128, 28.858] },
-      { name: 'Vadul lui Vodă',c: [47.003, 29.082] },
-      { name: 'Cojușna',       c: [47.052, 28.740] },
-      { name: 'Băcioi',        c: [46.950, 28.840] },
-      { name: 'Tohatin',       c: [47.108, 28.912] },
-      { name: 'Sîngera',       c: [46.928, 28.932] }
-    ];
-
-    suburbs.forEach(s => {
-      L.circleMarker(s.c, {
-        radius: 5, fillColor: ink, color: '#fff', fillOpacity: 1, weight: 1.5
-      }).addTo(map)
-       .bindTooltip(s.name, { permanent: true, direction: 'right', className: 'map-suburb-label' });
-    });
+    })
+    .catch(() => { /* silently keep base tiles if Overpass is unreachable */ });
   })();
 </script>
 <script>
