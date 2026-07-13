@@ -1,9 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- RO pages -->
   <url>
     <loc>https://www.gunoi.md/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/"/>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <url>
+    <loc>https://www.gunoi.md/evacuare-moloz-constructii/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-moloz-constructii/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-moloz-constructii/"/>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gunoi.md/evacuare-mobila-veche/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-mobila-veche/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-mobila-veche/"/>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gunoi.md/evacuare-apartament/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-apartament/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-apartament/"/>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gunoi.md/hamali/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/hamali/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/hamali/"/>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gunoi.md/preturi/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/preturi/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/preturi/"/>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gunoi.md/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/contact/"/>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- RU pages -->
+  <url>
+    <loc>https://www.gunoi.md/ru/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/"/>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-moloz-constructii/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-moloz-constructii/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-moloz-constructii/"/>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-mobila-veche/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-mobila-veche/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-mobila-veche/"/>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-apartament/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-apartament/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-apartament/"/>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gunoi.md/ru/hamali/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/hamali/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/hamali/"/>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gunoi.md/ru/preturi/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/preturi/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/preturi/"/>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gunoi.md/ru/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/contact/"/>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>

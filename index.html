@@ -6,6 +6,9 @@
 <title>gunoi.md — Evacuare gunoi Chișinău · Mobilă, electrocasnice, deșeuri</title>
 <meta name="description" content="Evacuare gunoi în Chișinău și suburbii. Mobilă, electrocasnice, deșeuri de construcție. Bon fiscal, depunere legală, echipă proprie. Sună 069 269 888." />
 <link rel="canonical" href="https://www.gunoi.md/" />
+<link rel="alternate" hreflang="ro" href="https://www.gunoi.md/" />
+<link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/" />
+<link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/" />
 <meta name="theme-color" content="#FFD23F" />
 
 <!-- Favicons -->
@@ -150,8 +153,8 @@
   .nav-links a:hover::after { content:""; position:absolute; left: 0; right: 0; bottom: -2px; height: 6px; background: var(--yellow); z-index: -1; }
   .nav-right { display: flex; align-items: center; gap: 14px; }
   .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; font-size: 12px; font-weight: 600; font-family: 'JetBrains Mono'; }
-  .lang button { background: transparent; border: 0; padding: 6px 10px; color: var(--ink); }
-  .lang button.on { background: var(--ink); color: var(--paper); }
+  .lang a { background: transparent; border: 0; padding: 6px 10px; color: var(--ink); display: block; }
+  .lang a.on, .lang a:hover { background: var(--ink); color: var(--paper); }
   .phone-btn {
     display: inline-flex; align-items: center; gap: 8px;
     background: var(--ink); color: var(--paper);
@@ -625,9 +628,24 @@
   .pill { display: inline-flex; gap: 8px; align-items: center; font-family: 'JetBrains Mono'; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: #fff; border: 1px solid var(--line); padding: 8px 12px; border-radius: 999px; }
   .pill.yellow { background: var(--yellow); border-color: var(--ink); }
   .pill.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  /* ---- sticky mobile CTA ---- */
+  .mobile-cta{display:none}
+  @media(max-width:700px){
+    .mobile-cta{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--paper);border-top:1px solid var(--line);padding:10px 16px 16px;gap:10px}
+    body{padding-bottom:80px}
+    .mobile-cta a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 10px;border-radius:12px;font-weight:700;font-size:15px}
+    .mobile-cta .call{background:var(--ink);color:var(--paper)}
+    .mobile-cta .wa{background:#25D366;color:#fff}
+  }
 </style>
 </head>
 <body>
+
+<div class="mobile-cta">
+  <a href="tel:069269888" class="call">📞 Sună acum</a>
+  <a href="https://wa.me/37369269888" class="wa" target="_blank" rel="noopener">💬 WhatsApp</a>
+</div>
 
 <!-- NAV -->
 <nav class="nav" data-screen-label="01 Nav">
@@ -635,15 +653,14 @@
     <a href="#top" class="brand">gunoi<span class="dot">.</span><span class="md">md</span></a>
     <div class="nav-links">
       <a href="#services">Servicii</a>
-      <a href="#estimator">Estimator</a>
-      <a href="#pricing">Prețuri</a>
+      <a href="/preturi/">Prețuri</a>
       <a href="#zone">Zone</a>
-      <a href="#faq">Întrebări</a>
+      <a href="/contact/">Contact</a>
     </div>
     <div class="nav-right">
-      <div class="lang" role="tablist" aria-label="Limba">
-        <button class="on" aria-pressed="true">RO</button>
-        <button aria-pressed="false">RU</button>
+      <div class="lang" aria-label="Limba">
+        <a href="/" class="on">RO</a>
+        <a href="/ru/">RU</a>
       </div>
       <a href="tel:069269888" class="phone-btn"><span class="dot"></span>069 269 888</a>
     </div>
@@ -664,7 +681,7 @@
       <p class="hero-sub">Mobilă veche, electrocasnice, deșeuri de construcție, evacuări complete de apartament sau oficiu. Echipă proprie, bon fiscal, depunere legală. Tu plătești <b>doar la final</b>.</p>
       <div class="hero-ctas">
         <a class="btn yellow big" href="tel:069269888">📞 Sună acum</a>
-        <a class="btn ghost big" href="#estimator">Calculează rapid →</a>
+        <a class="btn ghost big" href="https://wa.me/37369269888" target="_blank" rel="noopener">💬 WhatsApp</a>
       </div>
       <div class="row-gap" style="margin-top: 28px;">
         <span class="pill">⭐ &lt;1h răspuns</span>
@@ -754,6 +771,37 @@
         <h3>Ridicăm. Plătești.</h3>
         <p>Demontăm, încărcăm, măturăm urma. Plătești la final — cash sau transfer. Bon fiscal pe loc.</p>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE PAGES -->
+<section data-screen-label="04b Pagini servicii">
+  <div class="wrap">
+    <span class="eyebrow">Servicii specializate</span>
+    <h2 class="section-title">Pagini dedicate.</h2>
+    <p class="section-lead">Fiecare serviciu are prețuri, FAQ și detalii complete pe pagina lui.</p>
+    <div style="margin-top:32px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
+      <a href="/evacuare-moloz-constructii/" style="display:block;background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;text-decoration:none;transition:transform .15s ease,border-color .15s ease" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='var(--ink)'" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)'">
+        <span style="font-size:28px;display:block;margin-bottom:10px">🧱</span>
+        <strong style="font-family:'Bricolage Grotesque';font-size:17px;font-weight:800;display:block;margin-bottom:6px">Evacuare moloz</strong>
+        <span style="color:var(--ink-2);font-size:15px">Deșeuri construcție, renovare, șantier. De la 800 MDL/camion.</span>
+      </a>
+      <a href="/evacuare-mobila-veche/" style="display:block;background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;text-decoration:none;transition:transform .15s ease,border-color .15s ease" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='var(--ink)'" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)'">
+        <span style="font-size:28px;display:block;margin-bottom:10px">🛋️</span>
+        <strong style="font-family:'Bricolage Grotesque';font-size:17px;font-weight:800;display:block;margin-bottom:6px">Evacuare mobilă</strong>
+        <span style="color:var(--ink-2);font-size:15px">Mobilă veche, electrocasnice, saltele. Demontăm pe loc.</span>
+      </a>
+      <a href="/evacuare-apartament/" style="display:block;background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;text-decoration:none;transition:transform .15s ease,border-color .15s ease" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='var(--ink)'" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)'">
+        <span style="font-size:28px;display:block;margin-bottom:10px">🏠</span>
+        <strong style="font-family:'Bricolage Grotesque';font-size:17px;font-weight:800;display:block;margin-bottom:6px">Evacuare apartament</strong>
+        <span style="color:var(--ink-2);font-size:15px">Golire completă înainte de vânzare, renovare sau predare.</span>
+      </a>
+      <a href="/hamali/" style="display:block;background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;text-decoration:none;transition:transform .15s ease,border-color .15s ease" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='var(--ink)'" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)'">
+        <span style="font-size:28px;display:block;margin-bottom:10px">🏋️</span>
+        <strong style="font-family:'Bricolage Grotesque';font-size:17px;font-weight:800;display:block;margin-bottom:6px">Hamali</strong>
+        <span style="color:var(--ink-2);font-size:15px">Echipă 2 oameni, 250 MDL/oră. Cu sau fără camion.</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1124,20 +1172,19 @@
       <div>
         <h5>Servicii</h5>
         <ul>
-          <li><a href="#services">Mobilă veche</a></li>
-          <li><a href="#services">Electrocasnice</a></li>
-          <li><a href="#services">Deșeuri construcție</a></li>
-          <li><a href="#services">Evacuare apartament</a></li>
-          <li><a href="#services">Fier vechi</a></li>
+          <li><a href="/evacuare-moloz-constructii/">Evacuare moloz</a></li>
+          <li><a href="/evacuare-mobila-veche/">Evacuare mobilă</a></li>
+          <li><a href="/evacuare-apartament/">Evacuare apartament</a></li>
+          <li><a href="/hamali/">Hamali</a></li>
         </ul>
       </div>
       <div>
-        <h5>Site</h5>
+        <h5>Info</h5>
         <ul>
-          <li><a href="#pricing">Prețuri</a></li>
-          <li><a href="#estimator">Estimator</a></li>
+          <li><a href="/preturi/">Prețuri</a></li>
           <li><a href="#faq">Întrebări frecvente</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/ru/">Русский</a></li>
         </ul>
       </div>
     </div>
@@ -1361,14 +1408,6 @@ out geom;`;
   }
   recompute();
 
-
-  /* ---------- LANG TOGGLE (visual only) ---------- */
-  document.querySelectorAll('.lang button').forEach(b => {
-    b.addEventListener('click', () => {
-      document.querySelectorAll('.lang button').forEach(x => { x.classList.remove('on'); x.setAttribute('aria-pressed','false'); });
-      b.classList.add('on'); b.setAttribute('aria-pressed','true');
-    });
-  });
 
   /* ---------- SMOOTH ANCHOR ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
