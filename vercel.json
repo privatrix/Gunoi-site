@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    { "source": "/#servicii", "destination": "/#services", "permanent": true },
+    { "source": "/#preturi", "destination": "/preturi/", "permanent": true },
+    { "source": "/#contact", "destination": "/contact/", "permanent": true },
+    { "source": "/#zone", "destination": "/#zone", "permanent": false },
+    { "source": "/#faq", "destination": "/#faq", "permanent": false }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}
