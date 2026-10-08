@@ -1,4 +1,7 @@
 {
+  "functions": {
+    "api/estimate.js": { "maxDuration": 30 }
+  },
   "redirects": [
     { "source": "/#servicii", "destination": "/#services", "permanent": true },
     { "source": "/#preturi", "destination": "/preturi/", "permanent": true },
