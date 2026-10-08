@@ -1,0 +1,107 @@
+{
+  "_readme": "All prices on gunoi.md come from this file. Amounts are MDL. Edit numbers here, not in code or HTML. Keys starting with _ are comments.",
+
+  "currency": "MDL",
+
+  "truck_base": {
+    "_note": "Price per trip (bus/camion, up to capacity_m3). Includes 2 loaders for included_loader_hours. A second trip costs price again.",
+    "price": 1500,
+    "capacity_m3": 9,
+    "included_loader_hours": 3
+  },
+
+  "loaders": {
+    "_note": "Pair of 2 people. Billed per started half hour beyond the truck's included hours. Loaders-only jobs (no truck) bill from hour 0 with min_hours.",
+    "price_per_hour_pair": 500,
+    "min_hours": 1,
+    "round_to_hours": 0.5
+  },
+
+  "floor_no_lift": {
+    "_note": "+price_per_floor for each floor above free_floors when there is no lift. With lift: 0. Waived for small loads (volume below waive_below_m3) whose stair time already fits in the included loader time.",
+    "price_per_floor": 100,
+    "free_floors": 3,
+    "waive_below_m3": 3
+  },
+
+  "dismantling": {
+    "_note": "Per item, only when the item needs dismantling. hours feed the labour time model.",
+    "classes": {
+      "wardrobe": { "price": 300, "hours": 1 },
+      "sofa":     { "price": 150, "hours": 0.25 },
+      "bed":      { "price": 100, "hours": 0.25 },
+      "kitchen":  { "price": 400, "hours": 1 },
+      "other":    { "price": 100, "hours": 0.25 }
+    }
+  },
+
+  "distance": {
+    "_note": "Chișinău + listed suburbs = 0. km measured from the centre. Above negotiate_above_km no number is shown (cere ofertă).",
+    "free_within_km": 20,
+    "tiers": [
+      { "from_km": 20, "to_km": 40, "price": 300 }
+    ],
+    "negotiate_above_km": 40,
+    "free_zones": [
+      "Botanica", "Buiucani", "Centru", "Ciocana", "Râșcani",
+      "Durlești", "Stăuceni", "Codru", "Ciorescu", "Cricova", "Trușeni",
+      "Vadul lui Vodă", "Cojușna", "Băcioi", "Tohatin", "Sîngera", "Vatra"
+    ]
+  },
+
+  "special_items": {
+    "_note": "Per-unit extras. unit = each | batch | m3. Fridge / washing machine are 0 (scrap credit).",
+    "window_glass": { "price": 50, "unit": "each" },
+    "mattress":     { "price": 0,  "unit": "each" },
+    "fridge":       { "price": 0,  "unit": "each" },
+    "washer":       { "price": 0,  "unit": "each" },
+    "tyre":         { "price": 40, "unit": "each" },
+    "glass_jars":   { "price": 100, "unit": "batch" },
+    "green_waste":  { "price": 200, "unit": "m3" }
+  },
+
+  "weekend": { "price": 0 },
+
+  "estimate_band": {
+    "_note": "Shown as a range, never a single number. low rounds down, high rounds up.",
+    "low_pct": -5,
+    "high_pct": 15,
+    "round_to": 50
+  },
+
+  "labour_time_model": {
+    "_note": "Estimated loader hours = base + per_m3 * volume + per_floor_no_lift * floor (no lift) + dismantling hours.",
+    "base_hours": 1,
+    "per_m3": 0.25,
+    "per_floor_no_lift": 0.25
+  },
+
+  "items": {
+    "_note": "Quick-pick catalogue. m3 = approximate volume per unit (not money). dismantle = class from dismantling.classes. special = key from special_items.",
+    "canapea":         { "ro": "Canapea",              "ru": "Диван",                  "m3": 1.4,  "dismantle": "sofa" },
+    "canapea_coltar":  { "ro": "Canapea de colț",      "ru": "Угловой диван",          "m3": 2.0,  "dismantle": "sofa" },
+    "saltea":          { "ro": "Saltea",               "ru": "Матрас",                 "m3": 0.6,  "special": "mattress" },
+    "dulap":           { "ro": "Dulap",                "ru": "Шкаф",                   "m3": 1.6,  "dismantle": "wardrobe" },
+    "stenca":          { "ro": "Stencă / perete mobilă","ru": "Стенка",                 "m3": 2.5,  "dismantle": "wardrobe" },
+    "pat":             { "ro": "Pat",                  "ru": "Кровать",                "m3": 1.2,  "dismantle": "bed" },
+    "comoda":          { "ro": "Comodă",               "ru": "Комод",                  "m3": 0.5,  "dismantle": "other" },
+    "masa":            { "ro": "Masă",                 "ru": "Стол",                   "m3": 0.5,  "dismantle": "other" },
+    "scaun":           { "ro": "Scaun",                "ru": "Стул",                   "m3": 0.15 },
+    "bucatarie":       { "ro": "Bucătărie (mobilier)", "ru": "Кухня (мебель)",         "m3": 2.5,  "dismantle": "kitchen" },
+    "frigider":        { "ro": "Frigider",             "ru": "Холодильник",            "m3": 0.9,  "special": "fridge" },
+    "masina_spalat":   { "ro": "Mașină de spălat",     "ru": "Стиральная машина",      "m3": 0.5,  "special": "washer" },
+    "aragaz":          { "ro": "Aragaz / cuptor",      "ru": "Плита / духовка",        "m3": 0.4 },
+    "cuptor_electric": { "ro": "Cuptor electric",      "ru": "Электродуховка",         "m3": 0.3 },
+    "tv":              { "ro": "Televizor",            "ru": "Телевизор",              "m3": 0.2 },
+    "fereastra":       { "ro": "Fereastră veche (cu sticlă)", "ru": "Старое окно (со стеклом)", "m3": 0.15, "special": "window_glass" },
+    "usa":             { "ro": "Ușă",                  "ru": "Дверь",                  "m3": 0.3 },
+    "covor":           { "ro": "Covor",                "ru": "Ковёр",                  "m3": 0.3 },
+    "sac_moloz":       { "ro": "Sac de moloz",         "ru": "Мешок строймусора",      "m3": 0.05 },
+    "sac_menajer":     { "ro": "Sac menajer",          "ru": "Мешок бытового мусора",  "m3": 0.08 },
+    "borcane":         { "ro": "Borcane / sticlă (lot)","ru": "Банки / стекло (партия)","m3": 0.2,  "special": "glass_jars" },
+    "crengi":          { "ro": "Crengi / iarbă (m³)",  "ru": "Ветки / трава (м³)",     "m3": 1.0,  "special": "green_waste" },
+    "fier":            { "ro": "Fier vechi",           "ru": "Металлолом",             "m3": 0.3 },
+    "anvelopa":        { "ro": "Anvelopă",             "ru": "Шина",                   "m3": 0.1,  "special": "tyre" },
+    "altceva":         { "ro": "Altceva",              "ru": "Другое",                 "m3": 0.3 }
+  }
+}
