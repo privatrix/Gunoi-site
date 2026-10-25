@@ -45,8 +45,10 @@ const T = {
     when: { today: 'Azi', tomorrow: 'Mâine', week: 'Săptămâna aceasta', later: 'Altă dată' },
     s5: 'Verifică lista',
     analyzing: 'Analizăm pozele și descrierea…',
-    seen: 'Am văzut:', seenAsk: 'Corect? Ajustează cantitățile dacă e nevoie.',
+    seen: 'De ridicat:', seenAsk: 'Am verificat pozele. Corect? Ajustează cantitățile dacă e nevoie.',
     yourList: 'Lista ta:',
+    suggestTitle: 'Am mai văzut în poze — le luăm și pe ele?',
+    suggestSub: 'Nu sunt incluse în preț. Atinge ca să le adaugi.',
     aiFailed: 'Nu am putut analiza pozele acum. Am folosit lista bifată — completeaz-o mai jos.',
     unclear: 'Unele lucruri nu s-au văzut clar. Verifică lista.',
     addItem: 'Adaugă alt obiect', addPick: '+ Adaugă…',
@@ -112,8 +114,10 @@ const T = {
     when: { today: 'Сегодня', tomorrow: 'Завтра', week: 'На этой неделе', later: 'В другой день' },
     s5: 'Проверьте список',
     analyzing: 'Анализируем фото и описание…',
-    seen: 'Мы увидели:', seenAsk: 'Верно? Поправьте количество, если нужно.',
+    seen: 'Вывозим:', seenAsk: 'Мы проверили фото. Верно? Поправьте количество, если нужно.',
     yourList: 'Ваш список:',
+    suggestTitle: 'На фото видно ещё — тоже вывезти?',
+    suggestSub: 'В цену не входит. Нажмите, чтобы добавить.',
     aiFailed: 'Не удалось проанализировать фото. Мы взяли отмеченный список — дополните его ниже.',
     unclear: 'Кое-что видно нечётко. Проверьте список.',
     addItem: 'Добавить другой предмет', addPick: '+ Добавить…',
@@ -243,8 +247,10 @@ function start() {
 }
 
 // ---------- AI ----------
+const pickedKeys = () => Object.keys(state.picks).filter((k) => state.picks[k]);
+
 function aiInputKey() {
-  return state.text.trim() + '|' + state.photos.map((p) => p.b64.length + p.b64.slice(0, 32)).join(',');
+  return state.text.trim() + '|' + pickedKeys().join(',') + '|' + state.photos.map((p) => p.b64.length + p.b64.slice(0, 32)).join(',');
 }
 
 function runAi() {
@@ -264,7 +270,7 @@ function runAi() {
   const p = fetch('/api/estimate', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ text: state.text, photos: state.photos.map((x) => x.b64), lang: state.lang }),
+    body: JSON.stringify({ text: state.text, picks: pickedKeys(), photos: state.photos.map((x) => x.b64), lang: state.lang }),
     signal: ctrl.signal,
   })
     .then((r) => (r.ok ? r.json() : { ok: false, reason: 'http_' + r.status }))
@@ -280,21 +286,26 @@ function runAi() {
   state.aiPromise = p;
 }
 
+// Items the customer asked for go into the price; things the AI only noticed in
+// the photos become suggestions the customer can add with one tap.
 function buildConfirmed() {
   const list = [];
   const byKey = new Map();
+  state.suggestions = [];
   if (state.ai) {
     for (const it of state.ai.items) {
       const row = { key: it.key, qty: it.qty, m3: it.m3, dismantle: it.dismantle };
+      if (!it.requested) { state.suggestions.push(row); continue; }
       list.push(row);
       if (!byKey.has(it.key)) byKey.set(it.key, row);
     }
   }
-  for (const [key, qty] of Object.entries(state.picks)) {
-    if (!qty) continue;
-    const row = byKey.get(key);
-    if (row) row.qty = Math.max(row.qty, qty);
-    else list.push({ key, qty });
+  for (const key of pickedKeys()) {
+    if (byKey.has(key)) continue;
+    const i = state.suggestions.findIndex((s) => s.key === key);
+    const row = i >= 0 ? state.suggestions.splice(i, 1)[0] : { key, qty: state.picks[key] };
+    list.push(row);
+    byKey.set(key, row);
   }
   return list;
 }
@@ -514,12 +525,34 @@ function step5() {
   }
   if (fromAi && (state.ai.confidence === 'low' || state.ai.unclear.length)) notes.push(h('p', { class: 'est-note' }, t.unclear));
 
+  const suggest = h('div', { class: 'est-suggest' });
+  function drawSuggest() {
+    const rows = state.suggestions || [];
+    suggest.hidden = !rows.length;
+    suggest.replaceChildren(
+      h('p', { class: 'est-label' }, t.suggestTitle),
+      h('p', { class: 'est-hint', style: 'margin:0 0 10px' }, t.suggestSub),
+      h('div', { class: 'est-chips' }, rows.map((row, i) => h('button', {
+        type: 'button', class: 'est-chip',
+        onclick: () => {
+          state.suggestions.splice(i, 1);
+          const same = state.confirmed.find((r) => r.key === row.key);
+          if (same) same.qty += row.qty; else state.confirmed.push(row);
+          draw();
+          drawSuggest();
+        },
+      }, `+ ${row.qty > 1 ? row.qty + '× ' : ''}${label(row.key)}`))),
+    );
+  }
+  drawSuggest();
+
   return [
     h('h2', {}, t.s5),
     ...notes,
     h('p', { class: 'est-label' }, fromAi ? t.seen : t.yourList),
     fromAi ? h('p', { class: 'est-sub' }, t.seenAsk) : null,
     list,
+    suggest,
     h('label', { class: 'est-label' }, t.addItem), adder,
     err,
     nav(() => {
