@@ -4,6 +4,7 @@
  * 200 { ok: false, reason }  → the page falls back to the items the user ticked.
  * Prices are never computed here; the page prices with lib/estimate.js. */
 import { readFileSync } from 'node:fs';
+import Anthropic from '@anthropic-ai/sdk';
 import { classifyJob } from '../lib/ai/index.js';
 
 const config = JSON.parse(readFileSync(new URL('../pricing.config.json', import.meta.url), 'utf8'));
@@ -50,8 +51,22 @@ export default async function handler(req, res) {
     return res.status(200).json({ ok: true, ai });
   } catch (err) {
     console.error('estimate: ai failed', err?.name, err?.status, err?.message);
-    return res.status(200).json({ ok: false, reason: 'ai_failed' });
+    return res.status(200).json({ ok: false, reason: failureReason(err) });
   }
+}
+
+// Short, non-secret codes shown on the page so setup problems can be diagnosed.
+function failureReason(err) {
+  if (err instanceof Anthropic.APIConnectionTimeoutError) return 'ai_timeout';
+  if (err instanceof Anthropic.AuthenticationError) return 'ai_auth';
+  if (err instanceof Anthropic.PermissionDeniedError) return 'ai_permission';
+  if (err instanceof Anthropic.NotFoundError) return 'ai_model';
+  if (err instanceof Anthropic.RateLimitError) return 'ai_rate';
+  if (err instanceof Anthropic.BadRequestError) return /credit|billing|balance/i.test(err.message) ? 'ai_credit' : 'ai_bad_request';
+  if (err instanceof Anthropic.APIConnectionError) return 'ai_network';
+  if (err instanceof Anthropic.APIError) return 'ai_server_' + (err.status || '');
+  if (err?.message === 'refusal') return 'ai_refusal';
+  return 'ai_failed';
 }
 
 function safeJson(s) {
