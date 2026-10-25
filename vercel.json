@@ -2,13 +2,6 @@
   "functions": {
     "api/estimate.js": { "maxDuration": 30, "includeFiles": "pricing.config.json" }
   },
-  "redirects": [
-    { "source": "/#servicii", "destination": "/#services", "permanent": true },
-    { "source": "/#preturi", "destination": "/preturi/", "permanent": true },
-    { "source": "/#contact", "destination": "/contact/", "permanent": true },
-    { "source": "/#zone", "destination": "/#zone", "permanent": false },
-    { "source": "/#faq", "destination": "/#faq", "permanent": false }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -16,6 +9,12 @@
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "DENY" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/assets/fonts/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     }
   ]
