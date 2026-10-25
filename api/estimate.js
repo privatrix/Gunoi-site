@@ -42,12 +42,15 @@ export default async function handler(req, res) {
         .map((p) => p.replace(/^data:image\/\w+;base64,/, ''))
         .slice(0, MAX_PHOTOS)
     : [];
+  const picks = Array.isArray(body.picks)
+    ? [...new Set(body.picks.filter((k) => typeof k === 'string' && !k.startsWith('_') && config.items[k]))].slice(0, 40)
+    : [];
 
   if (!text.trim() && !photos.length) return res.status(200).json({ ok: false, reason: 'empty' });
   if (!process.env.ANTHROPIC_API_KEY) return res.status(200).json({ ok: false, reason: 'ai_unavailable' });
 
   try {
-    const ai = await classifyJob({ text, photos, config, timeoutMs: 15000 });
+    const ai = await classifyJob({ text, photos, picks, config, timeoutMs: 15000 });
     return res.status(200).json({ ok: true, ai });
   } catch (err) {
     console.error('estimate: ai failed', err?.name, err?.status, err?.message);

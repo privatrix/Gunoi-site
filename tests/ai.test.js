@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { cleanOutput, outputSchema } from '../lib/ai/classify.js';
+import { cleanOutput, outputSchema, userContent } from '../lib/ai/classify.js';
 import { classifyJob } from '../lib/ai/index.js';
 import handler from '../api/estimate.js';
 
@@ -9,10 +9,10 @@ const config = JSON.parse(readFileSync(new URL('../pricing.config.json', import.
 
 const sample = {
   items: [
-    { key: 'canapea', name: 'canapea', qty: 1, approx_m3: 1.5, needs_dismantling: false, notes: '' },
-    { key: 'pian', name: 'pian', qty: 1, approx_m3: 2, needs_dismantling: true, notes: '' },
-    { key: 'scaun', name: 'scaune', qty: 4, approx_m3: 0.15, needs_dismantling: true, notes: '' },
-    { key: 'sac_moloz', name: 'saci', qty: 0, approx_m3: 0.05, needs_dismantling: false, notes: '' },
+    { key: 'canapea', requested: true, name: 'canapea', qty: 1, approx_m3: 1.5, needs_dismantling: false, notes: '' },
+    { key: 'pian', requested: true, name: 'pian', qty: 1, approx_m3: 2, needs_dismantling: true, notes: '' },
+    { key: 'scaun', requested: false, name: 'scaune', qty: 4, approx_m3: 0.15, needs_dismantling: true, notes: '' },
+    { key: 'sac_moloz', requested: true, name: 'saci', qty: 0, approx_m3: 0.05, needs_dismantling: false, notes: '' },
   ],
   total_m3_estimate: 4.1,
   confidence: 'med',
@@ -24,8 +24,13 @@ test('cleanOutput: chei necunoscute → altceva, qty 0 eliminat, demontare doar 
   const out = cleanOutput(sample, config);
   assert.deepEqual(out.items.map((i) => i.key), ['canapea', 'altceva', 'scaun']);
   assert.equal(out.items.find((i) => i.key === 'scaun').dismantle, false);
+  assert.deepEqual(out.items.map((i) => i.requested), [true, true, false]);
   assert.equal(out.confidence, 'med');
   assert.equal(cleanOutput({ nope: 1 }, config), null);
+});
+
+test('fără bife: mesajul spune că nu s-a bifat nimic', () => {
+  assert.match(userContent({ text: '', photoCount: 2, picks: [], config }), /ticked no items/);
 });
 
 test('schema: strictă, cu enum din catalog', () => {
@@ -48,7 +53,7 @@ test('adaptorul Anthropic trimite poze + text cu schemă JSON și fără tempera
     }), { status: 200, headers: { 'content-type': 'application/json' } });
   };
 
-  const out = await classifyJob({ text: 'o canapea și scaune', photos: ['A'.repeat(200)], config, fetch: fakeFetch });
+  const out = await classifyJob({ text: 'o canapea și scaune', photos: ['A'.repeat(200)], picks: ['dulap', 'canapea'], config, fetch: fakeFetch });
 
   assert.match(sent.url, /\/v1\/messages/);
   assert.match(sent.headers.get('anthropic-beta'), /server-side-fallback-2026-07-01/);
@@ -59,6 +64,9 @@ test('adaptorul Anthropic trimite poze + text cu schemă JSON și fără tempera
   assert.equal(sent.body.temperature, undefined);
   assert.equal(sent.body.messages[0].content[0].type, 'image');
   assert.match(sent.body.messages[0].content.at(-1).text, /<description>/);
+  assert.match(sent.body.messages[0].content.at(-1).text, /ticked as things to remove:\n- dulap \(Dulap\)\n- canapea/);
+  assert.match(sent.body.system, /requested = true/);
+  assert.ok(sent.body.output_config.format.schema.properties.items.items.required.includes('requested'));
   assert.equal(out.items.length, 3);
 });
 

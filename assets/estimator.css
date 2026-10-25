@@ -77,3 +77,5 @@
 .est-bd dd{margin:0;font-family:'JetBrains Mono';font-weight:700;text-align:right;white-space:nowrap}
 .est-card > .btn.ghost:last-child{width:100%;margin-top:20px}
 .est-code{font-family:'JetBrains Mono';font-size:12px;color:var(--mute)}
+.est-suggest{margin-top:22px;padding-top:6px;border-top:1px dashed var(--line)}
+.est-suggest[hidden]{display:none}
