@@ -1,50 +1,54 @@
 # gunoi.md
 
-> Serviciu de evacuare gunoi în Chișinău, Moldova
+> Evacuare gunoi voluminos în Chișinău și suburbii: mobilă veche, electrocasnice, moloz. Preț din poză în 30 de secunde, plata la final.
 
-gunoi.md este un serviciu profesional de evacuare gunoi care operează în Chișinău și suburbii. Ridicăm mobilă veche, electrocasnice, deșeuri de construcție, moloz și orice alt gunoi voluminos de la domicilii, birouri și șantiere.
+gunoi.md ridică mobilă veche, stenci, saltele, electrocasnice, moloz de la renovare și ferestre vechi din apartamente și case din Chișinău și suburbii. Echipa (camion + doi hamali) demontează, coboară de la etaj și duce totul la poligoane autorizate. Lucrăm luni–duminică, 08:00–20:00.
 
-## Servicii
+## Preț
+- O saltea: 450–600 lei
+- Canapea sau dulap: 1 000–1 350 lei
+- Canapea + masă + comodă: 1 350–1 750 lei
+- Stencă + canapea, cu demontare: 2 600–3 350 lei
+- Tapet, profile, câțiva saci de la renovare: 1 000–1 350 lei
+- 7 ferestre vechi cu sticlă: 1 800–2 400 lei
+- Frigider: 550–750 lei
+- Apartament, un camion plin: 2 850–3 700 lei
+- Prețuri orientative pentru Chișinău, etajele 1–3 sau cu lift. Peste etajul 3 fără lift se adaugă o sumă pe etaj; în afara Chișinăului și a suburbiilor, o taxă de drum. Prețul final îl confirmă un coleg înainte de lucru.
+- Estimare instantă din poze: https://www.gunoi.md/estimare/
 
-- [Evacuare moloz și deșeuri de construcție](https://www.gunoi.md/evacuare-moloz-constructii/)
-- [Evacuare mobilă veche](https://www.gunoi.md/evacuare-mobila-veche/)
-- [Evacuare apartament complet](https://www.gunoi.md/evacuare-apartament/)
-- [Hamali pentru încărcare și transport](https://www.gunoi.md/hamali/)
-- [Prețuri](https://www.gunoi.md/preturi/)
-- [Contact](https://www.gunoi.md/contact/)
+## Pagini
+- [Preț din poză](https://www.gunoi.md/estimare/): Fă 1–3 poze sau bifează ce ai de aruncat și vezi pe loc prețul evacuării în Chișinău. Fără apel, fără obligații. Rezervi pe WhatsApp.
+- [Prețuri](https://www.gunoi.md/preturi/): Cât costă evacuarea mobilei, a electrocasnicelor și a molozului în Chișinău: prețuri pe obiect, etaje, demontare și taxă de drum. Fără costuri ascunse.
+- [Evacuare mobilă veche](https://www.gunoi.md/evacuare-mobila-veche/): Ridicăm mobila veche din apartament: canapele, dulapuri, paturi, stenci. Demontăm și coborâm de la orice etaj. Canapea 1 000–1 350 lei. Preț din poză în 30 de secunde.
+- [Evacuare moloz](https://www.gunoi.md/evacuare-moloz-constructii/): Ridicăm sacii de moloz, tapetul, profilele, ușile și ferestrele vechi după renovare. Coborâm de la etaj și ducem la poligon. Câțiva saci și tapet 1 000–1 350 lei.
+- [Golire apartament](https://www.gunoi.md/evacuare-apartament/): Golim complet apartamentul înainte de vânzare, renovare sau după o moștenire: mobilă, electrocasnice, saci. Un camion plin 2 850–3 700 lei.
+- [Hamali](https://www.gunoi.md/hamali/): Doi hamali pentru încărcat, descărcat, urcat și coborât mobilă, cu sau fără camion. 500 lei pe oră pentru echipă. Lucrăm 7 zile din 7.
+- [Evacuare saltea](https://www.gunoi.md/evacuare-saltea/): Scăpăm de salteaua veche în aceeași zi sau a doua zi: o coborâm, o încărcăm și o ducem la poligon. 450–600 lei, camionul inclus.
+- [Evacuare ferestre vechi](https://www.gunoi.md/evacuare-ferestre-vechi/): Ridicăm ferestrele vechi după schimbarea cu termopan: rame, sticlă, pervaze. 7 ferestre 1 800–2 400 lei. Coborâm de la orice etaj.
+- [Evacuare frigider, mașină de spălat](https://www.gunoi.md/evacuare-frigider-masina-de-spalat/): Ridicăm frigidere, mașini de spălat, aragaze și televizoare vechi și le ducem la reciclare. Frigider 550–750 lei. Coborâm de la orice etaj.
+- [Evacuare stencă](https://www.gunoi.md/evacuare-stenca-mobila-veche/): Demontăm și scoatem stenca veche din sufragerie, dulapurile și mobila veche. Stencă cu demontare 1 600–2 100 lei. Coborâm de la orice etaj.
+- [Botanica](https://www.gunoi.md/evacuare-gunoi-botanica/): Evacuare mobilă veche, electrocasnice, saltele și moloz în Botanica, fără taxă de drum. Canapea 1 000–1 350 lei. Preț din poză în 30 de secunde, plata la final.
+- [Buiucani](https://www.gunoi.md/evacuare-gunoi-buiucani/): Evacuare mobilă veche, electrocasnice, saltele și moloz în Buiucani, fără taxă de drum. Canapea 1 000–1 350 lei. Preț din poză în 30 de secunde, plata la final.
+- [Centru](https://www.gunoi.md/evacuare-gunoi-centru/): Evacuare mobilă veche, electrocasnice, saltele și moloz în Centru, fără taxă de drum. Canapea 1 000–1 350 lei. Preț din poză în 30 de secunde, plata la final.
+- [Ciocana](https://www.gunoi.md/evacuare-gunoi-ciocana/): Evacuare mobilă veche, electrocasnice, saltele și moloz în Ciocana, fără taxă de drum. Canapea 1 000–1 350 lei. Preț din poză în 30 de secunde, plata la final.
+- [Râșcani](https://www.gunoi.md/evacuare-gunoi-rascani/): Evacuare mobilă veche, electrocasnice, saltele și moloz în Râșcani, fără taxă de drum. Canapea 1 000–1 350 lei. Preț din poză în 30 de secunde, plata la final.
+- [Ialoveni](https://www.gunoi.md/evacuare-gunoi-ialoveni/): Evacuare mobilă veche, electrocasnice și moloz în Ialoveni, Mileștii Mici și satele din jur. Canapea 1 200–1 600 lei, drumul inclus. Preț din poză în 30 de secunde.
+- [Diaspora](https://www.gunoi.md/diaspora/): Ești în Italia, Germania sau Canada și trebuie golit apartamentul din Chișinău? Trimiți poze, primești prețul, ruda deschide, primești poze înainte și după, plătești prin transfer.
+- [Contact](https://www.gunoi.md/contact/): Sună la 069 269 888 sau scrie pe WhatsApp. Lucrăm zilnic, 08:00–20:00, în Chișinău și suburbii. Răspundem repede.
+- [Despre noi](https://www.gunoi.md/despre/): gunoi.md este un serviciu de evacuare a gunoiului voluminos în Chișinău și suburbii: mobilă, electrocasnice, moloz. Prețuri publice, plata la final.
 
-## Informații de contact
-
+## Contact
 - Telefon: 069 269 888
 - WhatsApp: https://wa.me/37369269888
 - Email: gunoimoldova@gmail.com
-- Program: Luni–Duminică, 08:00–20:00
-- Adresă: Chișinău, Moldova
+- Program: luni–duminică, 08:00–20:00
+- Plata: la final, cash sau transfer; fără avans; bon fiscal
 
-## Zone deservite
+## Zone
+Chișinău (Botanica, Buiucani, Centru, Ciocana, Râșcani) și suburbiile Durlești, Stăuceni, Codru, Ciorescu, Cricova, Trușeni, Vadul lui Vodă, Cojușna, Băcioi, Tohatin, Sîngera, Vatra fără taxă de deplasare. Alte localități: taxă de deplasare după distanță.
 
-Lucrăm în toate sectoarele Chișinăului (Botanica, Buiucani, Centru, Ciocana, Râșcani) și în suburbiile din jur: Durlești, Stăuceni, Codru, Ciorescu, Cricova, Vadul lui Vodă, Cojușna, Băcioi, Tohatin, Sîngera.
+## Nu preluăm
+Nu preluăm: chimicale, vopsele, azbest, deșeuri medicale.
 
-## Prețuri orientative
-
-- Câteva obiecte (până la 1 m³): de la 500 MDL
-- O cameră (până la 4 m³): de la 1200 MDL
-- Apartament complet sau oficiu: de la 2500 MDL
-- Hamali (echipă 2 oameni): 250 MDL/oră, minim 2 ore
-
-Prețul final depinde de volum, etaj, acces și tipul de deșeuri. Oferta e gratuită.
-
-## Cum funcționează
-
-1. Suni sau scrii pe WhatsApp
-2. Programăm ridicarea (în aceeași zi în cele mai multe cazuri)
-3. Echipa ridică, demontează dacă e nevoie, cară totul
-4. Plătești la final — cash sau transfer. Bon fiscal pe loc.
-
-## Limba
-
-Serviciul este disponibil în română și rusă. Versiunea în rusă: https://www.gunoi.md/ru/
-
-## Optional
-
-- [Русская версия](https://www.gunoi.md/ru/)
+## Limbi
+Română: https://www.gunoi.md/ · Русский: https://www.gunoi.md/ru/

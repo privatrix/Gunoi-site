@@ -1,133 +1,283 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <!-- RO pages -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.gunoi.md/</loc>
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/"/>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/"/>
     <priority>1.0</priority>
   </url>
-
-  <url>
-    <loc>https://www.gunoi.md/evacuare-moloz-constructii/</loc>
-    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-moloz-constructii/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-moloz-constructii/"/>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.gunoi.md/evacuare-mobila-veche/</loc>
-    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-mobila-veche/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-mobila-veche/"/>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.gunoi.md/evacuare-apartament/</loc>
-    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-apartament/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-apartament/"/>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.gunoi.md/hamali/</loc>
-    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/hamali/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/hamali/"/>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.gunoi.md/preturi/</loc>
-    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/preturi/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/preturi/"/>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.gunoi.md/contact/</loc>
-    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/contact/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/contact/"/>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- RU pages -->
   <url>
     <loc>https://www.gunoi.md/ru/</loc>
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/"/>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/estimare/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/estimare/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/ocenka/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/estimare/"/>
     <priority>0.9</priority>
   </url>
-
   <url>
-    <loc>https://www.gunoi.md/ru/evacuare-moloz-constructii/</loc>
-    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-moloz-constructii/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-moloz-constructii/"/>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.gunoi.md/ru/ocenka/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/estimare/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/ocenka/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/estimare/"/>
+    <priority>0.9</priority>
   </url>
-
   <url>
-    <loc>https://www.gunoi.md/ru/evacuare-mobila-veche/</loc>
-    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-mobila-veche/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-mobila-veche/"/>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.gunoi.md/preturi/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/preturi/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/preturi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/preturi/"/>
+    <priority>0.9</priority>
   </url>
-
-  <url>
-    <loc>https://www.gunoi.md/ru/evacuare-apartament/</loc>
-    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-apartament/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-apartament/"/>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.gunoi.md/ru/hamali/</loc>
-    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/hamali/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/hamali/"/>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
   <url>
     <loc>https://www.gunoi.md/ru/preturi/</loc>
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/preturi/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/preturi/"/>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/preturi/"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/evacuare-mobila-veche/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-mobila-veche/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-mobila-veche/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-mobila-veche/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-mobila-veche/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-mobila-veche/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-mobila-veche/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-mobila-veche/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/evacuare-moloz-constructii/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-moloz-constructii/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-moloz-constructii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-moloz-constructii/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-moloz-constructii/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-moloz-constructii/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-moloz-constructii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-moloz-constructii/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/evacuare-apartament/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-apartament/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-apartament/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-apartament/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-apartament/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-apartament/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-apartament/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-apartament/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/hamali/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/hamali/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/hamali/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/hamali/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/hamali/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/hamali/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/hamali/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/hamali/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/evacuare-saltea/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-saltea/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-saltea/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-saltea/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-saltea/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-saltea/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-saltea/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-saltea/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/evacuare-ferestre-vechi/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-ferestre-vechi/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-ferestre-vechi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-ferestre-vechi/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-ferestre-vechi/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-ferestre-vechi/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-ferestre-vechi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-ferestre-vechi/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/evacuare-frigider-masina-de-spalat/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-frigider-masina-de-spalat/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-frigider-masina-de-spalat/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-frigider-masina-de-spalat/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-frigider-masina-de-spalat/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-frigider-masina-de-spalat/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-frigider-masina-de-spalat/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-frigider-masina-de-spalat/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/evacuare-stenca-mobila-veche/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-stenca-mobila-veche/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-stenca-mobila-veche/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-stenca-mobila-veche/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-stenca-mobila-veche/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-stenca-mobila-veche/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-stenca-mobila-veche/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-stenca-mobila-veche/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/evacuare-gunoi-botanica/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-gunoi-botanica/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-gunoi-botanica/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-gunoi-botanica/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-gunoi-botanica/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-gunoi-botanica/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-gunoi-botanica/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-gunoi-botanica/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/evacuare-gunoi-buiucani/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-gunoi-buiucani/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-gunoi-buiucani/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-gunoi-buiucani/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-gunoi-buiucani/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-gunoi-buiucani/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-gunoi-buiucani/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-gunoi-buiucani/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/evacuare-gunoi-centru/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-gunoi-centru/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-gunoi-centru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-gunoi-centru/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-gunoi-centru/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-gunoi-centru/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-gunoi-centru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-gunoi-centru/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/evacuare-gunoi-ciocana/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-gunoi-ciocana/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-gunoi-ciocana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-gunoi-ciocana/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-gunoi-ciocana/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-gunoi-ciocana/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-gunoi-ciocana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-gunoi-ciocana/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/evacuare-gunoi-rascani/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-gunoi-rascani/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-gunoi-rascani/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-gunoi-rascani/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-gunoi-rascani/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-gunoi-rascani/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-gunoi-rascani/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-gunoi-rascani/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/evacuare-gunoi-ialoveni/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-gunoi-ialoveni/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-gunoi-ialoveni/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-gunoi-ialoveni/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/evacuare-gunoi-ialoveni/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/evacuare-gunoi-ialoveni/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/evacuare-gunoi-ialoveni/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/evacuare-gunoi-ialoveni/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/diaspora/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/diaspora/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/diaspora/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/diaspora/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/diaspora/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/diaspora/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/diaspora/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/diaspora/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/contact/"/>
     <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://www.gunoi.md/ru/contact/</loc>
     <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/contact/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/contact/"/>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/contact/"/>
     <priority>0.7</priority>
   </url>
-
+  <url>
+    <loc>https://www.gunoi.md/despre/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/despre/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/despre/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/despre/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gunoi.md/ru/despre/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.gunoi.md/despre/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gunoi.md/ru/despre/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gunoi.md/despre/"/>
+    <priority>0.6</priority>
+  </url>
 </urlset>
