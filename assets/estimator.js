@@ -267,12 +267,13 @@ function runAi() {
     body: JSON.stringify({ text: state.text, photos: state.photos.map((x) => x.b64), lang: state.lang }),
     signal: ctrl.signal,
   })
-    .then((r) => (r.ok ? r.json() : { ok: false }))
-    .catch(() => ({ ok: false }))
+    .then((r) => (r.ok ? r.json() : { ok: false, reason: 'http_' + r.status }))
+    .catch((e) => ({ ok: false, reason: e?.name === 'AbortError' ? 'client_timeout' : 'client_network' }))
     .then((res) => {
       clearTimeout(timer);
       if (state.aiPromise !== p) return;
       state.ai = res.ok ? res.ai : null;
+      state.aiReason = res.ok ? '' : res.reason || 'unknown';
       state.aiStatus = res.ok ? 'done' : 'failed';
       if (state.step === 5) render();
     });
@@ -508,7 +509,9 @@ function step5() {
 
   const fromAi = state.aiStatus === 'done' && state.ai;
   const notes = [];
-  if (state.aiStatus === 'failed') notes.push(h('p', { class: 'est-note' }, t.aiFailed));
+  if (state.aiStatus === 'failed') {
+    notes.push(h('p', { class: 'est-note' }, t.aiFailed, h('br'), h('small', { class: 'est-code' }, 'cod: ' + state.aiReason)));
+  }
   if (fromAi && (state.ai.confidence === 'low' || state.ai.unclear.length)) notes.push(h('p', { class: 'est-note' }, t.unclear));
 
   return [
