@@ -21,7 +21,7 @@ const T = {
     back: 'Înapoi', next: 'Continuă', seePrice: 'Vezi prețul',
     s1: 'Ce ai de evacuat?',
     s1sub: 'Fă poze sau descrie în câteva cuvinte. Poți face ambele.',
-    addPhotos: '📷 Adaugă poze', photosHint: 'până la 5 poze, din cameră sau galerie',
+    addPhotos: '📷 Adaugă poze', photosHint: '1–3 poze sunt de ajuns (maxim 5), din cameră sau galerie',
     photoFail: 'O poză nu a putut fi citită. Încearcă alta.',
     removePhoto: 'Șterge poza',
     textLabel: 'Descriere (opțional)',
@@ -58,24 +58,27 @@ const T = {
     negotiated: 'Preț la cerere',
     negotiatedSub: 'Localitatea e la peste 40 km. Îți facem o ofertă la telefon sau pe WhatsApp.',
     includedTitle: 'Ce intră în preț',
-    included: ['Camion până la 9 m³', '2 hamali', 'Coborâre de la etaj și încărcare', 'Transport la un poligon autorizat', 'Bon fiscal', 'Plătești la final, după ce terminăm'],
+    included: ['Camion și 2 hamali', 'Demontare (când e cazul) și încărcare', 'Transport la un poligon autorizat', 'Bon fiscal', 'Plătești la final, cash sau transfer. Fără avans'],
+    notTaken: 'Nu preluăm: chimicale, vopsele, azbest, deșeuri medicale.',
     howTitle: 'Cum am calculat',
-    note: 'Prețul final se confirmă când echipa vede obiectele. Fără surprize: plătești la final.',
+    note: 'Este un interval orientativ. Prețul final ți-l confirmă un coleg înainte de începerea lucrului. Fără surprize: plătești la final.',
     idLabel: 'Nr. estimare',
     bookWa: '💬 Rezervă pe WhatsApp', call: '📞 Sună ' + PHONE_LABEL, edit: 'Modifică datele',
     photosReminder: 'După ce se deschide WhatsApp, trimite pozele în același chat.',
     currency: 'MDL',
     bd: {
-      truck1: 'Camion cu 2 hamali (1 drum, până la {cap} m³)', truckN: 'Camion cu 2 hamali ({n} drumuri)',
-      loaders: 'Timp suplimentar hamali ({h} h)', floor_no_lift: 'Etaje fără lift ({n})',
-      dismantling: 'Demontare: {item} × {qty}', special: '{item} × {qty}',
+      call_out: 'Deplasare: camion + 2 hamali', item: '{item} × {qty}',
+      loaders: 'Hamali ({h} h)', floor_no_lift: 'Etaje fără lift ({n})',
+      dismantling: 'Demontare: {item} × {qty}', full_load: 'Plafon camion plin ({n} drum/uri)',
+      minimum: 'Completare până la comanda minimă',
       distance: 'Deplasare în afara orașului', weekend: 'Weekend',
     },
     flags: {
       multiple_trips: 'E nevoie de mai mult de un drum de camion.',
       windows_glass_separate: 'Ferestrele cu sticlă se predau separat, la reciclare.',
       floor_surcharge_waived: 'Volum mic: etajele nu se taxează.',
-      minimum_price: 'Comandă minimă: un drum de camion.',
+      minimum_price: 'Comandă minimă.',
+      full_load_price: 'Volum mare: se aplică prețul de camion plin.',
       distance_unknown: 'Taxa de deplasare se confirmă la telefon.',
     },
     wa: {
@@ -90,7 +93,7 @@ const T = {
     back: 'Назад', next: 'Далее', seePrice: 'Узнать цену',
     s1: 'Что нужно вывезти?',
     s1sub: 'Сделайте фото или опишите в двух словах. Можно и то, и другое.',
-    addPhotos: '📷 Добавить фото', photosHint: 'до 5 фото, с камеры или из галереи',
+    addPhotos: '📷 Добавить фото', photosHint: '1–3 фото достаточно (максимум 5), с камеры или из галереи',
     photoFail: 'Одно фото не удалось прочитать. Попробуйте другое.',
     removePhoto: 'Удалить фото',
     textLabel: 'Описание (необязательно)',
@@ -127,24 +130,27 @@ const T = {
     negotiated: 'Цена по запросу',
     negotiatedSub: 'Населённый пункт дальше 40 км. Сделаем предложение по телефону или в WhatsApp.',
     includedTitle: 'Что входит в цену',
-    included: ['Грузовик до 9 м³', '2 грузчика', 'Спуск с этажа и погрузка', 'Вывоз на официальный полигон', 'Фискальный чек', 'Оплата в конце, после работы'],
+    included: ['Грузовик и 2 грузчика', 'Разборка (если нужно) и погрузка', 'Вывоз на официальный полигон', 'Фискальный чек', 'Оплата в конце, наличными или переводом. Без предоплаты'],
+    notTaken: 'Не вывозим: химикаты, краски, асбест, медицинские отходы.',
     howTitle: 'Как мы считали',
-    note: 'Итоговая цена подтверждается, когда команда увидит вещи. Без сюрпризов: оплата в конце.',
+    note: 'Это ориентировочный диапазон. Итоговую цену подтвердит наш сотрудник до начала работы. Без сюрпризов: оплата в конце.',
     idLabel: 'Номер оценки',
     bookWa: '💬 Забронировать в WhatsApp', call: '📞 Позвонить ' + PHONE_LABEL, edit: 'Изменить данные',
     photosReminder: 'Когда откроется WhatsApp, отправьте фото в этот же чат.',
     currency: 'лей',
     bd: {
-      truck1: 'Грузовик и 2 грузчика (1 рейс, до {cap} м³)', truckN: 'Грузовик и 2 грузчика ({n} рейса)',
-      loaders: 'Дополнительное время грузчиков ({h} ч)', floor_no_lift: 'Этажи без лифта ({n})',
-      dismantling: 'Разборка: {item} × {qty}', special: '{item} × {qty}',
+      call_out: 'Выезд: грузовик + 2 грузчика', item: '{item} × {qty}',
+      loaders: 'Грузчики ({h} ч)', floor_no_lift: 'Этажи без лифта ({n})',
+      dismantling: 'Разборка: {item} × {qty}', full_load: 'Потолок за полный грузовик (рейсов: {n})',
+      minimum: 'Доплата до минимального заказа',
       distance: 'Выезд за город', weekend: 'Выходной',
     },
     flags: {
       multiple_trips: 'Нужно больше одного рейса грузовика.',
       windows_glass_separate: 'Окна со стеклом сдаются отдельно, на переработку.',
       floor_surcharge_waived: 'Небольшой объём: этажи не оплачиваются.',
-      minimum_price: 'Минимальный заказ: один рейс грузовика.',
+      minimum_price: 'Минимальный заказ.',
+      full_load_price: 'Большой объём: применяется цена за полный грузовик.',
       distance_unknown: 'Стоимость выезда уточним по телефону.',
     },
     wa: {
@@ -566,11 +572,11 @@ function step5() {
 function breakdownLine(b) {
   const bd = t.bd;
   switch (b.key) {
-    case 'truck': return b.trips > 1 ? tpl(bd.truckN, { n: b.trips }) : tpl(bd.truck1, { cap: state.config.truck_base.capacity_m3 });
+    case 'item': return tpl(bd.item, { item: label(b.item), qty: b.qty });
+    case 'full_load': return tpl(bd.full_load, { n: b.trips });
     case 'loaders': return tpl(bd.loaders, { h: String(b.hours).replace('.', ',') });
     case 'floor_no_lift': return tpl(bd.floor_no_lift, { n: b.floors });
     case 'dismantling': return tpl(bd.dismantling, { item: label(b.item), qty: b.qty });
-    case 'special': return tpl(bd.special, { item: label(b.item), qty: b.qty });
     default: return bd[b.key] || b.key;
   }
 }
@@ -618,6 +624,7 @@ function step6() {
     flagTexts.length ? h('ul', { class: 'est-flags' }, flagTexts.map((f) => h('li', {}, f))) : null,
     h('h3', {}, t.includedTitle),
     h('ul', { class: 'est-included' }, t.included.map((x) => h('li', {}, x))),
+    h('p', { class: 'est-hint' }, t.notTaken),
     r.negotiated ? null : h('h3', {}, t.howTitle),
     r.negotiated ? null : h('dl', { class: 'est-bd' }, r.breakdown.flatMap((b) => [
       h('dt', {}, breakdownLine(b)), h('dd', {}, `${fmt(b.amount)} ${t.currency}`),
