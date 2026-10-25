@@ -3,8 +3,10 @@
  * 200 { ok: true, ai: { items, totalM3, confidence, unclear, language } }
  * 200 { ok: false, reason }  → the page falls back to the items the user ticked.
  * Prices are never computed here; the page prices with lib/estimate.js. */
-import config from '../pricing.config.json' with { type: 'json' };
+import { readFileSync } from 'node:fs';
 import { classifyJob } from '../lib/ai/index.js';
+
+const config = JSON.parse(readFileSync(new URL('../pricing.config.json', import.meta.url), 'utf8'));
 
 const MAX_PHOTOS = 5;
 const MAX_PHOTO_B64 = 1.4 * 1024 * 1024; // ≈1 MB JPEG once base64-encoded

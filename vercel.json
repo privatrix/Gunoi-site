@@ -1,6 +1,6 @@
 {
   "functions": {
-    "api/estimate.js": { "maxDuration": 30 }
+    "api/estimate.js": { "maxDuration": 30, "includeFiles": "pricing.config.json" }
   },
   "redirects": [
     { "source": "/#servicii", "destination": "/#services", "permanent": true },
