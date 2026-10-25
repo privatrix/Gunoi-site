@@ -1,5 +1,5 @@
 // Generates every page (RO + RU), sitemap.xml and llms.txt from
-// build/content/*.js and pricing.config.json. Run: npm run build
+// build/content/*.js and pricing.config.json. Run: npm run generate
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';

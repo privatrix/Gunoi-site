@@ -24,11 +24,11 @@ The HTML pages, `sitemap.xml` and `llms.txt` are **generated** — don't edit th
 
 ```bash
 npm install
-npm run build   # regenerate all pages from content + prices
+npm run generate   # regenerate all pages from content + prices
 npm test        # pricing, AI adapter and generator checks
 ```
 
-- **A price:** change it in `pricing.config.json`, run `npm run build`. Every page, the receipts,
+- **A price:** change it in `pricing.config.json`, run `npm run generate`. Every page, the receipts,
   the ticker, the FAQ answers and the estimator pick it up.
 - **Text:** edit `build/content/ro.js` and `ru.js` (keep both languages in step), then build.
 - **A new page:** add it to `build/registry.js` and give it content in both language files.

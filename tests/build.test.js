@@ -9,10 +9,10 @@ const files = renderAll();
 const pages = [...files].filter(([f]) => f.endsWith('.html'));
 const noYear = (s) => s.replace(/© \d{4}/g, '©');
 
-test('fișierele generate sunt la zi (rulează npm run build)', () => {
+test('fișierele generate sunt la zi (rulează npm run generate)', () => {
   for (const [rel, html] of files) {
     const onDisk = existsSync(new URL(rel, root)) ? readFileSync(new URL(rel, root), 'utf8') : '';
-    assert.equal(noYear(onDisk), noYear(html), `${rel} is stale — run npm run build`);
+    assert.equal(noYear(onDisk), noYear(html), `${rel} is stale — run npm run generate`);
   }
 });
 
