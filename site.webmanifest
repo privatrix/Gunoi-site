@@ -1,20 +1,17 @@
 {
-  "name": "gunoi.md",
+  "name": "gunoi.md — evacuare gunoi în Chișinău",
   "short_name": "gunoi.md",
-  "icons": [
-    {
-      "src": "/favicon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/favicon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
-  "theme_color": "#3ddc84",
-  "background_color": "#ffffff",
+  "description": "Preț din poză în 30 de secunde. Evacuare mobilă, electrocasnice și moloz în Chișinău.",
+  "lang": "ro",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "start_url": "/"
+  "theme_color": "#FFD400",
+  "background_color": "#F4F0E6",
+  "icons": [
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/favicon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
 }

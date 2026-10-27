@@ -39,6 +39,7 @@ const sector = (id, name, title, body, ticks) => ({
 
 export default {
   c: {
+    ogAlt: 'gunoi.md — Arată-ne gunoiul. Îți spunem prețul. Evacuare gunoi în Chișinău, 069 269 888',
     city: 'Chișinău',
     businessAlt: 'Gunoi Moldova',
     businessDesc: 'Evacuare gunoi voluminos în Chișinău și suburbii: mobilă veche, electrocasnice, moloz de la renovare. Preț din poză, plata la final.',
