@@ -80,3 +80,19 @@ test('fontul de mână (Caveat) conține toate literele notițelor', async () =>
     }
   }
 });
+
+test('iconițele și imaginile de distribuire există și sunt legate în fiecare pagină', () => {
+  for (const f of ['favicon.ico', 'favicon.svg', 'favicon-192.png', 'favicon-512.png', 'favicon-maskable-512.png', 'apple-touch-icon.png', 'logo.png', 'og-ro.png', 'og-ru.png', 'site.webmanifest']) {
+    assert.ok(existsSync(new URL(f, root)), `missing ${f}`);
+  }
+  for (const [rel, html] of pages) {
+    const lang = rel.startsWith('ru/') ? 'ru' : 'ro';
+    assert.match(html, new RegExp(`og:image" content="https://www\\.gunoi\\.md/og-${lang}\\.png"`), rel);
+    assert.match(html, /rel="icon" href="\/favicon\.ico" sizes="48x48"/, rel);
+    const graph = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1])['@graph'];
+    assert.ok(graph.some((n) => n['@type'] === 'WebSite' && n.name === 'gunoi.md'), `${rel} WebSite name`);
+    assert.ok(graph.find((n) => n['@type'] === 'LocalBusiness').logo, `${rel} logo`);
+  }
+  const manifest = JSON.parse(readFileSync(new URL('site.webmanifest', root), 'utf8'));
+  for (const icon of manifest.icons) assert.ok(existsSync(new URL('.' + icon.src, root)), icon.src);
+});

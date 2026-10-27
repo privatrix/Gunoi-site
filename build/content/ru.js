@@ -39,6 +39,7 @@ const sector = (zone, name, where, title, body, ticks) => ({
 
 export default {
   c: {
+    ogAlt: 'gunoi.md — Покажите мусор. Мы назовём цену. Вывоз мусора в Кишинёве, 069 269 888',
     city: 'Кишинёв',
     businessAlt: 'Gunoi Moldova',
     businessDesc: 'Вывоз крупногабаритного мусора в Кишинёве и пригородах: старая мебель, бытовая техника, строительный мусор. Цена по фото, оплата в конце.',

@@ -42,3 +42,11 @@ into the content, or a Russian page is left in Romanian.
 - Optional: `ANTHROPIC_MODEL` to change the model.
 
 Fonts are self-hosted subsets (see `build/fonts.md`).
+
+## Brand: icon and share images
+
+Sources live in `build/brand/`: `favicon.svg` (flat yellow tile with the Unbounded "g", for tabs and
+Google results), `sticker.svg` (tilted sticker version for home screens and the logo), `maskable.svg`
+(Android), and `og.html` (the 1200×630 WhatsApp/Facebook share image, RO and RU).
+After editing them run `node build/brand/render.mjs` (needs Playwright locally) to regenerate
+`favicon.ico`, the PNG icons, `logo.png` and `og-ro.png` / `og-ru.png`.

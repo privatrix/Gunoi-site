@@ -1,0 +1,63 @@
+<!doctype html>
+<!-- Share image (1200×630) for WhatsApp / Facebook / Telegram. Rendered by build/brand/render.mjs. -->
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: U; font-weight: 800; src: url(../../assets/fonts/unbounded-800-lat.woff2) format('woff2'); unicode-range: U+0000-03FF, U+2000-22FF; }
+@font-face { font-family: U; font-weight: 800; src: url(../../assets/fonts/unbounded-800-cyr.woff2) format('woff2'); unicode-range: U+0400-04FF; }
+@font-face { font-family: O; font-weight: 700; src: url(../../assets/fonts/onest-700-lat.woff2) format('woff2'); unicode-range: U+0000-03FF, U+2000-22FF; }
+@font-face { font-family: O; font-weight: 700; src: url(../../assets/fonts/onest-700-cyr.woff2) format('woff2'); unicode-range: U+0400-04FF; }
+@font-face { font-family: M; font-weight: 700; src: url(../../assets/fonts/mono-700-lat.woff2) format('woff2'); unicode-range: U+0000-03FF, U+2000-22FF; }
+@font-face { font-family: M; font-weight: 700; src: url(../../assets/fonts/mono-700-cyr.woff2) format('woff2'); unicode-range: U+0400-04FF; }
+* { box-sizing: border-box; margin: 0; }
+body { width: 1200px; height: 630px; background: #F4F0E6; color: #151412; font-family: O; overflow: hidden; position: relative; }
+.wrap { position: absolute; inset: 56px 64px; display: grid; grid-template-columns: 1fr 330px; gap: 40px; }
+.logo { display: flex; align-items: center; gap: 12px; font: 800 34px/1 U; letter-spacing: -.04em; }
+.logo img { width: 58px; height: 58px; }
+.logo span { font: 700 18px/1 M; background: #FFD400; border: 3px solid #151412; padding: 5px 8px 4px; border-radius: 7px; transform: rotate(-6deg); letter-spacing: 0; }
+h1 { font: 800 58px/1.02 U; letter-spacing: -.035em; margin: 36px 0 22px; white-space: nowrap; }
+mark { background: linear-gradient(101deg, transparent 0 1.5%, #FFD400 1.5% 97%, transparent 97%) 0 88% / 100% 46% no-repeat; color: inherit; padding: 0 .05em; }
+.sub { font-size: 27px; color: #3B3832; }
+.stickers { display: flex; gap: 14px; margin-top: 30px; }
+.stickers b { font-size: 22px; background: #FFFDF7; border: 3px solid #151412; border-radius: 10px; padding: 8px 14px; box-shadow: 4px 4px 0 #151412; transform: rotate(-1.5deg); }
+.stickers b:nth-child(2) { transform: rotate(1.5deg); }
+.cam { align-self: center; height: 400px; border-radius: 26px; background: #FFD400; position: relative; display: grid; place-items: center; border: 4px solid #151412; box-shadow: 10px 10px 0 #151412; transform: rotate(2deg); }
+.cam i { position: absolute; width: 54px; height: 54px; border: 0 solid #151412; }
+.cam i:nth-child(1) { top: 24px; left: 24px; border-width: 8px 0 0 8px; }
+.cam i:nth-child(2) { top: 24px; right: 24px; border-width: 8px 8px 0 0; }
+.cam i:nth-child(3) { bottom: 24px; left: 24px; border-width: 0 0 8px 8px; }
+.cam i:nth-child(4) { bottom: 24px; right: 24px; border-width: 0 8px 8px 0; }
+.cam div { text-align: center; font: 800 26px/1.15 U; letter-spacing: -.02em; padding: 0 20px; }
+.cam svg { width: 110px; height: 110px; margin: 0 auto 14px; display: block; }
+.phone { position: absolute; left: 64px; bottom: 44px; font: 800 44px/1 U; letter-spacing: -.03em; }
+.phone small { font: 700 20px/1 M; color: #5C5546; margin-left: 14px; letter-spacing: .04em; }
+</style></head>
+<body>
+<div class="wrap">
+  <div>
+    <div class="logo"><img src="sticker.svg" alt="">gunoi<span>.md</span></div>
+    <h1 data-t="h1"></h1>
+    <p class="sub" data-t="sub"></p>
+    <div class="stickers" data-t="stickers"></div>
+  </div>
+  <div class="cam"><i></i><i></i><i></i><i></i><div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="#151412" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6H7l1.6-2h6.8L17 6h1.5A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5Z"/><circle cx="12" cy="13" r="3.8"/></svg>
+    <span data-t="cam"></span></div></div>
+</div>
+<p class="phone">069 269 888<small data-t="hours"></small></p>
+<script>
+const T = {
+  ro: { h1: 'Arată-ne <mark>gunoiul</mark>.<br>Îți spunem prețul.', sub: 'Evacuare gunoi în Chișinău și suburbii · preț din poză în 30 de secunde',
+        stickers: ['Fără avans', 'Bon fiscal', '7 zile din 7'], cam: 'Fă o poză', hours: 'ZILNIC 08–20' },
+  ru: { h1: 'Покажите <mark>мусор</mark>.<br>Мы назовём цену.', sub: 'Вывоз мусора в Кишинёве и пригородах · цена по фото за 30 секунд',
+        stickers: ['Без предоплаты', 'Фискальный чек', '7 дней в неделю'], cam: 'Сделайте фото', hours: 'ЕЖЕДНЕВНО 08–20' },
+};
+const lang = new URLSearchParams(location.search).get('lang') || 'ro';
+document.documentElement.lang = lang;
+const t = T[lang];
+document.querySelector('[data-t=h1]').innerHTML = t.h1;
+document.querySelector('[data-t=sub]').textContent = t.sub;
+document.querySelector('[data-t=stickers]').innerHTML = t.stickers.map((s) => `<b>${s}</b>`).join('');
+document.querySelector('[data-t=cam]').textContent = t.cam;
+document.querySelector('[data-t=hours]').textContent = t.hours;
+</script>
+</body></html>

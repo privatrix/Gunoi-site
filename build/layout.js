@@ -22,7 +22,8 @@ export function business(lang, t) {
     url: `${SITE}${href('home', lang)}`,
     telephone: '+373' + PHONE.slice(1),
     email: EMAIL,
-    image: `${SITE}/og-image.svg`,
+    logo: { '@type': 'ImageObject', url: `${SITE}/logo.png`, width: 512, height: 512 },
+    image: `${SITE}/og-${lang}.png`,
     address: { '@type': 'PostalAddress', addressLocality: t.c.city, addressCountry: 'MD' },
     areaServed: [{ '@type': 'City', name: t.c.city }, ...zones.slice(5).map((z) => ({ '@type': 'Place', name: z }))],
     openingHoursSpecification: [{
@@ -99,10 +100,14 @@ export function layout(ctx, o) {
   const url = SITE + page[lang];
   const crumbs = o.crumbs || [];
   const graph = [
+    {
+      '@type': 'WebSite', '@id': `${SITE}/#website`, name: 'gunoi.md', alternateName: ['Gunoi', 'Gunoi Moldova'],
+      url: SITE + '/', inLanguage: ['ro', 'ru'], publisher: { '@id': `${SITE}/#business` },
+    },
     business(lang, t),
     {
       '@type': 'WebPage', '@id': url, url, name: plain(o.title), description: plain(o.desc),
-      inLanguage: lang, isPartOf: { '@type': 'WebSite', name: 'gunoi.md', url: SITE + '/' },
+      inLanguage: lang, isPartOf: { '@id': `${SITE}/#website` },
       about: { '@id': `${SITE}/#business` },
     },
   ];
@@ -140,13 +145,18 @@ ${alternates}
 <meta property="og:title" content="${esc(plain(o.ogTitle || o.title))}">
 <meta property="og:description" content="${esc(plain(o.desc))}">
 <meta property="og:locale" content="${OG_LOCALE[lang]}">
-<meta property="og:image" content="${SITE}/og-image.svg">
+<meta property="og:image" content="${SITE}/og-${lang}.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(t.c.ogAlt)}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${SITE}/og-${lang}.png">
 <meta name="theme-color" content="#FFD400">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 <link rel="manifest" href="/site.webmanifest">
 ${PRELOAD[lang].map((f) => `<link rel="preload" href="/assets/fonts/${f}.woff2" as="font" type="font/woff2" crossorigin>`).join('\n')}
 <style>${CSS}</style>
