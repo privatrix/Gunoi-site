@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { icons } from './icons.js';
 import { href, group, LANGS } from './registry.js';
 import {
-  SITE, PHONE, PHONE_LABEL, EMAIL, GA_ID, AHREFS_KEY, config, esc, plain, waLink, priceOf,
+  SITE, PHONE, PHONE_LABEL, EMAIL, GA_ID, ADS_ID, AHREFS_KEY, config, esc, plain, waLink, priceOf,
 } from './lib.js';
 
 const CSS = readFileSync(new URL('../assets/site.css', import.meta.url), 'utf8')
@@ -162,7 +162,7 @@ ${PRELOAD[lang].map((f) => `<link rel="preload" href="/assets/fonts/${f}.woff2" 
 <style>${CSS}</style>
 ${o.estimator ? '<noscript><style>.est-js-only{display:none}</style></noscript>\n' : ''}${o.estimator ? '<link rel="modulepreload" href="/lib/estimate.js">\n' : ''}<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="${AHREFS_KEY}" async></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});gtag('config','${ADS_ID}');</script>
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
 </head>
 <body>
