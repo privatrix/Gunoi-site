@@ -11,6 +11,7 @@ export const PHONE_LABEL = '069 269 888';
 export const WA = '37369269888';
 export const EMAIL = 'gunoimoldova@gmail.com';
 export const GA_ID = 'G-EXSYSJE8F6';
+export const ADS_ID = 'AW-18546634155'; // Google Ads
 export const AHREFS_KEY = 'kkM3qiXMXazCcSJSDCPk9g';
 
 /**
